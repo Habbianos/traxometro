@@ -1,0 +1,80 @@
+.palhetas-de-sons {
+	margin-left: 4px;
+	white-space: nowrap;
+	background-image: url(./imgs/palhetas.png);
+	padding-left: 4px;
+	position: relative;
+	overflow: hidden;
+	vertical-align: top;
+}
+
+.PalhetaSons {
+	width: 97px;
+	height: 113px;
+	margin-left: 6px;
+	display: inline-block;
+	white-space: normal;
+	vertical-align: top;
+	background-image: url(./imgs/palheta.png);
+}
+.PalhetaSons > h1 {
+	width: 97px;
+	height: 24px;
+	vertical-align: middle;
+	display: table-cell;
+	padding: 0 6px;
+	text-align: center;
+}
+.PalhetaSons > h1.header {
+	cursor: pointer;
+	background-image: url(./imgs/palheta-header.png);
+	position: relative;
+}
+.PalhetaSons > h1:not(.header) {
+	background-image: url(./imgs/palheta-no-header.png);
+}
+.PalhetaSons > h1.header:hover:after {
+	content: 'Ejetar';
+	position: absolute;
+	top: 7px;
+	left: 0;
+	right: 0;
+	font-size: 6pt;
+	text-shadow: -1px 0px 0px black, 0px -1px 0px black, -1px -1px 0px black, 1px 0px 0px black, 0px 1px 0px black, 1px 1px 0px black;
+}
+.PalhetaSons > h1:hover > span {
+	display: none !important;
+	text-shadow: none !important;
+}
+.PalhetaSons > h1 > span {
+
+	display: block;
+	overflow: hidden;
+	max-width: 85px;
+	padding-left: 1px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	line-height: 23px;
+	font-size: 6pt;
+	text-shadow: -1px 0px 0px black, 0px -1px 0px black, -1px -1px 0px black, 1px 0px 0px black, 0px 1px 0px black, 1px 1px 0px black;
+}
+.PalhetaSons > ul {
+	font-size: 0;
+	width: 74px;
+	height: 74px;
+	padding: 0 1px;
+	margin: 7px auto;
+}
+.PalhetaSons > ul > li {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	padding: 2px 2px 2px 2px;
+	margin-left: -1px;
+	margin-bottom: -1px;
+	background-image: url(./imgs/palheta-piker.png);
+	background-repeat: no-repeat;
+}
+.PalhetaSons > ul > li > i {
+	display: block;
+}

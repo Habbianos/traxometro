@@ -11,3 +11,6 @@
     background-image: url('./imgs/traxmachine-background.png');
     margin: 0 auto;
 }
+.Traxometro > * {
+	display: inline-block;
+}

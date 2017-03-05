@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Traxometro.css';
 import ListaSons from './ListaSons';
 import ListaSonsLinha from './ListaSonsLinha';
+import PalhetaSons from './PalhetaSons';
 
 class Traxometro extends Component {
 	render() {
@@ -22,6 +23,12 @@ class Traxometro extends Component {
 				<ListaSons>
 					{ListaCartuchos}
 				</ListaSons>
+				<div className="palhetas-de-sons">
+					<PalhetaSons cor="1">{DbCartuchos[0]}</PalhetaSons>
+					<PalhetaSons cor="2">{DbCartuchos[1]}</PalhetaSons>
+					<PalhetaSons cor="3">{DbCartuchos[2]}</PalhetaSons>
+					<PalhetaSons cor="4"></PalhetaSons>
+				</div>
 				<div className="linha-tempo">
 					<h1>Linha do Tempo</h1>
 				</div>

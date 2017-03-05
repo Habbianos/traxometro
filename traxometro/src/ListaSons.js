@@ -5,7 +5,7 @@ import ListaSonsPager from './ListaSonsPager';
 class ListaSons extends Component {
 	render() {
 		return (
-			<div className="lista-sons">
+			<div className="ListaSons">
 				<ul>
 					{ this.props.children }
 				</ul>
