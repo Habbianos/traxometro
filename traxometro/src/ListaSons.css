@@ -6,4 +6,5 @@
     height: 127px;
     padding: 10px 9px 6px 9px;
 	list-style: none;
+	overflow: hidden;
 }

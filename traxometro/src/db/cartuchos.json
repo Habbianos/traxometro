@@ -47,6 +47,22 @@
 				"",
 				""
 			]
+		},
+		{
+			"id": 4,
+			"nome": "Sunset Adverture(s)",
+			"imagem": "04 - sunset_advertures.gif",
+			"sons": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			]
 		}
 	]
 }
