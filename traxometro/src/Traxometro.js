@@ -12,15 +12,10 @@ class Traxometro extends Component {
 		});
 		DbCartuchos.forEach(cartucho => {
 			ListaCartuchos.push(
-				<ListaSonsLinha key={cartucho.id}>{cartucho.nome}</ListaSonsLinha>
+				<ListaSonsLinha key={cartucho.id}>{cartucho}</ListaSonsLinha>
 			);
 		});
 
-		var fs = require("fs");
-		 console.log("\n *START* \n");
-		 var content = fs.readFileSync("fs.txt");
-		 console.log("Output Content : \n"+ content);
-		 console.log("\n *EXIT* \n");
 
 		return (
 			<div className="Traxometro">
