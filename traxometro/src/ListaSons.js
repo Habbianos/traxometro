@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './ListaSons.css'
+import './ListaSons.css';
+import ListaSonsPager from './ListaSonsPager';
 
 class ListaSons extends Component {
 	render() {
@@ -8,6 +9,7 @@ class ListaSons extends Component {
 				<ul>
 					{ this.props.children }
 				</ul>
+				<ListaSonsPager />
 			</div>
 		);
 	}

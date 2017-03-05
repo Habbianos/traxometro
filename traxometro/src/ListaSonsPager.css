@@ -1,0 +1,7 @@
+.ListaSonsPager {
+	background-image: url(./imgs/pager-background.png);
+	width: 74px;
+	height: 24px;
+	margin: 0 auto;
+	padding: 2px 8px 6px 8px;
+}
