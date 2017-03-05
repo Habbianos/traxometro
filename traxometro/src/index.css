@@ -5,7 +5,8 @@
 }
 body {
 	margin: 0;
-	padding: 20vh 0;
+	/*padding: 20vh 0;*/
+	padding: 50px;
 	font-family: sans-serif;
 }
 img {
