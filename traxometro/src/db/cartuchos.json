@@ -1,0 +1,52 @@
+{
+	"cartuchos": [
+		{
+			"id": 1,
+			"nome": "DJ Fuse’s Duck Funk",
+			"imagem": "",
+			"sons": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			]
+		},
+		{
+			"id": 2,
+			"nome": "DJ Fuse’s Habbo Theme",
+			"imagem": "",
+			"sons": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			]
+		},
+		{
+			"id": 3,
+			"nome": "SnowStorm Theme",
+			"imagem": "",
+			"sons": [
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				"",
+				""
+			]
+		}
+	]
+}
