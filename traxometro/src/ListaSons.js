@@ -21,18 +21,21 @@ class ListaSons extends Component {
 		let cartuchos = [];
 		for (let i = 0; i < this.props.children.length; i++) {
 			if (
-				this.props.children[i].props.children.id >= (this.state.page - 1) * 3 + 1 && 
-				this.props.children[i].props.children.id <= (this.state.page - 1) * 3 + 3
+				i >= (this.state.page - 1) * 3 && 
+				i <= (this.state.page - 1) * 3 + 2
 			)
 				cartuchos.push(this.props.children[i]);
 		}
+
+		if (cartuchos.length === 0 && this.state.page)
+			this.changePage(-1);
 
 		return (
 			<div className="ListaSons">
 				<ul>
 					{ cartuchos }
 				</ul>
-				<ListaSonsPager pageA={this.state.page} pageM={Math.ceil(this.props.children.length / 3)} changePage={this.changePage} />
+				<ListaSonsPager pageA={this.props.children.length ? this.state.page : 0} pageM={Math.ceil(this.props.children.length / 3)} changePage={this.changePage} />
 			</div>
 		);
 	}

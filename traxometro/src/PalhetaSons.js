@@ -14,6 +14,7 @@ class PalhetaSons extends Component {
 				<h1
 					className={this.state.cartucho.id ? "header" : null}
 					data-moduloCor={this.state.cor}
+					onClick={()=>this.props.removerCartucho(this.props.idPalheta)}
 				>
 					<span>{this.state.cartucho.nome}</span>
 				</h1>
