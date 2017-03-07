@@ -12,11 +12,11 @@ class PalhetaSons extends Component {
 		return (
 			<div className="PalhetaSons">
 				<h1
-					className={this.state.cartucho.id ? "header" : null}
+					// className={this.state.cartucho.id ? "header" : null}
 					data-moduloCor={this.state.cor}
 					onClick={()=>this.props.removerCartucho(this.props.idPalheta)}
 				>
-					<span>{this.state.cartucho.nome}</span>
+					{this.state.cartucho.id ? (<span>{this.state.cartucho.nome}</span>) : null}
 				</h1>
 				<ul>
 					<li>

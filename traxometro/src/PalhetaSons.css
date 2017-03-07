@@ -25,12 +25,12 @@
 	padding: 0 6px;
 	text-align: center;
 }
-.PalhetaSons > h1.header {
+.PalhetaSons > h1:not(:empty) {
 	cursor: pointer;
 	background-image: url(./imgs/palheta-header.png);
 	position: relative;
 }
-.PalhetaSons > h1:not(.header) {
+.PalhetaSons > h1:empty {
 	background-image: url(./imgs/palheta-no-header.png);
 }
 .PalhetaSons > h1.header:hover:after {
