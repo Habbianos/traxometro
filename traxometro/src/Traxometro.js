@@ -3,6 +3,7 @@ import './Traxometro.css';
 import ListaSons from './ListaSons';
 import ListaSonsLinha from './ListaSonsLinha';
 import PalhetaSons from './PalhetaSons';
+import Reprodutor from './Reprodutor';
 
 class Traxometro extends Component {
 	constructor(props){
@@ -74,19 +75,7 @@ class Traxometro extends Component {
 				<div className="palhetas-de-sons">
 					{ Palhetas }
 				</div>
-				<div className="linha-tempo">
-					<h1>Linha do Tempo</h1>
-				</div>
-				<div className="reprodutor">
-					<h1>Reprodutor</h1>
-					<input type="range" />
-					<div className="controles">
-						<h2>Controles</h2>
-						<input type="button" value="Reproduzir" />
-						<input type="button" value="Pausar" />
-						<input type="button" value="Parar" />
-					</div>
-				</div>
+				<Reprodutor />
 			</div>
 		);
 	}
