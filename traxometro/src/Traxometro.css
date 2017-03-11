@@ -11,6 +11,6 @@
     background-image: url('./imgs/traxmachine-background.png');
     margin: 0 auto;
 }
-.Traxometro > * {
+.Traxometro > *:not(.LinhaDoTempo) {
 	display: inline-block;
 }
