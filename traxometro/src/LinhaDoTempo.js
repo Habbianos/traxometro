@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './LinhaDoTempo.css';
 import Camada from './Camada';
+import Agulha from './Agulha';
 
 export default class LinhaDoTempo extends Component {
 	render() {
@@ -10,6 +11,7 @@ export default class LinhaDoTempo extends Component {
 				<Camada />
 				<Camada />
 				<Camada />
+				<Agulha />
 			</div>
 		);
 	}
