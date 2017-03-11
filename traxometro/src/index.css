@@ -10,6 +10,9 @@ body {
 	/*padding: 20vh 0;*/
 	padding: 50px;
 	font-family: sans-serif;
+	background-image: url(./imgs/fundo_appart732.gif);
+	background-position: center;
+	background-size: cover;
 }
 img {
 	image-rendering: pixelated;
