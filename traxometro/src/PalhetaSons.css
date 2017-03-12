@@ -33,7 +33,7 @@
 .PalhetaSons > h1:empty {
 	background-image: url(./imgs/palheta-no-header.png);
 }
-.PalhetaSons > h1.header:hover:after {
+.PalhetaSons > h1:not(:empty):hover:after {
 	content: 'Ejetar';
 	position: absolute;
 	top: 7px;
