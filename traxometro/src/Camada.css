@@ -1,8 +1,9 @@
 .LinhaDoTempo {
 	counter-reset: layerCount;
+	counter-increment: 4;
 }
 .Camada {
-	background-image: url(./imgs/timeline-layer-background.png);
+	background-image: url(./imgs/timeline-layer-background-2.png);
 	display: inline-block;
 	margin: 1px 0;
 	padding: 2px;
