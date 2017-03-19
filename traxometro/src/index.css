@@ -1,4 +1,6 @@
 * {
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
 	box-sizing: border-box;
 	background: transparent;
 	margin: 0;
@@ -8,16 +10,16 @@
 body {
 	margin: 0;
 	/*padding: 20vh 0;*/
-	padding: 50px;
+	/*padding: 50px;*/
 	font-family: sans-serif;
 	background-image: url(./imgs/fundo_appart732.gif);
 	background-position: center;
 	background-size: cover;
 }
-img {
+/*img {
 	image-rendering: pixelated;
 	image-rendering: crisp-edges;
-}
+}*/
 input[type="button"] {
 	outline: none;
 }
