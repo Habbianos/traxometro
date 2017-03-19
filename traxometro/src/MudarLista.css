@@ -1,0 +1,46 @@
+.MudarLista {
+	width: 455px;
+	height: 320px;
+	margin: 0 auto;
+	padding: 5px 6px 5px 4px;
+	background-image: url(./imgs/lista-window.png);
+}
+.MudarLista .cabecalho {
+	position: relative;
+	text-align: center;
+	border-radius: 10px 10px 0 0;
+	background-image: url(./imgs/header-background-dark.png);
+	height: 15px;
+}
+.MudarLista .cabecalho h1 {
+	display: inline-block;
+	color: white;
+	font-size: 9px;
+	padding: 0 6px;
+	background-color: #477681;
+    vertical-align: top;
+    padding-top: 5px;
+}
+.MudarLista .cabecalho .fechar {
+	position: absolute;
+	top: 1px;
+	right: 7px;
+	width: 13px;
+	height: 13px;
+	border: 1px solid #477681;
+	background-image: url(./imgs/button-close-dark.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: #477681;
+}
+.MudarLista .corpo {
+	padding: 13px 10px 12px 14px;
+}
+.MudarLista .corpo > * {
+	display: inline-block;
+}
+.MudarLista .incluir {
+	width: 27px;
+	height: 23px;
+	background-image: url(./imgs/include-song.png);
+}
