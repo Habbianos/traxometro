@@ -1,16 +1,24 @@
 @font-face {
 	font-family: 'Volter';
-	src: url('./fonts/volter.ttf');
+	src: url(./fonts/Volter_Goldfish.ttf);
+}
+@font-face {
+	font-family: 'Volter';
+	src: url('./fonts/Volter-Bold_Goldfish.ttf');
+	font-weight: bold;
 }
 .Traxometro {
-	font-family: 'Volter', monospace;
-	letter-spacing: .4pt;
-	width: 591px;
-    height: 334px;
-    padding: 31px 16px;
-    background-image: url('./imgs/traxmachine-background.png');
-    margin: 0 auto;
+	width: 100vw;
+    height: 100vh;
 }
-.Traxometro > *:not(.LinhaDoTempo) {
-	display: inline-block;
+.Traxometro * {
+	outline: none;
+	color: white;
+	font-family: 'Volter', monospace;
+	font-weight: bold;
+	font-size: 9px;
+	letter-spacing: .4pt;
+}
+button {
+	cursor: pointer;
 }
