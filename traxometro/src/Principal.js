@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 import "./Principal.css";
 
 export default class Principal extends Component {
+	constructor(props){
+	    super(props);
+		this.state = {
+			tocando: true
+		}
+	}
 	render() {
 		return (
 			<div className="Principal">
@@ -10,7 +16,7 @@ export default class Principal extends Component {
 					<h1>Menu Trax</h1>
 				</div>
 				<div className="corpo">
-					<button>Ligar</button>
+					<button onClick={() => this.setState({tocando: this.props.tocarPausarLista()})}>{this.state.tocando ? "Ligar" : "Desligar"}</button>
 					<button onClick={() => this.props.mudarPagina("mudarLista")}>Editar Lista</button>
 				</div>
 			</div>

@@ -35,24 +35,51 @@
 	background-color: #477681;
 }
 .MudarLista .corpo {
-	display: flex;
-	align-items: flex-start;
-	padding: 13px 10px 12px 14px;
+	position: relative;
+	width: 100%;
+	height: calc(100% - 15px);
+	/*display: flex;*/
+	/*align-items: flex-start;*/
+	border-width: 13px 10px 12px 14px;
+	border-style: solid;
+	border-color: transparent;
 }
 .MudarLista .corpo > * {
-	display: inline-block;
+	position: absolute;
+}
+.MudarLista .MusicasSalvas {
+	top: 0;
+	left: 0;
 }
 .MudarLista .incluir {
 	z-index: 1;
-	margin: 55px 3px 0 3px;
+	top: 55px;
+	left: 184px;
 	width: 27px;
 	height: 23px;
 	background-image: url(./imgs/include-song.png);
 }
 .MudarLista .divisor {
-	position: absolute;
 	z-index: 0;
-	width: 33px;
+	width: 1px;
 	height: 2px;
 	background-image: url(./imgs/divider.png);
+}
+.MudarLista .ListaDeReproducao {
+	right: 0;
+	top: 0;
+}
+.MudarLista .InfoMusica {
+	right: 0;
+	bottom: 0;
+}
+.MudarLista .criar {
+	left: 0;
+	bottom: 0;
+	width: 181px;
+	height: 23px;
+	border: 5px transparent solid;
+	border-image: url(./imgs/button.png) 5 repeat;
+	background-color: #5e9195;
+	background-clip: padding-box;
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './MudarLista.css'
 import MusicasSalvas from './MusicasSalvas'
 import ListaDeReproducao from './ListaDeReproducao'
+import InfoMusica from './InfoMusica'
 
 export default class MudarLista extends Component {
 	// Return an array of the selected opion values
@@ -34,9 +35,12 @@ export default class MudarLista extends Component {
 				</div>
 				<div className="corpo">
 					<MusicasSalvas />
-					<div className="divisor" style={{left: '199px', top: '98px'}}></div>
+					<div className="divisor" style={{width: '33px', left: '181px', top: '65px'}}></div>
 					<button className="incluir" onClick={this.pegaMusica}></button>
 					<ListaDeReproducao />
+					<div className="divisor" style={{width: '33px', left: '181px', top: '189px'}}></div>
+					<InfoMusica />
+					<button className="criar" onClick={()=>this.props.mudarPagina("criadorMusica")}>Criar nova música</button>
 				</div>
 			</div>
 		)

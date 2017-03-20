@@ -14,7 +14,7 @@ export default class LinhaDoTempo extends Component {
 					<i className="modulo" data-moduloClasse="2" data-moduloCor="1"/>
 					<i className="modulo" data-moduloClasse="2" data-moduloCor="2"/>
 					<i className="modulo" data-moduloClasse="3" data-moduloCor="2"/>
-					<i className="modulo" />
+					<i className="modulo" data-moduloClasse="3" data-moduloCor="2"/>
 					<i className="modulo" />
 					<i className="modulo" />
 					<i className="modulo" />

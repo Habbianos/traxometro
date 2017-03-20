@@ -9,47 +9,47 @@
 	text-align: right;
 }
 
-.reproduzirPausar {
+.Controles .reproduzirPausar {
 	background-image: url(./imgs/play.png);
 }
-.parar {
+.Controles .parar {
 	background-image: url(./imgs/stop.png);
 }
-.salvar {
+.Controles .salvar {
 	display: none;
 	background-image: url(./imgs/save.png);
 }
-.abrir {
+.Controles .abrir {
 	display: none;
 	background-image: url(./imgs/open.png);
 }
-.reproduzirPausar, .parar, .salvar, .abrir {
+.Controles .reproduzirPausar, .Controles .parar, .Controles .salvar, .Controles .abrir {
 	width: 56px;
     height: 23px;
     margin-right: 5px;
 }
-.reproduzirPausar:disabled, .parar:disabled, .salvar:disabled, .abrir:disabled {
+.Controles .reproduzirPausar:disabled, .Controles .parar:disabled, .Controles .salvar:disabled, .Controles .abrir:disabled {
 	background-position: -112px 0;
 }
-.limpar {
+.Controles .limpar {
 	background-image: url(./imgs/clear.png);
 	width: 36px;
 	height: 23px;
 	margin-right: 5px;
 }
-.limpar:disabled {
+.Controles .limpar:disabled {
 	background-position: -72px 0;
 }
-.moveEsquerda {
+.Controles .moveEsquerda {
 	background-image: url(./imgs/moveLeft.png);
 }
-.moveDireita {
+.Controles .moveDireita {
 	background-image: url(./imgs/moveRight.png);
 }
-.moveEsquerda, .moveDireita {
+.Controles .moveEsquerda, .Controles .moveDireita {
 	width: 19px;
 	height: 23px;
 }
-.moveEsquerda:disabled, .moveDireita:disabled {
+.Controles .moveEsquerda:disabled, .Controles .moveDireita:disabled {
 	background-position: -38px 0;
 }
