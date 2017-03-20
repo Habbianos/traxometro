@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './MudarLista.css'
-import MusicasSalvas from './MusicasSalvas';
+import MusicasSalvas from './MusicasSalvas'
+import ListaDeReproducao from './ListaDeReproducao'
 
 export default class MudarLista extends Component {
 	// Return an array of the selected opion values
@@ -33,7 +34,9 @@ export default class MudarLista extends Component {
 				</div>
 				<div className="corpo">
 					<MusicasSalvas />
+					<div className="divisor" style={{left: '199px', top: '98px'}}></div>
 					<button className="incluir" onClick={this.pegaMusica}></button>
+					<ListaDeReproducao />
 				</div>
 			</div>
 		)

@@ -1,4 +1,5 @@
 .MudarLista {
+	position: relative;
 	width: 455px;
 	height: 320px;
 	margin: 0 auto;
@@ -34,13 +35,24 @@
 	background-color: #477681;
 }
 .MudarLista .corpo {
+	display: flex;
+	align-items: flex-start;
 	padding: 13px 10px 12px 14px;
 }
 .MudarLista .corpo > * {
 	display: inline-block;
 }
 .MudarLista .incluir {
+	z-index: 1;
+	margin: 55px 3px 0 3px;
 	width: 27px;
 	height: 23px;
 	background-image: url(./imgs/include-song.png);
+}
+.MudarLista .divisor {
+	position: absolute;
+	z-index: 0;
+	width: 33px;
+	height: 2px;
+	background-image: url(./imgs/divider.png);
 }
