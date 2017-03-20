@@ -5,7 +5,11 @@
 			"nome": "DJ Fuse’s Duck Funk",
 			"imagem": "01 - dj_fuses_duck_funk.gif",
 			"sons": [
-				"",
+				{
+					"id": 1,
+					"arquivo": "",
+					"comprimento": 2
+				},
 				"",
 				"",
 				"",
