@@ -38,7 +38,7 @@ class Traxometro extends Component {
 		};
 
 		this.paginas = {
-			'principal': <Principal mudarPagina={this.mudarPagina} tocarPausarLista={this.tocarPausarLista} />,
+			'principal': <Principal mudarPagina={this.mudarPagina} tocandoLista={()=>this.state.tocandoLista} tocarPausarLista={this.tocarPausarLista} />,
 			'mudarLista': <MudarLista mudarPagina={this.mudarPagina} />,
 			'criadorMusica': <CriadorMusica mudarPagina={this.mudarPagina} tocarPausarLista={this.tocarPausarLista} />
 		}
