@@ -15,7 +15,6 @@ body {
 	background-image: url(./imgs/fundo_appart732.gif);
 	background-position: center;
 	background-size: cover;
-	height: 100vh;
 }
 input[type="button"] {
 	outline: none;
