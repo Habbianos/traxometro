@@ -15,8 +15,8 @@ class PalhetaSons extends Component {
 	}
 
 	previaSom(i = null) {
-		if (this.state.cartucho.id && this.state.cartucho.sons[i].arquivo !== "") {
-			if (i !== null) {
+		if (this.state.cartucho.id) {
+			if (i !== null && this.state.cartucho.sons[i].arquivo !== "") {
 				if (this.props.tocarPausarLista(true)) {
 					this.props.tocarPausarLista()
 					this.previa.pausouPrincipal = true
