@@ -141,8 +141,10 @@ class Traxometro extends Component {
 			}
 		]))
 		this.audio.reprodutor.addEventListener('ended', () => {
-			this.audio.next()
-			this.audio.play()
+			setTimeout(() => {
+				this.audio.next()
+				this.audio.play()
+			}, 2000)
 		})
 	}
 
