@@ -8,11 +8,11 @@ export default class MusicasSalvas extends Component {
 				<h2>Músicas Salvas</h2>
 				<div className="lista">
 					<select multiple>
+						<option disabled>Pessoal</option>
 						<option>abc</option>
 						<option>abc</option>
 						<option>abc</option>
-						<option>abc</option>
-						<option>abc</option>
+						<option disabled>Comunidade</option>
 						<option>abc</option>
 						<option>abc</option>
 						<option>abc</option>
