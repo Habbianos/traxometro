@@ -19,6 +19,7 @@
 	font-weight: bold;
 	font-size: 9px;
 	letter-spacing: .4pt;
+	user-select: none;
 }
 .Traxometro .tocando-agora {
 	position: absolute;
