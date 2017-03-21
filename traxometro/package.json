@@ -18,5 +18,9 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-  }
+  },
+  "description": "Este projeto é uma recriação da ferramenta chamada de Traxmachine criada pela Sulake no jogo Habbo Hotel. No desenvolvimento foi utilizado a biblioteca React.",
+  "main": "index.js",
+  "author": "Alisson Nunes Vieira Amancio",
+  "license": "ISC"
 }
