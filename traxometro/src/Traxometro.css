@@ -8,9 +8,14 @@
 	font-weight: bold;
 }
 .Traxometro {
+	width: 100vw;
+	height: 100vh;
 }
-.Traxometro > * {
+.Traxometro > *:not(.tocando-agora) {
 	margin: 0 auto;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
 }
 .Traxometro * {
 	outline: none;
