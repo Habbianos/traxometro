@@ -21,6 +21,13 @@
 .MusicasSalvas .lista select option {
 	font-weight: normal;
 	padding: 2px 1px;
+	margin: 2px 1px;
+}
+.MusicasSalvas .lista select option:not(:disabled) {
+	background-color: #dbe1dc;
+	border-radius: 20px;
+	color: gray;
+	padding-left: 20px
 }
 /*.MusicasSalvas .lista select option:selected {
 	background-color: black;
