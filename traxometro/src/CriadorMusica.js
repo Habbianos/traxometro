@@ -11,6 +11,7 @@ export default class CriadorMusica extends Component {
 
 		const DbCartuchos = require('./db/cartuchos.json').cartuchos;
 		DbCartuchos.sort((a, b) => {
+			a.usado = false;
 			return a.id > b.id;
 		});
 
