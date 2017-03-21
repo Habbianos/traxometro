@@ -1,7 +1,8 @@
 .Principal {
 	width: 229px;
-	height: 113px;
+	height: 114px;
 	background-image: url(./imgs/main-window.png);
+	background-repeat: no-repeat;
 	margin: 0 auto;
 	padding: 5px 6px 5px 4px;
 }
