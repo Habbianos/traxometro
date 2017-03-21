@@ -48,14 +48,10 @@ class Traxometro extends Component {
 			play: () => {
 				this.audio.reprodutor.play()
 
-				let janela = document.querySelector('.tocando-agora')
-				let msg1 = document.querySelector('.tocando-agora span:nth-of-type(1)')
-				let msg2 = document.querySelector('.tocando-agora span:nth-of-type(2)')
+				let titulo = this.audio.lista[this.audio.i_tocando].titulo
+				let autor = this.audio.lista[this.audio.i_tocando].autor
 
-				msg1.innerHTML = this.audio.lista[this.audio.i_tocando].titulo
-				msg2.innerHTML = this.audio.lista[this.audio.i_tocando].autor
-				janela.style.opacity = 1;
-				setTimeout(() => janela.style.opacity = 0, 5000)
+				this.mostrarTocandoAgora(titulo, autor)
 			},
 			pause: () => this.audio.reprodutor.pause(),
 			loop: (a = null) => {
@@ -168,6 +164,17 @@ class Traxometro extends Component {
 		}
 		
 		return this.state.tocandoLista
+	}
+
+	mostrarTocandoAgora = (titulo, autor) => {
+		let janela = document.querySelector('.tocando-agora')
+		let msg1 = document.querySelector('.tocando-agora span:nth-of-type(1)')
+		let msg2 = document.querySelector('.tocando-agora span:nth-of-type(2)')
+
+		msg1.innerHTML = titulo
+		msg2.innerHTML = autor
+		janela.style.opacity = 1
+		setTimeout(() => janela.style.opacity = 0, 5000)
 	}
 
 	render() {
