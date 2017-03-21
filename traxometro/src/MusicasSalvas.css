@@ -3,6 +3,7 @@
 
 }
 .MusicasSalvas h2 {
+	color: #eee;
 	text-align: center;
 	margin-bottom: 7px;
 }
@@ -19,6 +20,7 @@
 	outline: none;
 }
 .MusicasSalvas .lista select option {
+	color: #eee;
 	font-weight: normal;
 	padding: 2px 1px;
 	margin: 2px 1px;
@@ -33,6 +35,7 @@
 	background-color: black;
 }*/
 .MusicasSalvas .editar {
+	color: #eee;
 	width: 132px;
 	height: 23px;
 	background-image: url(./imgs/editar-song.png);

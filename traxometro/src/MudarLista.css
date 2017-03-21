@@ -15,7 +15,7 @@
 }
 .MudarLista .cabecalho h1 {
 	display: inline-block;
-	color: white;
+	color: #eee;
 	font-size: 9px;
 	padding: 0 6px;
 	background-color: #477681;
@@ -74,6 +74,7 @@
 	bottom: 0;
 }
 .MudarLista .criar {
+	color: #eee;
 	left: 0;
 	bottom: 0;
 	width: 181px;

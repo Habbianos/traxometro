@@ -18,12 +18,14 @@
 .ListaSonsPager input:disabled {
 	background-position: -10px 0;
 }
-.ListaSonsPager > span {
+.ListaSonsPager span {
 	text-align: center;
-    display: inline-block;
-    width: 38px;
-    font-size: 7pt;
-    line-height: 16px;
-    vertical-align: top;
-    color: rgba(255,255,255,.5);
+	font-size: 7pt;
+	line-height: 16px;
+	vertical-align: top;
+	color: rgba(255,255,255,.5);
+}
+.ListaSonsPager > span {
+	display: inline-block;
+	width: 38px;
 }
