@@ -8,7 +8,6 @@
 	background: url(./imgs/abc.png);
 }
 .modulo[data-moduloClasse], .modulo[data-moduloCor] {
-	cursor: pointer;
 	background-size: 13px 21px, 21px 13px, 17px 17px;
 	background-position: 4px 0px, 0px 4px, 2px 2px;
 	background-repeat: no-repeat;

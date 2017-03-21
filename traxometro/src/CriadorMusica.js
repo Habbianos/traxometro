@@ -75,7 +75,7 @@ export default class CriadorMusica extends Component {
 				</div>
 				<div className="corpo">
 					<ListaSons>
-						{ListaCartuchos}
+						{ ListaCartuchos }
 					</ListaSons>
 					<div className="palhetas-de-sons">
 						{ Palhetas }
