@@ -15,14 +15,22 @@ class PalhetaSons extends Component {
 	}
 
 	previaSom(i = null) {
-		if (this.state.cartucho.id) {
-			if (i !== null && this.state.cartucho.sons[i].arquivo != "") {
+		if (this.state.cartucho.id && this.state.cartucho.sons[i].arquivo !== "") {
+			if (i !== null) {
+				if (this.props.tocarPausarLista(true)) {
+					this.props.tocarPausarLista()
+					this.previa.pausouPrincipal = true
+				}
 				this.previa.src = process.env.PUBLIC_URL+"/audios/"+this.state.cartucho.sons[i].arquivo
 				this.previa.load()
 				this.previa.play()
 			} else {
+				if (!this.props.tocarPausarLista(true) && this.previa.pausouPrincipal) {
+					this.props.tocarPausarLista()
+					this.previa.pausouPrincipal = false
+				}
 				this.previa.pause()
-				this.previa.src = "";
+				this.previa.src = ""
 			}
 		}
 	}

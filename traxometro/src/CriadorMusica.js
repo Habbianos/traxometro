@@ -57,7 +57,7 @@ export default class CriadorMusica extends Component {
 		// CartuchosInseridos[0] = DbCartuchos[0];
 		let Palhetas = [];
 		for (let i = 0; i < this.state.qtdPalhetas; i++)
-			Palhetas.push((<PalhetaSons key={i} cor={i+1} removerCartucho={this.RemoverCartucho} idPalheta={i}>{this.state.cartuInseridos[i]}</PalhetaSons>));
+			Palhetas.push((<PalhetaSons key={i} cor={i+1} removerCartucho={this.RemoverCartucho} idPalheta={i} tocarPausarLista={this.props.tocarPausarLista}>{this.state.cartuInseridos[i]}</PalhetaSons>));
 
 		let ListaCartuchos = [];
 		this.state.dbCartuchos.forEach(cartucho => {

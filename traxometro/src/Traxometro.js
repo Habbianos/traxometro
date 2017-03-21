@@ -40,7 +40,7 @@ class Traxometro extends Component {
 		this.paginas = {
 			'principal': <Principal mudarPagina={this.mudarPagina} tocarPausarLista={this.tocarPausarLista} />,
 			'mudarLista': <MudarLista mudarPagina={this.mudarPagina} />,
-			'criadorMusica': <CriadorMusica mudarPagina={this.mudarPagina} />
+			'criadorMusica': <CriadorMusica mudarPagina={this.mudarPagina} tocarPausarLista={this.tocarPausarLista} />
 		}
 
 		this.audio = {
@@ -154,16 +154,18 @@ class Traxometro extends Component {
 		})
 	}
 
-	tocarPausarLista = () => {
-		if (this.state.tocandoLista) {
-			this.audio.pause();
-			this.audio.currentTime = 0
-		} else
-			this.audio.play()
+	tocarPausarLista = (soRetorna = false) => {
+		if (!soRetorna) {
+			if (this.state.tocandoLista) {
+				this.audio.pause();
+				this.audio.currentTime = 0
+			} else
+				this.audio.play()
 
-		this.setState({
-			tocandoLista: !this.state.tocandoLista
-		})
+			this.setState({
+				tocandoLista: !this.state.tocandoLista
+			})
+		}
 		
 		return this.state.tocandoLista
 	}
