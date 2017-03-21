@@ -7,17 +7,49 @@
 			"sons": [
 				{
 					"id": 1,
-					"arquivo": "",
+					"arquivo": "sound_machine_sample_1.mp3",
 					"comprimento": 2
 				},
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				""
+				{
+					"id": 2,
+					"arquivo": "sound_machine_sample_2.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 3,
+					"arquivo": "sound_machine_sample_3.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 4,
+					"arquivo": "sound_machine_sample_4.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 5,
+					"arquivo": "sound_machine_sample_5.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 6,
+					"arquivo": "sound_machine_sample_6.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 7,
+					"arquivo": "sound_machine_sample_7.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 8,
+					"arquivo": "sound_machine_sample_8.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 9,
+					"arquivo": "sound_machine_sample_9.mp3",
+					"comprimento": 2
+				}
 			]
 		},
 		{
@@ -25,15 +57,51 @@
 			"nome": "DJ Fuse’s Habbo Theme",
 			"imagem": "02 - dj_fuses_habbo_theme.gif",
 			"sons": [
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				""
+				{
+					"id": 10,
+					"arquivo": "sound_machine_sample_10.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 11,
+					"arquivo": "sound_machine_sample_11.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 12,
+					"arquivo": "sound_machine_sample_12.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 13,
+					"arquivo": "sound_machine_sample_13.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 14,
+					"arquivo": "sound_machine_sample_14.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 15,
+					"arquivo": "sound_machine_sample_15.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 16,
+					"arquivo": "sound_machine_sample_16.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 17,
+					"arquivo": "sound_machine_sample_17.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 18,
+					"arquivo": "sound_machine_sample_18.mp3",
+					"comprimento": 2
+				}
 			]
 		},
 		{
@@ -41,15 +109,51 @@
 			"nome": "SnowStorm Theme",
 			"imagem": "03 - snowstorm_theme.gif",
 			"sons": [
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				""
+				{
+					"id": 1,
+					"arquivo": "sound_machine_sample_1.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 2,
+					"arquivo": "sound_machine_sample_2.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 3,
+					"arquivo": "sound_machine_sample_3.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 4,
+					"arquivo": "sound_machine_sample_4.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 5,
+					"arquivo": "sound_machine_sample_5.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 6,
+					"arquivo": "sound_machine_sample_6.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 7,
+					"arquivo": "sound_machine_sample_7.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 8,
+					"arquivo": "sound_machine_sample_8.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 9,
+					"arquivo": "sound_machine_sample_9.mp3",
+					"comprimento": 2
+				}
 			]
 		},
 		{
@@ -57,15 +161,51 @@
 			"nome": "Sunset Adverture(s)",
 			"imagem": "04 - sunset_advertures.gif",
 			"sons": [
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				"",
-				""
+				{
+					"id": 1,
+					"arquivo": "sound_machine_sample_1.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 2,
+					"arquivo": "sound_machine_sample_2.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 3,
+					"arquivo": "sound_machine_sample_3.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 4,
+					"arquivo": "sound_machine_sample_4.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 5,
+					"arquivo": "sound_machine_sample_5.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 6,
+					"arquivo": "sound_machine_sample_6.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 7,
+					"arquivo": "sound_machine_sample_7.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 8,
+					"arquivo": "sound_machine_sample_8.mp3",
+					"comprimento": 2
+				},
+				{
+					"id": 9,
+					"arquivo": "sound_machine_sample_9.mp3",
+					"comprimento": 2
+				}
 			]
 		}
 	]
