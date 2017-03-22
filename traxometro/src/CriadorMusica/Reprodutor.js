@@ -8,7 +8,7 @@ export default class Reprodutor extends Component {
 		return (
 			<div className="Reprodutor">
 				<Controles />
-				<LinhaDoTempo />
+				<LinhaDoTempo moduloAtivo={this.props.moduloAtivo} />
 			</div>
 		)
 	}

@@ -11,7 +11,7 @@
 .InfoMusica .info {
 	width: 207px;
 	height: 94px;
-	background-image: url(./imgs/song-info-background.png);
+	background-image: url(./../imgs/song-info-background.png);
 }
 .InfoMusica .info span {
 	font-weight: normal;
@@ -27,7 +27,7 @@
 	width: 132px;
 	height: 23px;
 	border: 5px transparent solid;
-	border-image: url(./imgs/button.png) 5 repeat;
+	border-image: url(./../imgs/button.png) 5 repeat;
 	background-color: #5e9195;
 	background-clip: padding-box;
 }

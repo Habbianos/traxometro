@@ -93,6 +93,90 @@
 	background: url(./imgs/00008.png) -151px 1px, url(./imgs/module.png);
 }
 
+li .modulo[data-moduloClasse="1"]:hover:after {
+	background: url(./imgs/00008.png) 1px 1px, url(./imgs/module-hover.png);
+}
+li .modulo[data-moduloClasse="2"]:hover:after {
+	background: url(./imgs/00008.png) -18px 1px, url(./imgs/module-hover.png);
+}
+li .modulo[data-moduloClasse="3"]:hover:after {
+	background: url(./imgs/00008.png) -37px 1px, url(./imgs/module-hover.png);
+}
+li .modulo[data-moduloClasse="4"]:hover:after {
+	background: url(./imgs/00008.png) -56px 1px, url(./imgs/module-hover.png);
+}
+li .modulo[data-moduloClasse="5"]:hover:after {
+	background: url(./imgs/00008.png) -75px 1px, url(./imgs/module-hover.png);
+}
+li .modulo[data-moduloClasse="6"]:hover:after {
+	background: url(./imgs/00008.png) -93px 1px, url(./imgs/module-hover.png);
+}
+li .modulo[data-moduloClasse="7"]:hover:after {
+	background: url(./imgs/00008.png) -113px 1px, url(./imgs/module-hover.png);
+}
+li .modulo[data-moduloClasse="8"]:hover:after {
+	background: url(./imgs/00008.png) -132px 1px, url(./imgs/module-hover.png);
+}
+li .modulo[data-moduloClasse="9"]:hover:after {
+	background: url(./imgs/00008.png) -151px 1px, url(./imgs/module-hover.png);
+}
+
+li .modulo[data-moduloClasse="1"][data-ativado = "true"]:hover:after {
+	background: url(./imgs/00008.png) 1px 1px, url(./imgs/module-down.png), url(./imgs/module-hover.png);
+}
+li .modulo[data-moduloClasse="2"][data-ativado = "true"]:hover:after {
+	background: url(./imgs/00008.png) -18px 1px, url(./imgs/module-down.png), url(./imgs/module-hover.png);
+}
+li .modulo[data-moduloClasse="3"][data-ativado = "true"]:hover:after {
+	background: url(./imgs/00008.png) -37px 1px, url(./imgs/module-down.png), url(./imgs/module-hover.png);
+}
+li .modulo[data-moduloClasse="4"][data-ativado = "true"]:hover:after {
+	background: url(./imgs/00008.png) -56px 1px, url(./imgs/module-down.png), url(./imgs/module-hover.png);
+}
+li .modulo[data-moduloClasse="5"][data-ativado = "true"]:hover:after {
+	background: url(./imgs/00008.png) -75px 1px, url(./imgs/module-down.png), url(./imgs/module-hover.png);
+}
+li .modulo[data-moduloClasse="6"][data-ativado = "true"]:hover:after {
+	background: url(./imgs/00008.png) -93px 1px, url(./imgs/module-down.png), url(./imgs/module-hover.png);
+}
+li .modulo[data-moduloClasse="7"][data-ativado = "true"]:hover:after {
+	background: url(./imgs/00008.png) -113px 1px, url(./imgs/module-down.png), url(./imgs/module-hover.png);
+}
+li .modulo[data-moduloClasse="8"][data-ativado = "true"]:hover:after {
+	background: url(./imgs/00008.png) -132px 1px, url(./imgs/module-down.png), url(./imgs/module-hover.png);
+}
+li .modulo[data-moduloClasse="9"][data-ativado = "true"]:hover:after {
+	background: url(./imgs/00008.png) -151px 1px, url(./imgs/module-down.png), url(./imgs/module-hover.png);
+}
+
+.modulo[data-moduloClasse="1"][data-ativado = "true"]:after {
+	background: url(./imgs/00008.png) 2px 2px, url(./imgs/module-down.png);
+}
+.modulo[data-moduloClasse="2"][data-ativado = "true"]:after {
+	background: url(./imgs/00008.png) -17px 2px, url(./imgs/module-down.png);
+}
+.modulo[data-moduloClasse="3"][data-ativado = "true"]:after {
+	background: url(./imgs/00008.png) -36px 2px, url(./imgs/module-down.png);
+}
+.modulo[data-moduloClasse="4"][data-ativado = "true"]:after {
+	background: url(./imgs/00008.png) -55px 2px, url(./imgs/module-down.png);
+}
+.modulo[data-moduloClasse="5"][data-ativado = "true"]:after {
+	background: url(./imgs/00008.png) -74px 2px, url(./imgs/module-down.png);
+}
+.modulo[data-moduloClasse="6"][data-ativado = "true"]:after {
+	background: url(./imgs/00008.png) -92px 2px, url(./imgs/module-down.png);
+}
+.modulo[data-moduloClasse="7"][data-ativado = "true"]:after {
+	background: url(./imgs/00008.png) -112px 2px, url(./imgs/module-down.png);
+}
+.modulo[data-moduloClasse="8"][data-ativado = "true"]:after {
+	background: url(./imgs/00008.png) -131px 2px, url(./imgs/module-down.png);
+}
+.modulo[data-moduloClasse="9"][data-ativado = "true"]:after {
+	background: url(./imgs/00008.png) -150px 2px, url(./imgs/module-down.png);
+}
+
 /*-------------------------*/
 
 *[data-moduloCor='1'] {

@@ -9,7 +9,7 @@ export default class CriadorMusica extends Component {
 	constructor(props){
 	    super(props);
 
-		const DbCartuchos = require('./db/cartuchos.json').cartuchos;
+		const DbCartuchos = require('./../db/cartuchos.json').cartuchos;
 		DbCartuchos.sort((a, b) => {
 			a.usado = false;
 			return a.id > b.id;
@@ -18,7 +18,8 @@ export default class CriadorMusica extends Component {
 		this.state = {
 			dbCartuchos: DbCartuchos,
 			cartuInseridos: [],
-			qtdPalhetas: 4
+			qtdPalhetas: 4,
+			moduloAtivo: null
 		};
 	}
 
@@ -49,15 +50,41 @@ export default class CriadorMusica extends Component {
 			cartuInseridos: array
 		});
 	}
+
+	ativarDesativarModulo = (somObj = null, mClasse = null, mCor = null) => {
+		if (somObj !== null && mClasse !== null && mCor !== null && !(this.state.moduloAtivo && this.state.moduloAtivo.mClasse === mClasse && this.state.moduloAtivo.mCor === mCor)) {
+			this.setState({
+				moduloAtivo: {
+					somObj: somObj,
+					mClasse: mClasse,
+					mCor: mCor
+				}
+			})
+		} else {
+			this.setState({
+				moduloAtivo: null
+			})
+		}
+
+	}
 	
 	render() {
-
 
 		// let CartuchosInseridos = [];
 		// CartuchosInseridos[0] = DbCartuchos[0];
 		let Palhetas = [];
 		for (let i = 0; i < this.state.qtdPalhetas; i++)
-			Palhetas.push((<PalhetaSons key={i} cor={i+1} removerCartucho={this.RemoverCartucho} idPalheta={i} tocarPausarLista={this.props.tocarPausarLista}>{this.state.cartuInseridos[i]}</PalhetaSons>));
+			Palhetas.push((
+				<PalhetaSons
+					key={i}
+					cor={i+1}
+					removerCartucho={this.RemoverCartucho}
+					idPalheta={i}
+					tocarPausarLista={this.props.tocarPausarLista}
+					ativarDesativarModulo={this.ativarDesativarModulo}
+					moduloAtivo={this.state.moduloAtivo}
+				>{this.state.cartuInseridos[i]}</PalhetaSons>
+			));
 
 		let ListaCartuchos = [];
 		this.state.dbCartuchos.forEach(cartucho => {
@@ -80,7 +107,7 @@ export default class CriadorMusica extends Component {
 					<div className="palhetas-de-sons">
 						{ Palhetas }
 					</div>
-					<Reprodutor />
+					<Reprodutor moduloAtivo={this.state.moduloAtivo} />
 				</div>
 			</div>
 		)

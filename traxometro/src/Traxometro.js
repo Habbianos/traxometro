@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './Traxometro.css';
-import Principal from './Principal'
-import MudarLista from './MudarLista'
-import CriadorMusica from './CriadorMusica'
+import Principal from './Principal/Principal'
+import MudarLista from './MudarLista/MudarLista'
+import CriadorMusica from './CriadorMusica/CriadorMusica'
 
 function shuffle(array) {
 	var m = array.length, t, i;

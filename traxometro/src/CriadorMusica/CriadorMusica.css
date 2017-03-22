@@ -2,7 +2,7 @@
 	width: 591px;
     height: 334px;
     padding: 5px 6px 5px 4px;
-    background-image: url('./imgs/traxmachine-background.png');
+    background-image: url('./../imgs/traxmachine-background.png');
 }
 .CriadorMusica .corpo * {
     font-weight: normal;
