@@ -155,6 +155,7 @@ class Traxometro extends Component {
 			if (this.state.tocandoLista) {
 				this.audio.pause();
 				this.audio.currentTime = 0
+				document.title = 'Traxômetro'
 			} else
 				this.audio.play()
 
@@ -175,6 +176,8 @@ class Traxometro extends Component {
 		msg2.innerHTML = autor
 		janela.style.opacity = 1
 		setTimeout(() => janela.style.opacity = 0, 5000)
+
+		document.title = '▶ '+titulo+' / '+autor+' - '+document.title
 	}
 
 	render() {
