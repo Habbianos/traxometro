@@ -7,13 +7,11 @@
 	border: 0;
 	padding: 0;
 }
-html {
+html, body {
     overflow: hidden;
     height: 100vh;
 }
 body {
-    overflow: auto;
-    height: 100vh;
 	margin: 0;
 	/*padding: 20vh 0;*/
 	/*padding: 50px;*/
