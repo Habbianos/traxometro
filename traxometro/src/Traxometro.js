@@ -142,6 +142,87 @@ class Traxometro extends Component {
 				this.audio.play()
 			}, 2000)
 		})
+
+		this.jukebox = {
+			reprodutores: [
+				new Audio(),
+				new Audio(),
+				new Audio(),
+				new Audio()
+			],
+			play: () => {
+				for (let i = 0; i < this.jukebox.reprodutores.length; i++) {
+					this.jukebox.reprodutores[i].play()
+
+					if (this.jukebox.verificaInfoLoop === null)
+						this.jukebox.verificaInfoLoop = setInterval(this.jukebox.verificaInfo, 2000)
+				}
+			},
+			pause: () => {
+				for (let i = 0; i < this.jukebox.reprodutores.length; i++) {
+					this.jukebox.reprodutores[i].pause()
+
+					clearInterval(this.jukebox.verificaInfoLoop)
+				}
+			},
+			lista: [
+				[],
+				[],
+				[],
+				[]
+			],
+			code: null,
+			inserir: (code) => {
+				this.jukebox.code = code
+				let info = this.reconhecerCodigoMusica(code)
+				for (let i = 1; i < info.length; i++) {
+					for (let j = 0; j < info[i].length; j++) {
+						let som = this.buscaSomPeloId(info[i][j].somId) || this.buscaSomPeloId(0)
+
+						for (let k = 0; k < info[i][j].somDura / som.comprimento; k++)
+							this.jukebox.lista[i-1].push(som)
+					}
+				}
+
+
+				for (let i = 0; i < this.jukebox.reprodutores.length; i++) {
+					if (this.jukebox.lista[i].length) {
+						this.jukebox.lista[i][0].tocando = true
+						this.jukebox.reprodutores[i].src = './audios/'+this.jukebox.lista[i][0].arquivo
+					}
+				}
+			},
+			tempoAtual: 0,
+			verificaInfoLoop: null,
+			verificaInfo: () => {
+				this.jukebox.tempoAtual += 2
+
+				for (let i = 0; i < this.jukebox.lista.length; i++) {
+					for (let j = 0; j < this.jukebox.lista[i].length; j++) {
+						if (this.jukebox.lista[i][j].tocando) {
+							console.log(i, j, this.jukebox.lista[i][j])
+							if (this.jukebox.tempoAtual >= j * 2 + this.jukebox.lista[i][j].comprimento) {
+								delete this.jukebox.lista[i][j].tocando
+
+								if (this.jukebox.lista[i][j+1]) {
+									console.log(this.jukebox.lista[i][j+1])
+									// this.jukebox.lista[i][j+1].tocando = true
+									// this.jukebox.reprodutores[i].src = './audios/'+this.jukebox.lista[i][j+1].arquivo
+								}
+							}
+							break
+						}
+					}
+				}
+			}
+		}
+		for (let i = 0; i < this.jukebox.reprodutores.length; i++) {
+			this.jukebox.reprodutores[i].addEventListener('onend', () => {
+				for (let j = 0; j < this.jukebox.lista[i].length; j++) {
+
+				}
+			})
+		}
 	}
 
 	mudarPagina = (nova_pagina) => {
@@ -180,7 +261,56 @@ class Traxometro extends Component {
 		document.title = '▶ '+titulo+' / '+autor+' - '+document.title
 	}
 
+	reconhecerCodigoMusica = (codigo) => {
+		// 'index' começa em 1, portanto o length ficou 5 com 4 elementos
+		let info = [],
+			a,
+			b,
+			c
+
+		a = codigo.split(":")
+
+		for (let i = 0; i < a.length; i += 2) {
+			if (a[i] !== '') {
+				b = a[i+1].split(";")
+				for (let j = 0; j < b.length; j++) {
+					c = b[j].split(",")
+					b[j] = {
+						somId: Number(c[0]),
+						somDura: Number(c[1])
+					}
+				}
+				info[a[i]] = b
+			}
+		}
+
+		return info
+	}
+
+	buscaSomPeloId = (id) => {
+		let cartucho, som
+		for (let i = 0; i < this.state.dbCartuchos.length; i++) {
+			cartucho = this.state.dbCartuchos[i]
+			for (let j = 0 ; j < cartucho.sons.length; j++) {
+				som = cartucho.sons[j]
+				if (som.id === id)
+					return som
+			}
+		}
+
+		if (Number(id) === 0)
+			return {
+				"id": 0,
+				"arquivo": "sound_machine_sample_0.mp3",
+				"comprimento": 1
+			}
+
+		return null
+	}
+
 	render() {
+		this.jukebox.inserir('1:4,12;3,2;9,2;5,2;2,2:2:0,2;4,8;7,2;0,2;6,1;8,1;4,4:3:0,4;4,8:4::')
+		this.jukebox.play()
 		return (
 			<div className='Traxometro' onCopy={() => alert('O código da música foi copiado.')} onPaste={() => confirm('Código Trax reconhecido, deseja substituir a música atual?')}>
 				<div className='tocando-agora' onClick={() => document.querySelector('.tocando-agora').style.opacity = 0}>Ouvindo agora <span></span> por <span></span></div>
