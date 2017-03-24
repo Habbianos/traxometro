@@ -13,49 +13,49 @@ export default class Modulo extends Component {
 		}
 	}
 
-	moduloFantasma = (dir = 1, usado = false) => {
-		if (!this.isso.hasAttribute('data-moduloClasse') && !this.isso.hasAttribute('data-moduloCor') && this.isso.style.opacity !== 1) {
-			let mClasse, mCor, mOpacity
+	// moduloFantasma = (dir = 1, usado = false) => {
+	// 	if (!this.isso.hasAttribute('data-moduloClasse') && !this.isso.hasAttribute('data-moduloCor') && this.isso.style.opacity !== 1) {
+	// 		let mClasse, mCor, mOpacity
 
-			if (this.props.moduloAtivo && dir) {
-				mClasse = this.props.moduloAtivo.mClasse
-				mCor = this.props.moduloAtivo.mCor
-				mOpacity = usado ? 1 : 0.5
-			} else {
-				mClasse = null
-				mCor = null
-				mOpacity = 1
-			}
+	// 		if (this.props.moduloAtivo && dir) {
+	// 			mClasse = this.props.moduloAtivo.mClasse
+	// 			mCor = this.props.moduloAtivo.mCor
+	// 			mOpacity = usado ? 1 : 0.5
+	// 		} else {
+	// 			mClasse = null
+	// 			mCor = null
+	// 			mOpacity = 1
+	// 		}
 
-			if (this.props.moduloAtivo) {
-				let prox = this.isso.nextSibling;
+	// 		if (this.props.moduloAtivo) {
+	// 			let prox = this.isso.nextSibling;
 
-				// Verificação para saber se cabe
-				let vazio = true
-				for (let i = 1; i < this.props.moduloAtivo.somObj.comprimento; i++) {
-					if (prox.hasAttribute('data-moduloClasse') && prox.hasAttribute('data-moduloCor') && prox.style.opacity === 1)
-						vazio = false
-					prox = prox.nextSibling
-				}
+	// 			// Verificação para saber se cabe
+	// 			let vazio = true
+	// 			for (let i = 1; i < this.props.moduloAtivo.somObj.comprimento; i++) {
+	// 				if (prox.hasAttribute('data-moduloClasse') && prox.hasAttribute('data-moduloCor') && prox.style.opacity === 1)
+	// 					vazio = false
+	// 				prox = prox.nextSibling
+	// 			}
 				
-				// Insere ou remove
-				if (vazio) {
-					this.setState({
-						mClasse: mClasse,
-						mCor: mCor,
-						mOpacity: mOpacity
-					})
-					prox = this.isso.nextSibling;
-					for (let i = 1; i < this.props.moduloAtivo.somObj.comprimento; i++) {
-						mClasse ? prox.setAttribute('data-moduloClasse', mClasse) : prox.removeAttribute('data-moduloClasse')
-						mCor ? prox.setAttribute('data-moduloCor', mCor) : prox.removeAttribute('data-moduloCor')
-						prox.style.opacity = mOpacity
-						prox = prox.nextSibling
-					}
-				}
-			}
-		}
-	}
+	// 			// Insere ou remove
+	// 			if (vazio) {
+	// 				this.setState({
+	// 					mClasse: mClasse,
+	// 					mCor: mCor,
+	// 					mOpacity: mOpacity
+	// 				})
+	// 				prox = this.isso.nextSibling;
+	// 				for (let i = 1; i < this.props.moduloAtivo.somObj.comprimento; i++) {
+	// 					mClasse ? prox.setAttribute('data-moduloClasse', mClasse) : prox.removeAttribute('data-moduloClasse')
+	// 					mCor ? prox.setAttribute('data-moduloCor', mCor) : prox.removeAttribute('data-moduloCor')
+	// 					prox.style.opacity = mOpacity
+	// 					prox = prox.nextSibling
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
 
 	aoColocarMouse = (e) => {
 		if (this.props.moduloAtivo) {
@@ -118,13 +118,16 @@ export default class Modulo extends Component {
 			}
 
 			// Recebendo os dados
-			let mClasse = this.props.moduloAtivo.mClasse,
-			mCor = this.props.moduloAtivo.mCor,
-			mOpacity = 1
+			let somId = this.props.moduloAtivo.somObj.index,
+				mClasse = this.props.moduloAtivo.mClasse,
+				mCor = this.props.moduloAtivo.mCor,
+				mOpacity = 1
 
 			// Colocando os atributos
 			prox = e.target
+			
 			for (let i = 0; i < this.props.moduloAtivo.somObj.comprimento; i++) {
+				prox.setAttribute('data-somId', somId)
 				prox.setAttribute('data-moduloClasse', mClasse)
 				prox.setAttribute('data-moduloCor', mCor)
 				prox.setAttribute('data-parte', i)
