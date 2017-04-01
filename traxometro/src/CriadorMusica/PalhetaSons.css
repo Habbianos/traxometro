@@ -43,8 +43,8 @@
 	text-shadow: -1px 0px 0px black, 0px -1px 0px black, -1px -1px 0px black, 1px 0px 0px black, 0px 1px 0px black, 1px 1px 0px black;
 }
 .PalhetaSons > h1:hover > span {
-	display: none !important;
-	text-shadow: none !important;
+	display: none;
+	text-shadow: none;
 }
 .PalhetaSons > h1 > span {
 
