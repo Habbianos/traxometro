@@ -309,8 +309,8 @@ class Traxometro extends Component {
 	}
 
 	render() {
-		this.jukebox.inserir('1:4,12;3,2;9,2;5,2;2,2:2:0,2;4,8;7,2;0,2;6,1;8,1;4,4:3:0,4;4,8:4::')
-		this.jukebox.play()
+		//this.jukebox.inserir('1:4,12;3,2;9,2;5,2;2,2:2:0,2;4,8;7,2;0,2;6,1;8,1;4,4:3:0,4;4,8:4::')
+		//this.jukebox.play()
 		return (
 			<div className='Traxometro' onCopy={() => alert('O código da música foi copiado.')} onPaste={() => confirm('Código Trax reconhecido, deseja substituir a música atual?')}>
 				<div className='tocando-agora' onClick={() => document.querySelector('.tocando-agora').style.opacity = 0}>Ouvindo agora <span></span> por <span></span></div>
