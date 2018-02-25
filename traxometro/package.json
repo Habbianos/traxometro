@@ -1,7 +1,7 @@
 {
   "name": "traxometro",
   "version": "0.3.2",
-  "homepage": "https://alynva.github.io/Traxometro",
+  "homepage": "https://academiawired.github.io/Traxometro",
   "private": true,
   "dependencies": {
     "react": "^15.4.2",
