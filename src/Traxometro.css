@@ -1,6 +1,7 @@
 @font-face {
 	font-family: 'Volter';
-	src: url(./fonts/Volter_Goldfish.ttf);
+	/*src: url(./fonts/Volter_Goldfish.ttf);*/
+	src: url(./fonts/volter.ttf);
 }
 @font-face {
 	font-family: 'Volter';

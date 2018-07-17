@@ -16,9 +16,10 @@ body {
 	/*padding: 20vh 0;*/
 	/*padding: 50px;*/
 	font-family: sans-serif;
-	background-image: url(./imgs/fundo_appart732.gif);
+	/*background-image: url(./imgs/fundo_appart732.gif);*/
+	background-image: url(./imgs/Fundo-trax-pattern.gif);
 	background-position: center;
-	background-size: cover;
+	/*background-size: cover;*/
 }
 input[type="button"] {
 	outline: none;

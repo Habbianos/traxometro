@@ -22,7 +22,7 @@
 	height: 24px;
 	vertical-align: middle;
 	display: table-cell;
-	padding: 0 6px;
+	padding: 6px 6px 5px 6px;
 	text-align: center;
 }
 .PalhetaSons > h1:not(:empty) {
@@ -39,8 +39,8 @@
 	top: 7px;
 	left: 0;
 	right: 0;
-	font-size: 6pt;
-	text-shadow: -1px 0px 0px black, 0px -1px 0px black, -1px -1px 0px black, 1px 0px 0px black, 0px 1px 0px black, 1px 1px 0px black;
+	font-size: 9px;
+	/*text-shadow: -1px 0px 0px black, 0px -1px 0px black, -1px -1px 0px black, 1px 0px 0px black, 0px 1px 0px black, 1px 1px 0px black;*/
 }
 .PalhetaSons > h1:hover > span {
 	display: none;
@@ -54,9 +54,9 @@
 	padding-left: 1px;
 	white-space: nowrap;
 	text-overflow: ellipsis;
-	line-height: 23px;
-	font-size: 6pt;
-	text-shadow: -1px 0px 0px black, 0px -1px 0px black, -1px -1px 0px black, 1px 0px 0px black, 0px 1px 0px black, 1px 1px 0px black;
+	/*line-height: 23px;*/
+	font-size: 9px;
+	/*text-shadow: -1px 0px 0px black, 0px -1px 0px black, -1px -1px 0px black, 1px 0px 0px black, 0px 1px 0px black, 1px 1px 0px black;*/
 }
 .PalhetaSons > ul {
 	font-size: 0;
