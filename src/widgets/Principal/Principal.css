@@ -1,7 +1,7 @@
 .Principal {
 	width: 229px;
 	height: 114px;
-	background-image: url(./../imgs/main-window.png);
+	background-image: url(./../../imgs/main-window.png);
 	background-repeat: no-repeat;
 	margin: 0 auto;
 	padding: 5px 6px 5px 4px;
@@ -10,7 +10,7 @@
 	position: relative;
 	text-align: center;
 	border-radius: 10px 10px 0 0;
-	background-image: url(./../imgs/header-background-light.png);
+	background-image: url(./../../imgs/header-background-light.png);
 	height: 15px;
 }
 .Principal .cabecalho h1 {
@@ -28,7 +28,7 @@
 	width: 13px;
 	height: 13px;
 	border: 1px solid #4b95a9;
-	background-image: url(./../imgs/button-close-light.png);
+	background-image: url(./../../imgs/button-close-light.png);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-color: #4b95a9;
@@ -38,7 +38,7 @@
 	height: 75px;
 	margin: 7px auto;
 	padding: 6px;
-	background-image: url(./../imgs/main-area.png);
+	background-image: url(./../../imgs/main-area.png);
 }
 .Principal button {
 	color: black;
@@ -48,5 +48,5 @@
 	height: 23px;
 	margin: 5px auto;
 	padding: 5px;
-	background-image: url(./../imgs/main-button.png);
+	background-image: url(./../../imgs/main-button.png);
 }

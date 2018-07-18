@@ -12,7 +12,7 @@
 	height: 100px;
 	margin-bottom: 7px;
 	padding: 5px;
-	background-image: url(./../imgs/playlist-background.png);
+	background-image: url(./../../imgs/playlist-background.png);
 }
 .ListaDeReproducao .salvar {
 	color: #eee;
@@ -21,8 +21,8 @@
 	height: 23px;
 	margin: 0 auto;
 	border: 5px transparent solid;
-	border-image: url(./../imgs/button.png) 5 repeat;
-	/*background-image: url(./../imgs/button.png);*/
+	border-image: url(./../../imgs/button.png) 5 repeat;
+	/*background-image: url(./../../imgs/button.png);*/
 	background-color: #5e9195;
 	background-clip: padding-box;
 }

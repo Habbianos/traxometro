@@ -6,7 +6,7 @@
 	margin: 0 auto;
     border: 6px solid transparent;
     background-origin: padding-box;
-    border-image: url(./../imgs/timeline.png) 6 round;
+    border-image: url(./../../imgs/timeline.png) 6 round;
     background: linear-gradient(hsl(196, 18%, 45%), hsl(196, 18%, 45%)) 0 0 / 100% no-repeat;
     font-size: 0;
     padding-left: 12px;

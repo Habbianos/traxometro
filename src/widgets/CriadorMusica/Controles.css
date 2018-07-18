@@ -10,18 +10,18 @@
 }
 
 .Controles .reproduzirPausar {
-	background-image: url(./../imgs/play.png);
+	background-image: url(./../../imgs/play.png);
 }
 .Controles .parar {
-	background-image: url(./../imgs/stop.png);
+	background-image: url(./../../imgs/stop.png);
 }
 .Controles .salvar {
 	display: none;
-	background-image: url(./../imgs/save.png);
+	background-image: url(./../../imgs/save.png);
 }
 .Controles .abrir {
 	display: none;
-	background-image: url(./../imgs/open.png);
+	background-image: url(./../../imgs/open.png);
 }
 .Controles .reproduzirPausar, .Controles .parar, .Controles .salvar, .Controles .abrir {
 	width: 56px;
@@ -32,7 +32,7 @@
 	background-position: -112px 0;
 }
 .Controles .limpar {
-	background-image: url(./../imgs/clear.png);
+	background-image: url(./../../imgs/clear.png);
 	width: 36px;
 	height: 23px;
 	margin-right: 5px;
@@ -41,10 +41,10 @@
 	background-position: -72px 0;
 }
 .Controles .moveEsquerda {
-	background-image: url(./../imgs/moveLeft.png);
+	background-image: url(./../../imgs/moveLeft.png);
 }
 .Controles .moveDireita {
-	background-image: url(./../imgs/moveRight.png);
+	background-image: url(./../../imgs/moveRight.png);
 }
 .Controles .moveEsquerda, .Controles .moveDireita {
 	width: 19px;

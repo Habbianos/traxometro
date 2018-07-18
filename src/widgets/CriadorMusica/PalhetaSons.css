@@ -1,7 +1,7 @@
 .palhetas-de-sons {
 	margin-left: 4px;
 	white-space: nowrap;
-	background-image: url(./../imgs/palhetas.png);
+	background-image: url(./../../imgs/palhetas.png);
 	padding-left: 4px;
 	position: relative;
 	overflow: hidden;
@@ -15,7 +15,7 @@
 	display: inline-block;
 	white-space: normal;
 	vertical-align: top;
-	background-image: url(./../imgs/palheta.png);
+	background-image: url(./../../imgs/palheta.png);
 }
 .PalhetaSons > h1 {
 	width: 97px;
@@ -27,11 +27,11 @@
 }
 .PalhetaSons > h1:not(:empty) {
 	cursor: pointer;
-	background-image: url(./../imgs/palheta-header.png);
+	background-image: url(./../../imgs/palheta-header.png);
 	position: relative;
 }
 .PalhetaSons > h1:empty {
-	background-image: url(./../imgs/palheta-no-header.png);
+	background-image: url(./../../imgs/palheta-no-header.png);
 }
 .PalhetaSons > h1:not(:empty):hover:after {
 	content: 'Ejetar';
@@ -72,7 +72,7 @@
 	padding: 2px 2px 2px 2px;
 	margin-left: -1px;
 	margin-bottom: -1px;
-	background-image: url(./../imgs/palheta-piker.png);
+	background-image: url(./../../imgs/palheta-piker.png);
 	background-repeat: no-repeat;
 }
 .PalhetaSons > ul > li > i {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './../modulos-e-cores.css'
+import './../../modulos-e-cores.css'
 
 export default class Modulo extends Component {
 

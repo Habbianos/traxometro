@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './PalhetaSons.css';
-import './../modulos-e-cores.css';
+import './../../modulos-e-cores.css';
 
 class PalhetaSons extends Component {
 	constructor(props) {

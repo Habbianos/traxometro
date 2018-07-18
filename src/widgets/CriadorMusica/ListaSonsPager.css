@@ -1,17 +1,17 @@
 .ListaSonsPager {
-	background-image: url(./../imgs/pager-background.png);
+	background-image: url(./../../imgs/pager-background.png);
 	width: 74px;
 	height: 24px;
 	margin: 0 auto;
 	padding: 2px 8px 6px 8px;
 }
 .ListaSonsPager input:first-of-type {
-	background-image: url(./../imgs/pager-left.png);
+	background-image: url(./../../imgs/pager-left.png);
     width: 10px;
     height: 16px;
 }
 .ListaSonsPager input:last-of-type {
-	background-image: url(./../imgs/pager-right.png);
+	background-image: url(./../../imgs/pager-right.png);
 	width: 10px;
 	height: 16px;
 }
