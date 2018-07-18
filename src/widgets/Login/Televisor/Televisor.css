@@ -1,0 +1,24 @@
+.Televisor {
+	position: relative;
+	width: 988px;
+	height: 484px;
+	background-image: url(./../../../imgs/vista_hotel.png);
+	background-repeat: no-repeat;
+	background-position: center calc(50% - 8px);
+	display: block;
+	margin: 5vh auto;
+	border: 1px solid transparent;
+	border-image-source: url(./../../../imgs/televisor.png);
+	border-image-repeat: repeat;
+	border-image-width: auto;
+	border-image-slice: 68;
+}
+.Televisor::after {
+	content: '';
+	position: absolute;
+	left: 67px;
+	top: 67px;
+	width: 852px;
+	height: 348px;
+	background: url(./../../../imgs/televisor-glass.png);
+}

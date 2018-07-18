@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import * as firebase from "firebase";
-require("firebase/firestore");
+// import * as firebase from "firebase";
+// require("firebase/firestore");
 import "./Traxometro.css";
+import Login from "./widgets/Login/Login";
 import Principal from "./widgets/Principal/Principal";
 import MudarLista from "./widgets/MudarLista/MudarLista";
 import CriadorMusica from "./widgets/CriadorMusica/CriadorMusica";
@@ -12,10 +13,11 @@ class Traxometro extends Component {
 	    super(props);
 
 		this.state = {
-			pagina: 'principal',
+			pagina: 'login'
 		};
 
 		this.paginas = {
+			'login': <Login mudarPagina={this.mudarPagina} />,
 			'principal': <Principal mudarPagina={this.mudarPagina} />,
 			'mudarLista': <MudarLista mudarPagina={this.mudarPagina} />,
 			'criadorMusica': <CriadorMusica mudarPagina={this.mudarPagina} />

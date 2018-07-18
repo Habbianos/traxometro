@@ -8,18 +8,20 @@
 	src: url('./fonts/Volter-Bold_Goldfish.ttf');
 	font-weight: bold;
 }
-.Traxometro {
-	overflow: auto;
+.Traxometro, .Traxometro > * {
 	width: 100vw;
 	height: 100vh;
 }
-.Traxometro > *:not(.tocando-agora) {
+.Traxometro > * {
+	overflow: auto;
+}
+/*.Traxometro > *:not(.tocando-agora) {
 	margin: 0 auto;
 	position: relative;
 	z-index: 1;
 	top: 50%;
 	transform: translateY(-50%);
-}
+}*/
 .Traxometro * {
 	outline: none;
 	font-family: 'Volter', monospace;
