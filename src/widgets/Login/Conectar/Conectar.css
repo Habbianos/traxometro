@@ -1,0 +1,22 @@
+.Conectar {
+	position: absolute;
+	right: 6vw;
+	top: calc(6vw + 100px);
+}
+.Conectar > main > form > span {
+	float: right;
+	display: inline-block;
+	width: 70px;
+	text-align: right;
+	margin-top: 4px;
+}
+.Conectar > main > form > label > input:not([type="submit"]) {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.Conectar > main > form > input[type="submit"] {
+	display: inherit;
+}
+.Conectar > footer {
+	font-weight: bold;
+}

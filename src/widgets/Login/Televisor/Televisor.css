@@ -13,7 +13,8 @@
 	border-image-width: auto;
 	border-image-slice: 68;
 }
-.Televisor::after {
+.Televisor::before {
+	z-index: 0;
 	content: '';
 	position: absolute;
 	left: 67px;
@@ -21,4 +22,7 @@
 	width: 852px;
 	height: 348px;
 	background: url(./../../../imgs/televisor-glass.png);
+}
+.Televisor > * {
+	z-index: 1;
 }

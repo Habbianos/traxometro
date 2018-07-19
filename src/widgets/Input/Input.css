@@ -1,0 +1,25 @@
+input {
+	text-align: center;
+}
+
+input.grande {
+	width: 165px;
+	height: 34px;
+	padding: 4px;
+	border: 1px solid transparent;
+	border-image-source: url(./../../imgs/widgets/input-grande_borda.png);
+	border-image-repeat: repeat;
+	border-image-width: auto;
+	border-image-slice: 12;
+	font-size: 18px;
+}
+
+input[type="submit"] {
+	font-weight: bold;
+	padding: 2px 7px;
+	border: 6px solid transparent;
+	border-image-source: url(./../../imgs/widgets/input-submit_borda.png);
+	border-image-repeat: repeat;
+	border-image-width: auto;
+	border-image-slice: 6;
+}

@@ -1,0 +1,34 @@
+.Caixa {
+	width: max-content;
+	background-image: url(./../../imgs/widgets/caixa-azul-fundo_fundo.png);
+	background-clip: padding-box;
+	border: 15px solid transparent;
+	border-top-width: 9px;
+	border-left-width: 12px;
+	border-image-source: url(./../../imgs/widgets/caixa-azul-fundo_borda.png);
+	border-image-repeat: repeat;
+	border-image-width: auto;
+	border-image-slice: 15;
+}
+.Caixa > * {
+	text-align: center;
+}
+.Caixa > header {
+	font-weight: bold;
+	color: #fff;
+	margin-bottom: 6px;
+}
+.Caixa > main {
+	padding: 10px 9px 10px 8px;
+	background-image: url(./../../imgs/widgets/caixa-azul-corpo_fundo.png);
+	background-clip: padding-box;
+	border: 3px solid transparent;
+	border-image-source: url(./../../imgs/widgets/caixa-azul-corpo_borda.png);
+	border-image-repeat: repeat;
+	border-image-width: auto;
+	border-image-slice: 6;
+}
+.Caixa > footer {
+	padding-top: 4px;
+	padding-bottom: 2px;
+}

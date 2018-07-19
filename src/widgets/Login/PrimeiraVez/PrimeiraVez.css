@@ -1,0 +1,12 @@
+.PrimeiraVez {
+	position: absolute;
+	right: 6vw;
+	top: 6vw;
+}
+.PrimeiraVez > main {
+	font-weight: bold;
+	padding: 10px 7px 10px 6px !important;
+}
+.PrimeiraVez > main > span {
+	margin: 7px 0;
+}
