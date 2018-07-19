@@ -13,27 +13,27 @@ class Traxometro extends Component {
 	    super(props);
 
 		this.state = {
-			pagina: 'login'
+			cena: 'login'
 		};
 
-		this.paginas = {
-			'login': <Login mudarPagina={this.mudarPagina} />,
-			'principal': <Principal mudarPagina={this.mudarPagina} />,
-			'mudarLista': <MudarLista mudarPagina={this.mudarPagina} />,
-			'criadorMusica': <CriadorMusica mudarPagina={this.mudarPagina} />
+		this.cenas = {
+			'login': <Login mudarCena={this.mudarCena} />,
+			'principal': <Principal mudarCena={this.mudarCena} />,
+			'mudarLista': <MudarLista mudarCena={this.mudarCena} />,
+			'criadorMusica': <CriadorMusica mudarCena={this.mudarCena} />
 		};
 	}
 
-	mudarPagina = (nova_pagina) => {
+	mudarCena = (nova_cena) => {
 		this.setState({
-			pagina: nova_pagina
+			cena: nova_cena
 		});
 	}
 
 	render() {
 		return (
 			<div className='Traxometro'>
-				{ this.paginas[this.state.pagina] }
+				{ this.cenas[this.state.cena] }
 			</div>
 		);
 	}
