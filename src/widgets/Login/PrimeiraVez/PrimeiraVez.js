@@ -8,7 +8,7 @@ export default class PrimeiraVez extends Component {
 			<div className="PrimeiraVez Caixa">
 				<header>Primeira vez aqui?</header>
 				<main>
-					<span>Não tem conta ainda?<br/><a href="#">Você pode criar uma aqui</a></span>
+					<span>Ainda não tem conta?<br/><a href="#">Você pode criar uma aqui</a></span>
 				</main>
 			</div>
 		)
