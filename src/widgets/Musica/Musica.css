@@ -1,0 +1,83 @@
+.Musica {
+	position: absolute;
+	left: 3.5vw;
+	bottom: 6vw;
+}
+.Musica > button {
+	vertical-align: bottom;
+	font-size: 0;
+	width: 38px;
+	height: 38px;
+	background-image: url(imgs/musica_botao_fundo.png);
+	background-position: -38px 0;
+}
+.Musica > button.min {
+	background-position: 0;
+}
+.Musica > button.max {
+	background-position: -76px 0;
+}
+.Musica > div {
+    width: 128px;
+    height: 20px;
+    padding: 7px 8px 8px 9px;
+    box-sizing: content-box;
+    background-image: url(imgs/image 875.png);
+    clip: rect(0px, 145px, 35px, 145px);
+    position: absolute;
+    z-index: -1;
+    bottom: 2px;
+    left: -113px;
+    transition: clip .6s, left .5s; /* OUT */
+}
+.Musica:hover > div,
+.Musica:active > div {
+    transition: clip .4s, left .5s; /* IN */
+    clip: rect(0px,145px,35px,0px);
+    left: 46px;
+}
+.Musica > div > input[type=range] {
+
+	-webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+	width: 128px; /* Specific width is required for Firefox. */
+	background: transparent; /* Otherwise white in Chrome */
+}
+
+.Musica > div > input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 12px;
+	height: 15px;
+	background-image: url(imgs/image 897.png);
+}
+.Musica > div > input[type=range]::-moz-range-thumb,
+.Musica > div > input[type=range]::-ms-thumb {
+	width: 12px;
+	height: 15px;
+	background-image: url(imgs/image 897.png);
+}
+
+.Musica > div > input[type=range]:focus {
+	outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+.Musica > div > input[type=range]::-ms-track {
+	width: 128px;
+	cursor: pointer;
+
+	/* Hides the slider so custom styles can be added */
+	background: transparent; 
+	border-color: transparent;
+	color: transparent;
+}
+.Musica > div > input[type=range]::-moz-range-track,
+.Musica > div > input[type=range]::-ms-fill-upper {
+	width: 128px;
+	height: 20px;
+	background-image: url(imgs/image 17.png);
+}
+.Musica > div > input[type=range]::-webkit-slider-runnable-track {
+	padding-top: 10px;
+	width: 128px;
+	height: 20px;
+	background-image: url(imgs/image 17.png);
+}
