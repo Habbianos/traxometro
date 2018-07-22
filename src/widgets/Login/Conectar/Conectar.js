@@ -13,13 +13,13 @@ export default class Conectar extends Component {
 						<label>
 							Nome do seu usuário
 							<br/>
-							<input type="text" className="grande" />
+							<input type="text" className="grande" autoComplete="nickname" required />
 						</label>
 						<br/>
 						<label>
 							Senha
 							<br/>
-							<input type="password" className="grande" />
+							<input type="password" className="grande" autoComplete="current-password" required />
 						</label>
 						<br/>
 						<span><a href="#">Esqueceu sua senha?</a></span>
