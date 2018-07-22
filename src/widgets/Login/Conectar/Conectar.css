@@ -17,6 +17,9 @@
 .Conectar > main > form > input[type="submit"] {
 	display: inherit;
 }
+.Conectar > main input {
+	text-align: center;
+}
 .Conectar > footer {
 	font-weight: bold;
 }

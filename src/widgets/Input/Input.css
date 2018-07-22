@@ -1,16 +1,42 @@
-input {
-	text-align: center;
+input[type=text],
+input[type=password],
+input[type=e-mail] {
+	cursor: auto !important;
+	min-width: 96px;
+	height: 17px;
+	padding: 1px 6px 0 6px;
+	border: 1px solid transparent;
+	border-image-source: url(./imgs/input_borda.png);
+	border-image-repeat: repeat;
+	border-image-width: auto;
+	border-image-slice: 5;
 }
-
+input[type=checkbox] {
+	appearance: none;
+	width: 12px;
+	height: 12px;
+	background-image: url(./imgs/input-checkbox_bg.png);
+}
+input[type=checkbox]:checked {
+	background-position-x: -12px;
+}
+input[type=button] {
+	font-weight: bold;
+	background-image: url(./imgs/input-btn_fundo.png);
+	background-clip: padding-box;
+	padding: 2px 9px 2px 7px;
+	border: 2px solid transparent;
+	border-image-source: url(./imgs/input-btn_borda.png);
+	border-image-repeat: repeat;
+	border-image-width: auto;
+	border-image-slice: 4;
+}
 input.grande {
+	border-image-source: url(./../../imgs/widgets/input-grande_borda.png);
+	border-image-slice: 12;
 	width: 165px;
 	height: 34px;
 	padding: 4px;
-	border: 1px solid transparent;
-	border-image-source: url(./../../imgs/widgets/input-grande_borda.png);
-	border-image-repeat: repeat;
-	border-image-width: auto;
-	border-image-slice: 12;
 	font-size: 18px;
 }
 

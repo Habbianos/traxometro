@@ -1,0 +1,58 @@
+.Cadastro {
+	position: absolute;
+	right: 6vw;
+	top: 8vw;
+	width: 307px;
+}
+.Cadastro > main {
+	text-align: left;
+	padding-top: 20px;
+	padding-right: 13px;
+	padding-left: 13px;
+}
+.Cadastro > main > form label > span {
+	display: inline-block;
+	margin-left: 5px;
+	margin-bottom: 2px;
+}
+.Cadastro > main > form label {
+	display: inline-block;
+	margin-bottom: 11px;
+}
+.Cadastro > main > form > label > input[type=text] {
+	width: 97px;
+}
+.Cadastro > main > form > label > input[type=e-mail] {
+	width: 248px;
+}
+.Cadastro > main > form label > input[type=password] {
+	width: 117px;
+}
+.Cadastro > main > form > div {
+	display: flex;
+}
+.Cadastro > main > form > div > div {
+	flex: 50%;
+}
+.Cadastro > main > form > div > div:nth-child(2) > label {
+	float: right;
+}
+.Cadastro > main > form > label:nth-child(5) {
+	margin-top: 10px;
+}
+.Cadastro > main > form > label > input[type=checkbox] {
+	margin-right: 10px;
+}
+.Cadastro > main > h6 {
+	text-align: center;
+	font-weight: normal;
+	margin-bottom: 10px;
+}
+.Cadastro > main > h6 > a {
+	color: #9a0202;
+}
+.Cadastro > footer > span {
+	color: white;
+	font-weight: bold;
+	line-height: 16px;
+}

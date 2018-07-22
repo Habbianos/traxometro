@@ -16,7 +16,44 @@
 .Caixa > header {
 	font-weight: bold;
 	color: #fff;
-	margin-bottom: 6px;
+	margin: -4px -9px 8px -8px;
+	padding-top: 5px;
+	height: 16px;
+}
+.Caixa > header > buttom {
+	display: inline-block;
+	font-size: 0;
+	width: 12px;
+	height: 12px;
+	background-image: url(./imgs/button-close-light.png);
+	cursor: pointer;
+	position: absolute;
+	right: 0px;
+	top: -3px;
+}
+.Caixa > header > buttom ~ h1:before,
+.Caixa > header > buttom ~ h1:after {
+	background-image: url(./imgs/header_bg_dots.png);
+}
+.Caixa > header > h1 {
+	display: flex;
+}
+.Caixa > header > h1:before,
+.Caixa > header > h1:after {
+	content: 'dots';
+	color: transparent;
+	display: inline-block;
+	height: 16px;
+	flex-grow: 1;
+	margin-top: -5px;
+}
+.Caixa > header > h1:before {
+	border-top-left-radius: 10px;
+	margin-right: 6px;
+}
+.Caixa > header > h1:after {
+	border-top-right-radius: 10px;
+	margin-left: 6px;
 }
 .Caixa > main {
 	padding: 10px 9px 10px 8px;
@@ -31,4 +68,10 @@
 .Caixa > footer {
 	padding-top: 4px;
 	padding-bottom: 2px;
+}
+.Caixa > footer > input:first-child {
+	float: left;
+}
+.Caixa > footer > input:last-child {
+	float: right;
 }
