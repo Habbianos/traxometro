@@ -6,6 +6,8 @@ import PrimeiraVez from "./PrimeiraVez/PrimeiraVez";
 import Conectar from "./Conectar/Conectar";
 import Cadastro from "./Cadastro/Cadastro";
 
+import habbo_theme_song from "./../../audios/habbo_theme_song.mp3";
+
 export default class Login extends Component {
 	constructor(props) {
 		super(props);
@@ -25,7 +27,7 @@ export default class Login extends Component {
 			case "cadastro":
 				televisor = (
 					<Televisor>
-						<Musica src="./../../audios/habbo_theme_song.mp3" />
+						<Musica src={ habbo_theme_song } />
 						<Cadastro mudarCena={ this.mudarCena.bind(this) } />
 					</Televisor>
 				);
@@ -35,7 +37,7 @@ export default class Login extends Component {
 			default:
 				televisor = (
 					<Televisor>
-						<Musica src="./../../audios/habbo_theme_song.mp3" />
+						<Musica src={ habbo_theme_song } />
 						<PrimeiraVez mudarCena={ this.mudarCena.bind(this) } />
 						<Conectar />
 					</Televisor>
