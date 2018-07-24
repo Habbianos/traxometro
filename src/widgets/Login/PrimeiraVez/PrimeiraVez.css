@@ -10,3 +10,7 @@
 .PrimeiraVez > main > span {
 	margin: 7px 0;
 }
+.PrimeiraVez > main > button {
+	text-decoration: underline;
+	font-weight: bold;
+}

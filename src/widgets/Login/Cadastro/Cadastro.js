@@ -75,7 +75,7 @@ export default class Cadastro extends Component {
 							Eu sei, o Traxômetro não é da Sulake
 						</label>
 					</form>
-					<h6><a href="#">Regras do Traxômetro - leia-as agora!</a></h6>
+					<button type="button">Regras do Traxômetro - leia-as agora!</button>
 				</main>
 				<footer>
 					<input type="button" value="Voltar" onClick={ this.voltar.bind(this) } />

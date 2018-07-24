@@ -22,11 +22,11 @@ export default class Conectar extends Component {
 							<input type="password" className="grande" autoComplete="current-password" required />
 						</label>
 						<br/>
-						<span><a href="#">Esqueceu sua senha?</a></span>
+						<button type="button">Esqueceu sua senha?</button>
 						<input type="submit" value="ENTRAR"/>
 					</form>
 				</main>
-				<footer><a href="#">Entrar anônimo</a></footer>
+				<footer><button type="button">Entrar anônimo</button></footer>
 			</div>
 		)
 	}

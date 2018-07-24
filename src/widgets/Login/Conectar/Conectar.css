@@ -3,7 +3,8 @@
 	right: 6vw;
 	top: calc(6vw + 100px);
 }
-.Conectar > main > form > span {
+.Conectar > main > form > button {
+	text-decoration: underline;
 	float: right;
 	display: inline-block;
 	width: 70px;
@@ -20,6 +21,7 @@
 .Conectar > main input {
 	text-align: center;
 }
-.Conectar > footer {
+.Conectar > footer > button {
+	text-decoration: underline;
 	font-weight: bold;
 }

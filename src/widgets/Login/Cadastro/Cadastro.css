@@ -43,13 +43,12 @@
 .Cadastro > main > form > label > input[type=checkbox] {
 	margin-right: 10px;
 }
-.Cadastro > main > h6 {
-	text-align: center;
+.Cadastro > main > button {
+	text-decoration: underline;
+	color: #9a0202;
+	width: 100%;
 	font-weight: normal;
 	margin-bottom: 10px;
-}
-.Cadastro > main > h6 > a {
-	color: #9a0202;
 }
 .Cadastro > footer > span {
 	color: white;

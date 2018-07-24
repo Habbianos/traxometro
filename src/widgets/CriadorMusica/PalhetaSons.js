@@ -7,28 +7,38 @@ class PalhetaSons extends Component {
 		super(props)
 
 		this.state = {
-			cor: this.props.cor || 1
+			cor: this.props.cor || 1,
+			cartucho: this.props.children || {}
 		}
 
 		this.previa = new Audio()
 		this.previa.loop = true
 	}
+	componentWillReceiveProps(nextProps) {
+		if (this.state.cartucho !== nextProps.children) {
+			this.setState({
+				cartucho: nextProps.children || {}
+			});
+		}
+	}
 
 	previaSom(i = null) {
 		if (this.state.cartucho.id) {
 			if (i !== null && this.state.cartucho.sons[i].arquivo !== "") {
-				if (this.props.tocarPausarLista(true)) {
-					this.props.tocarPausarLista()
-					this.previa.pausouPrincipal = true
-				}
+				// Traxometro não tem mais tocarPausarLista()
+				// if (this.props.tocarPausarLista(true)) {
+				// 	this.props.tocarPausarLista()
+				// 	this.previa.pausouPrincipal = true
+				// }
 				this.previa.src = process.env.PUBLIC_URL+"/audios/"+this.state.cartucho.sons[i].arquivo
 				this.previa.load()
 				this.previa.play()
 			} else {
-				if (!this.props.tocarPausarLista(true) && this.previa.pausouPrincipal) {
-					this.props.tocarPausarLista()
-					this.previa.pausouPrincipal = false
-				}
+				// Traxometro não tem mais tocarPausarLista()
+				// if (!this.props.tocarPausarLista(true) && this.previa.pausouPrincipal) {
+				// 	this.props.tocarPausarLista()
+				// 	this.previa.pausouPrincipal = false
+				// }
 				this.previa.pause()
 				this.previa.src = ""
 			}
@@ -50,11 +60,6 @@ class PalhetaSons extends Component {
 	}
 
 	render() {
-		this.state = {
-			cor: this.state.cor,
-			cartucho: this.props.children || {}
-		};
-
 		return (
 			<div className="PalhetaSons">
 				<h1
