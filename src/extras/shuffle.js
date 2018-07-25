@@ -1,4 +1,4 @@
-function shuffle(array) {
+export default function shuffle(array) {
 	var m = array.length, t, i;
 
 	// While there remain elements to shuffle…

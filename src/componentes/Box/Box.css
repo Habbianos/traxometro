@@ -21,7 +21,7 @@
 	padding-top: 5px;
 	height: 16px;
 }
-.Caixa > header > buttom {
+.Caixa > header > button {
 	display: inline-block;
 	font-size: 0;
 	width: 12px;
@@ -32,8 +32,8 @@
 	right: 9px;
 	top: 1px;
 }
-.Caixa > header > buttom ~ h1:before,
-.Caixa > header > buttom ~ h1:after {
+.Caixa > header > button ~ h1:before,
+.Caixa > header > button ~ h1:after {
 	background-image: url(./imgs/header_bg_dots.png);
 }
 .Caixa > header > h1 {

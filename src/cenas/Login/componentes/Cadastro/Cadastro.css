@@ -50,6 +50,21 @@
 	font-weight: normal;
 	margin-bottom: 10px;
 }
+.Cadastro > main > form > fieldset > select {
+	margin-bottom: 10px;
+}
+.Cadastro > main > form > fieldset > span:nth-child(6) {
+	width: fit-content;
+	display: block;
+	margin: 0 auto;
+}
+.Cadastro > main > form > fieldset > label > img {
+    vertical-align: middle;
+    margin-left: 5px;
+}
+.Cadastro > main > form > fieldset > button {
+	text-decoration: underline;
+}
 .Cadastro > footer > span {
 	color: white;
 	font-weight: bold;

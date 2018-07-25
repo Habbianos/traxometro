@@ -13,7 +13,7 @@ export default class Login extends Component {
 		super(props);
 
 		this.state = {
-			cena: 'entrar', // cadastro
+			cena: 'entrar', // entrar, cadastro
 			janelas: []
 		}
 	}

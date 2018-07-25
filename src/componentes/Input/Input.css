@@ -49,3 +49,7 @@ input[type="submit"] {
 	border-image-width: auto;
 	border-image-slice: 6;
 }
+input:disabled {
+	background-color: rgba(0, 0, 0, .4);
+	color: black;
+}
