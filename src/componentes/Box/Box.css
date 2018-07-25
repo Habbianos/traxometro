@@ -14,6 +14,7 @@
 	text-align: center;
 }
 .Caixa > header {
+	position: relative;
 	font-weight: bold;
 	color: #fff;
 	margin: -4px -9px 8px -8px;
@@ -28,8 +29,8 @@
 	background-image: url(./imgs/button-close-light.png);
 	cursor: pointer;
 	position: absolute;
-	right: 0px;
-	top: -3px;
+	right: 9px;
+	top: 1px;
 }
 .Caixa > header > buttom ~ h1:before,
 .Caixa > header > buttom ~ h1:after {

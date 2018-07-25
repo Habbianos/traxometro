@@ -5,6 +5,7 @@
 	background-image: url(./imgs/vista_hotel.png);
 	background-repeat: no-repeat;
 	background-position: center calc(50% - 8px);
+	background-origin: border-box;
 	display: block;
 	margin: 5vh auto;
 	border: 1px solid transparent;
@@ -12,17 +13,19 @@
 	border-image-repeat: repeat;
 	border-image-width: auto;
 	border-image-slice: 68;
+	border-width: 19px 14px 34px 14px;
 }
 .Televisor::before {
 	z-index: 0;
 	content: '';
 	position: absolute;
-	left: 67px;
-	top: 67px;
+	left: 54px;
+	top: 49px;
 	width: 852px;
 	height: 348px;
 	background: url(./imgs/televisor-glass.png);
 }
 .Televisor > * {
 	z-index: 1;
+	position: relative;
 }

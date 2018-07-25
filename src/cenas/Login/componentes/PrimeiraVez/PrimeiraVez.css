@@ -1,7 +1,7 @@
 .PrimeiraVez {
 	position: absolute;
-	right: 50px;
-	top: 70px;
+	right: 35px;
+	top: 50px;
 }
 .PrimeiraVez > main {
 	font-weight: bold;
