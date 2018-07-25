@@ -6,7 +6,6 @@
 .Conectar > main > form > button {
 	text-decoration: underline;
 	float: right;
-	display: inline-block;
 	width: 70px;
 	text-align: right;
 	margin-top: 4px;
