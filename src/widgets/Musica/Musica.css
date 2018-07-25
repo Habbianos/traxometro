@@ -1,7 +1,7 @@
 .Musica {
 	position: absolute;
-	left: 3.5vw;
-	bottom: 6vw;
+	left: 25px;
+	bottom: 45px;
 }
 .Musica > button {
 	vertical-align: bottom;
