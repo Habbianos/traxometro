@@ -8,7 +8,7 @@
 	font-size: 0;
 	width: 38px;
 	height: 38px;
-	background-image: url(imgs/musica_botao_fundo.png);
+	background-image: url(./imgs/musica_botao_fundo.png);
 	background-position: -38px 0;
 }
 .Musica > button.min {
@@ -22,7 +22,7 @@
     height: 20px;
     padding: 7px 8px 8px 9px;
     box-sizing: content-box;
-    background-image: url(imgs/image_875.png);
+    background-image: url(./imgs/image_875.png);
     clip: rect(0px, 145px, 35px, 145px);
     position: absolute;
     z-index: -1;
@@ -47,13 +47,13 @@
 	appearance: none;
 	width: 12px;
 	height: 15px;
-	background-image: url(imgs/image_897.png);
+	background-image: url(./imgs/image_897.png);
 }
 .Musica > div > input[type=range]::-moz-range-thumb,
 .Musica > div > input[type=range]::-ms-thumb {
 	width: 12px;
 	height: 15px;
-	background-image: url(imgs/image_897.png);
+	background-image: url(./imgs/image_897.png);
 }
 
 .Musica > div > input[type=range]:focus {
@@ -73,11 +73,11 @@
 .Musica > div > input[type=range]::-ms-fill-upper {
 	width: 128px;
 	height: 20px;
-	background-image: url(imgs/image_17.png);
+	background-image: url(./imgs/image_17.png);
 }
 .Musica > div > input[type=range]::-webkit-slider-runnable-track {
 	padding-top: 10px;
 	width: 128px;
 	height: 20px;
-	background-image: url(imgs/image_17.png);
+	background-image: url(./imgs/image_17.png);
 }

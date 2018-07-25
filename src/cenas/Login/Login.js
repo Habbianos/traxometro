@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import "./Login.css";
-import Televisor from './Televisor/Televisor';
-import Musica from './../Musica/Musica';
-import PrimeiraVez from "./PrimeiraVez/PrimeiraVez";
-import Conectar from "./Conectar/Conectar";
-import Cadastro from "./Cadastro/Cadastro";
+import Televisor from './componentes/Televisor/Televisor';
+import Musica from './componentes/Musica/Musica';
+import PrimeiraVez from "./componentes/PrimeiraVez/PrimeiraVez";
+import Conectar from "./componentes/Conectar/Conectar";
+import Cadastro from "./componentes/Cadastro/Cadastro";
 
-import habbo_theme_song from "./../../audios/habbo_theme_song.mp3";
+import habbo_theme_song from "./audios/habbo_theme_song.mp3";
 
 export default class Login extends Component {
 	constructor(props) {

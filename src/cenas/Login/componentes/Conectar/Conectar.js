@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "./Conectar.css";
-import "./../../Box/Box.css";
-import "./../../Input/Input.css";
+import "./../../../../componentes/Box/Box.css";
+import "./../../../../componentes/Input/Input.css";
 
 export default class Conectar extends Component {
 	render() {

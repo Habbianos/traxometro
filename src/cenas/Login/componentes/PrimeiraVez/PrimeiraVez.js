@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./PrimeiraVez.css";
-import "./../../Box/Box.css";
+import "./../../../../componentes/Box/Box.css";
 
 export default class PrimeiraVez extends Component {
 	render() {

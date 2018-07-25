@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "./Cadastro.css";
-import "./../../Box/Box.css";
-import "./../../Input/Input.css";
+import "./../../../../componentes/Box/Box.css";
+import "./../../../../componentes/Input/Input.css";
 
 export default class Cadastro extends Component {
 	constructor(props) {

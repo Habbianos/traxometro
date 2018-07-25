@@ -2,10 +2,10 @@ import React, { Component } from "react";
 // import * as firebase from "firebase";
 // require("firebase/firestore");
 import "./Traxometro.css";
-import Login from "./widgets/Login/Login";
-import Principal from "./widgets/Principal/Principal";
-import MudarLista from "./widgets/MudarLista/MudarLista";
-import CriadorMusica from "./widgets/CriadorMusica/CriadorMusica";
+import Login from "./cenas/Login/Login";
+import Principal from "./cenas/Principal/Principal";
+import MudarLista from "./cenas/MudarLista/MudarLista";
+import CriadorMusica from "./cenas/CriadorMusica/CriadorMusica";
 
 
 class Traxometro extends Component {
