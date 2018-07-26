@@ -47,6 +47,7 @@ export default function sketch (p) {
             setTimeout(() => direcao = 1, delayToIn);
         } if (radius >= p.max(canvas.width, canvas.height)+incremento) {
             fim();
+            p.noLoop();
             setTimeout(() => direcao = -1, delayToOut);
         }
         
