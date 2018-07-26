@@ -25,6 +25,10 @@ export default class Musica extends Component {
 	componentDidUpdate() {
 		this.reprodutor.volume = this.state.vol;
 	}
+	componentWillUnmount = (a) => {
+		this.reprodutor.pause();
+		delete this.reprodutor;
+	}
 
 	play() {
 		this.reprodutor.play();

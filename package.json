@@ -6,7 +6,8 @@
   "dependencies": {
     "firebase": "^4.10.1",
     "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "react-dom": "^16.4.1",
+    "react-p5-wrapper": "0.0.4"
   },
   "devDependencies": {
     "file-loader": "^1.1.11",

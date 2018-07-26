@@ -1,4 +1,8 @@
 .Principal {
+	background-image: url(./imgs/Fundo-trax-pattern.gif);
+	background-position: center;
+}
+.Principal > div {
 	width: 229px;
 	height: 114px;
 	background-image: url(./../../imgs/main-window.png);

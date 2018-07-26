@@ -13,6 +13,7 @@
 	height: 100vh;
 }
 .Traxometro > * {
+	position: absolute;
 	overflow: auto;
 }
 /*.Traxometro > *:not(.tocando-agora) {

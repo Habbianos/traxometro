@@ -4,12 +4,21 @@ import "./../../../../componentes/Box/Box.css";
 import "./../../../../componentes/Input/Input.css";
 
 export default class Conectar extends Component {
+	submitLogin(e) {
+		e.preventDefault();
+		this.props.mudarCena("principal", true)
+	}
+
+	loginAnonimo = () => {
+		this.props.mudarCena("principal", true)
+	}
+
 	render() {
 		return (
 			<div className="Conectar Caixa">
 				<header>Conectar</header>
 				<main>
-					<form action="" method="POST">
+					<form onSubmit={ this.submitLogin.bind(this) }>
 						<label>
 							Nome do seu usuário
 							<br/>
@@ -26,7 +35,7 @@ export default class Conectar extends Component {
 						<input type="submit" value="ENTRAR"/>
 					</form>
 				</main>
-				<footer><button type="button">Entrar anônimo</button></footer>
+				<footer><button type="button" onClick={ this.loginAnonimo }>Entrar anônimo</button></footer>
 			</div>
 		)
 	}

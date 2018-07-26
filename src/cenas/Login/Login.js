@@ -52,7 +52,7 @@ export default class Login extends Component {
 					<Televisor>
 						<Musica src={ habbo_theme_song } />
 						<PrimeiraVez mudarCena={ this.mudarCena.bind(this) } />
-						<Conectar />
+						<Conectar mudarCena={ this.props.mudarCena.bind(this) } />
 						{ this.state.janelas }
 					</Televisor>
 				);
