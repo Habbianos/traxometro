@@ -30,13 +30,7 @@ export default class Musica extends Component {
 		delete this.reprodutor;
 	}
 
-	play() {
-		this.reprodutor.play();
-	}
-	pause() {
-		this.reprodutor.pause();
-	}
-	mudaMute() {
+	mudaMute = () => {
 		if (this.state.vol > 0) {
 			this.setState({vol: 0});
 		} else {
@@ -44,16 +38,16 @@ export default class Musica extends Component {
 		}
 	}
 
-	handleInputChange(event) {
+	handleInputChange = (event) => {
 		this.setState({vol: Number(event.target.value)})
 	}
 
 	render() {
 		return (
 			<div className="Musica">
-				<button onClick={ this.mudaMute.bind(this) } className={ this.state.vol > 0.9 ? 'max' : this.state.vol < 0.05 ? 'min' : '' }>Mute</button>
+				<button onClick={ this.mudaMute } className={ this.state.vol > 0.9 ? 'max' : this.state.vol < 0.05 ? 'min' : '' }>Mute</button>
 				<div>
-					<input type="range" value={ this.state.vol } min="0" max="1" step="0.0001" onChange={this.handleInputChange.bind(this)} />
+					<input type="range" value={ this.state.vol } min="0" max="1" step="0.0001" onChange={this.handleInputChange} />
 				</div>
 			</div>
 		)

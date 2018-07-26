@@ -4,7 +4,7 @@ import "./../../../../componentes/Box/Box.css";
 import "./../../../../componentes/Input/Input.css";
 
 export default class Conectar extends Component {
-	submitLogin(e) {
+	submitLogin = (e) => {
 		e.preventDefault();
 		this.props.mudarCena("principal", true)
 	}
@@ -18,7 +18,7 @@ export default class Conectar extends Component {
 			<div className="Conectar Caixa">
 				<header>Conectar</header>
 				<main>
-					<form onSubmit={ this.submitLogin.bind(this) }>
+					<form onSubmit={ this.submitLogin }>
 						<label>
 							Nome do seu usuário
 							<br/>

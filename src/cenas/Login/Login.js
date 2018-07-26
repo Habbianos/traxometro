@@ -18,16 +18,16 @@ export default class Login extends Component {
 		}
 	}
 
-	mudarCena(nova_cena) {
+	mudarCena = (nova_cena) => {
 		this.setState({cena: nova_cena});
 	}
 
-	adicionarJanela(componente) {
+	adicionarJanela = (componente) => {
 		this.setState({
 			janelas: [...this.state.janelas, componente]
 		});
 	}
-	removerJanela(componente) {
+	removerJanela = (componente) => {
 		this.setState({
 			janelas: this.state.janelas.filter(item => item !== componente)
 		});
@@ -40,7 +40,7 @@ export default class Login extends Component {
 				televisor = (
 					<Televisor>
 						<Musica src={ habbo_theme_song } />
-						<Cadastro mudarCena={ this.mudarCena.bind(this) } />
+						<Cadastro mudarCena={ this.mudarCena } />
 						{ this.state.janelas }
 					</Televisor>
 				);
@@ -51,8 +51,8 @@ export default class Login extends Component {
 				televisor = (
 					<Televisor>
 						<Musica src={ habbo_theme_song } />
-						<PrimeiraVez mudarCena={ this.mudarCena.bind(this) } />
-						<Conectar mudarCena={ this.props.mudarCena.bind(this) } />
+						<PrimeiraVez mudarCena={ this.mudarCena } />
+						<Conectar mudarCena={ this.props.mudarCena } />
 						{ this.state.janelas }
 					</Televisor>
 				);

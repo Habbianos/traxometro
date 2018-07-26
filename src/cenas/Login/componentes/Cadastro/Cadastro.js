@@ -26,13 +26,13 @@ export default class Cadastro extends Component {
 		};
 	}
 
-	mudarCena(cena) {
+	mudarCena = (cena) => {
 		this.setState({
 			cena: cena
 		});
 	}
 
-	voltar() {
+	voltar = () => {
 		if (this.state.cena === "detalhes") {
 			this.props.mudarCena("entrar");
 		} else if (this.state.cena === "vincular") {
@@ -40,7 +40,7 @@ export default class Cadastro extends Component {
 		}
 	}
 
-	proximo() {
+	proximo = () => {
 		if (this.state.cena === "detalhes") {
 			if (this.state.nome === "") {
 				// Nome vazio
@@ -72,7 +72,7 @@ export default class Cadastro extends Component {
 		}
 	}
 
-	verificarMissao() {
+	verificarMissao = () => {
 		// API Habbo...
 		this.setState({
 			verificando: <img src={ carregando } alt="Os dados do HABBO estão sendo acessados, aguarde..." />
@@ -85,7 +85,7 @@ export default class Cadastro extends Component {
 		}), 4000);
 	}
 
-	submitPrevent(e) {
+	submitPrevent = (e) => {
 		e.preventDefault();
 	}
 
@@ -129,7 +129,7 @@ export default class Cadastro extends Component {
 									<input type="text" value="BRA123" disabled />
 									{ this.state.verificando }
 								</label>
-								<button type="button" onClick={ this.verificarMissao.bind(this) }>Verificar missão</button>
+								<button type="button" onClick={ this.verificarMissao }>Verificar missão</button>
 							</fieldset>
 						</form>
 					</Fragment>
@@ -144,32 +144,32 @@ export default class Cadastro extends Component {
 							<label>
 								<span>Nome do usuário:</span>
 								<br />
-								<input type="text" autoComplete="name" onChange={ this.handleInputNome.bind(this) } value={ this.state.nome } />
+								<input type="text" autoComplete="name" onChange={ this.handleInputNome } value={ this.state.nome } />
 							</label>
 							<br />
 							<label>
 								<span>Email:</span>
 								<br />
-								<input type="e-mail" autoComplete="email" onChange={ this.handleInputEmail.bind(this) } value={ this.state.email } />
+								<input type="e-mail" autoComplete="email" onChange={ this.handleInputEmail } value={ this.state.email } />
 							</label>
 							<div id="passwords">
 								<div>
 									<label>
 										<span>Senha:</span>
 										<br />
-										<input type="password" autoComplete="new_password" onChange={ this.handleInputSenha.bind(this) } />
+										<input type="password" autoComplete="new_password" onChange={ this.handleInputSenha } />
 									</label>
 								</div>
 								<div>
 									<label>
 										<span>Repita a senha:</span>
 										<br />
-										<input type="password" autoComplete="new_password" onChange={ this.handleInputReSenha.bind(this) } />
+										<input type="password" autoComplete="new_password" onChange={ this.handleInputReSenha } />
 									</label>
 								</div>
 							</div>
 							<label>
-								<input type="checkbox" onChange={ this.handleInputTermos.bind(this) } checked={ this.state.termos } />
+								<input type="checkbox" onChange={ this.handleInputTermos } checked={ this.state.termos } />
 								Eu sei, o Traxômetro não é da Sulake
 							</label>
 						</form>
@@ -187,9 +187,9 @@ export default class Cadastro extends Component {
 					{ corpo }
 				</main>
 				<footer>
-					<input type="button" value="Voltar" onClick={ this.voltar.bind(this) } />
+					<input type="button" value="Voltar" onClick={ this.voltar } />
 					<span>{ this.state.cena === "detalhes" ? "1" : "2" }/2</span>
-					<input type="button" value={ this.state.cena === "detalhes" ? "Próximo" : this.state.cena === "vincular" ? "Feito" : "" } onClick={ this.proximo.bind(this) } />
+					<input type="button" value={ this.state.cena === "detalhes" ? "Próximo" : this.state.cena === "vincular" ? "Feito" : "" } onClick={ this.proximo } />
 				</footer>
 			</div>
 		)
