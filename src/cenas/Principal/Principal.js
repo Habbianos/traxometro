@@ -8,7 +8,7 @@ export default class Principal extends Component {
 			<div className="Principal">
 				<div>
 					<div className="cabecalho">
-						<input type="button" className="fechar" value="" onClick={ () => this.props.mudarCena("login", false) } />
+						<input type="button" className="fechar" value="" onClick={ () => this.props.mudarCena("login", true) } />
 						<h1>Menu Trax</h1>
 					</div>
 					<div className="corpo">

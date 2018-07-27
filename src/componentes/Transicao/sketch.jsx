@@ -1,7 +1,5 @@
 export default function sketch (p) {
     const cor = "black",
-        pointIn = {x: 600, y: 100},
-        pointOut = {x: 100, y: 100},
         incremento = 10,
         delayToIn = 0,
         delayToOut = 1000,
@@ -15,6 +13,9 @@ export default function sketch (p) {
 
     let radius,
         direcao,
+        center = {x: canvas.width / 2, y: canvas.height / 2},
+        pointIn = center,
+        pointOut = center,
         mude,
         fim
 
@@ -28,6 +29,8 @@ export default function sketch (p) {
     p.myCustomRedrawAccordingToNewPropsHandler = (new_props) => {
         fim = new_props.fim;
         mude = new_props.mude;
+        pointIn = new_props.pointIn || center;
+        pointOut = new_props.pointOut || center;
     }
   
     p.draw = function () {

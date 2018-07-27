@@ -8,6 +8,8 @@ import MudarLista from "./cenas/MudarLista/MudarLista";
 import CriadorMusica from "./cenas/CriadorMusica/CriadorMusica";
 import Transicao from "./componentes/Transicao/Transicao";
 
+const center = {x: (window.innerWidth / 2), y: (window.innerHeight / 2)};
+
 class Traxometro extends Component {
 	constructor(props){
 	    super(props);
@@ -16,32 +18,43 @@ class Traxometro extends Component {
 			cena: <Login mudarCena={this.mudarCena} />,
 			transicao: <Fragment />
 		};
+
+		this.destaqueCena = {
+			'login': {x: (center.x - 264), y: (center.y + 122)},
+			'principal': center // TODO: Calcular onde será, quando o avatar estiver posicionado
+		}
+		this.pontoTransicao = {
+			'out': this.destaqueCena['login'],
+			'in': center
+		}
 	}
 
 	mudarCena = (nova_cena, transicao = false) => {
 		if (transicao) {
+			this.pontoTransicao.in = this.destaqueCena[nova_cena] || center;
 			this.transicaoCena(nova_cena);
-			return;
-		}
+		} else {
+			this.pontoTransicao.out = this.destaqueCena[nova_cena] || center;
 
-		let comp;
-		switch (nova_cena) {
-			case 'principal':
-				comp = <Principal mudarCena={this.mudarCena} />
-				break;
-			case 'mudarLista':
-				comp = <MudarLista mudarCena={this.mudarCena} />
-				break;
-			case 'criadorMusica':
-				comp = <CriadorMusica mudarCena={this.mudarCena} />
-				break;
-			case 'login':
-			default:
-				comp = <Login mudarCena={this.mudarCena} />
+			let comp;
+			switch (nova_cena) {
+				case 'principal':
+					comp = <Principal mudarCena={this.mudarCena} />
+					break;
+				case 'mudarLista':
+					comp = <MudarLista mudarCena={this.mudarCena} />
+					break;
+				case 'criadorMusica':
+					comp = <CriadorMusica mudarCena={this.mudarCena} />
+					break;
+				case 'login':
+				default:
+					comp = <Login mudarCena={this.mudarCena} />
+			}
+			this.setState({
+				cena: comp
+			});
 		}
-		this.setState({
-			cena: comp
-		});
 	}
 
 	transicaoCena = (nova_cena) => {
@@ -52,7 +65,7 @@ class Traxometro extends Component {
 				this.setState({
 					transicao: <Fragment />
 				})
-			} } />
+			} } pointOut={ this.pontoTransicao.out } pointIn={ this.pontoTransicao.in } />
 		})
 	}
 
