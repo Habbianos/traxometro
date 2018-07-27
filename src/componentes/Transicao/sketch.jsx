@@ -21,7 +21,7 @@ export default function sketch (p) {
 
   
     p.setup = function () {
-        radius = p.max(canvas.width, canvas.height);
+        radius = p.sqrt(p.pow(canvas.width, 2), p.pow(canvas.height,2));
         direcao = -1;
         p.frameRate(120);
     };
@@ -48,7 +48,7 @@ export default function sketch (p) {
             radius = 0;
             mude();
             setTimeout(() => direcao = 1, delayToIn);
-        } if (radius >= p.max(canvas.width, canvas.height)+incremento) {
+        } if (radius >= p.sqrt(p.pow(canvas.width, 2), p.pow(canvas.height,2)) + incremento) {
             fim();
             p.noLoop();
             setTimeout(() => direcao = -1, delayToOut);
