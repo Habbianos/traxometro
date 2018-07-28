@@ -1,8 +1,5 @@
 .Televisor {
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
+	position: relative;
 	width: 988px;
 	height: 484px;
 	background-image: url(./imgs/vista_hotel.png);
@@ -10,6 +7,7 @@
 	background-position: center calc(50% - 8px);
 	background-origin: border-box;
 	display: block;
+	margin: calc(50vh - 242px) auto;
 	border: 1px solid transparent;
 	border-image-source: url(./imgs/televisor.png);
 	border-image-repeat: repeat;

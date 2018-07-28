@@ -2,4 +2,5 @@
 	background-color: #000;
 	background-image: url(./imgs/bg_serpentine_darkred.gif);
 	background-position: center;
+	overflow-y: hidden;
 }

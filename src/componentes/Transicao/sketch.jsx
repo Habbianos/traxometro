@@ -1,7 +1,7 @@
 export default function sketch (p) {
     const cor = "black",
         incremento = 10,
-        delayToIn = 0,
+        delayToIn = 1000,
         delayToOut = 1000,
         
         canvas = document.querySelector("canvas#transicao"),
