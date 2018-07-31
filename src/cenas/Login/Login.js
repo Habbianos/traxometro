@@ -5,6 +5,7 @@ import Musica from './componentes/Musica/Musica';
 import PrimeiraVez from "./componentes/PrimeiraVez/PrimeiraVez";
 import Conectar from "./componentes/Conectar/Conectar";
 import Cadastro from "./componentes/Cadastro/Cadastro";
+import Alertas from "./../../componentes/Alertas/Alertas";
 
 import habbo_theme_song from "./audios/habbo_theme_song.mp3";
 
@@ -60,6 +61,7 @@ export default class Login extends Component {
 
 		return (
 			<div className="Login">
+				<Alertas />
 				{ televisor }
 			</div>
 		);
