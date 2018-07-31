@@ -44,28 +44,38 @@ export default class Cadastro extends Component {
 		if (this.state.cena === "detalhes") {
 			if (this.state.nome === "") {
 				// Nome vazio
+				this.props.adcAlerta("Atenção", "Nome vazio");
 			} else if (!/^[a-zA-Z0-9-._]{2,64}$/g.test(this.state.nome)) {
-				// Tem espaço
+				// Nome inválido
+				this.props.adcAlerta("Atenção", "Nome inválido");
 			} else if (this.state.email === "") {
 				// Email vazio
+				this.props.adcAlerta("Atenção", "Email vazio");
 			} else if (!validateEmail(this.state.email)) {
 				// Não é email
+				this.props.adcAlerta("Atenção", "Não é email");
 		 	} else if (this.state.senha === "") {
 				// Senha vazia
+				this.props.adcAlerta("Atenção", "Senha vazia");
 			} else if (this.state.re_senha === "") {
 				// Resenha vazia
+				this.props.adcAlerta("Atenção", "Resenha vazia");
 			} else if (this.state.senha !== this.state.re_senha) {
 				// As senhas não conferem
+				this.props.adcAlerta("Atenção", "As senhas não conferem");
 			} else if (!this.state.termos) {
 				// Não aceitou os termos
+				this.props.adcAlerta("Atenção", "Não aceitou os termos");
 			} else {
 				this.mudarCena("vincular");
 			}
 		} else if (this.state.cena === "vincular") {
 			if (this.state.hotel !== null || this.state.hotel !== "🇩🇫") {
 				// Hotel não selecionado
+				this.props.adcAlerta("Atenção", "Hotel não selecionado");
 			} else if (!this.state.verificado) {
 				// Usuário não verificado
+				this.props.adcAlerta("Atenção", "Usuário não verificado");
 			} else {
 				// Login
 			}

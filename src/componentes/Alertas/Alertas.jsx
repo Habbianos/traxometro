@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from "react-dom";
 import "./Alertas.css";
 import Alerta from "./componentes/Alerta/Alerta"
 
@@ -8,32 +9,51 @@ export default class Alertas extends Component {
         super(props);
 
         this.state = {
-            alertas: []
+            alertas: [],
+            max_zIndex: 1
         }
-    }
+        this.props.setAdcAlert(this.adcAlerta);
 
-    componentDidMount() {
-        console.log(this.adcAlerta("Oi", "Nads"))
-        console.log(this.adcAlerta("Oi2", "Nads2"))
+    }
+    
+    max_zIndex = () => {
+        let new_zIndex = this.state.max_zIndex + 1;
+        this.setState({
+            max_zIndex: new_zIndex
+        });
+        return new_zIndex;
+    }
+    maxTop = () => {
+        return ReactDOM.findDOMNode(this).offsetHeight;
+    }
+    maxLeft = () => {
+        return ReactDOM.findDOMNode(this).offsetWidth;
     }
 
     adcAlerta = (titulo, corpo, rodape) => {
-        let key = this.state.alertas.length,
-        novo_alerta = (
-            <Alerta titulo={ titulo } corpo={ corpo } rodape={ rodape } key={ key } rmvAlerta={ () => this.rmvAlerta(key) } />
+        let key = Math.random().toString(36).substr(2, 9),
+            novo_alerta = (
+            <Alerta 
+                key={ key }
+                titulo={ titulo }
+                corpo={ corpo }
+                rodape={ rodape }
+                rmvAlerta={ () => this.rmvAlerta(key) }
+                max_zIndex={ this.max_zIndex }
+                maxTop={ this.maxTop }
+                maxLeft={ this.maxLeft }
+            />
         )
-        console.log(titulo, key)
-        this.setState({
-            alertas: [...this.state.alertas, novo_alerta]
-        });
+        
+        this.setState(prev_state => ({
+            alertas: prev_state.alertas.concat(novo_alerta)
+        }));
     }
 
     rmvAlerta = (key) => {
-        let novos_alertas = this.state.alertas.filter((alerta) => {
-            return Number(alerta.key) !== key ? alerta : null;
-        })
-        this.setState({
-            alertas: novos_alertas
+        this.setState((prev_state) => {
+            const alertas = prev_state.alertas.filter(alerta => alerta.key !== key);
+            return { alertas };
         })
     }
     

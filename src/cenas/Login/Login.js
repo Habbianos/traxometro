@@ -15,22 +15,18 @@ export default class Login extends Component {
 
 		this.state = {
 			cena: 'entrar', // entrar, cadastro
-			janelas: []
+			adcAlerta: () => {}
 		}
+
 	}
 
 	mudarCena = (nova_cena) => {
 		this.setState({cena: nova_cena});
 	}
 
-	adicionarJanela = (componente) => {
+	setAdcAlert = (func) => {
 		this.setState({
-			janelas: [...this.state.janelas, componente]
-		});
-	}
-	removerJanela = (componente) => {
-		this.setState({
-			janelas: this.state.janelas.filter(item => item !== componente)
+			adcAlerta: func
 		});
 	}
 
@@ -41,8 +37,9 @@ export default class Login extends Component {
 				televisor = (
 					<Televisor>
 						<Musica src={ habbo_theme_song } />
-						<Cadastro mudarCena={ this.mudarCena } />
+						<Cadastro mudarCena={ this.mudarCena } adcAlerta={ this.state.adcAlerta } />
 						{ this.state.janelas }
+						<Alertas setAdcAlert={ this.setAdcAlert } />
 					</Televisor>
 				);
 				break;
@@ -53,15 +50,15 @@ export default class Login extends Component {
 					<Televisor>
 						<Musica src={ habbo_theme_song } />
 						<PrimeiraVez mudarCena={ this.mudarCena } />
-						<Conectar mudarCena={ this.props.mudarCena } />
+						<Conectar mudarCena={ this.props.mudarCena } adcAlerta={ this.state.adcAlerta } />
 						{ this.state.janelas }
+						<Alertas setAdcAlert={ this.setAdcAlert } />
 					</Televisor>
 				);
 		}
 
 		return (
 			<div className="Login">
-				<Alertas />
 				{ televisor }
 			</div>
 		);

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import "./Conectar.css";
 import "./../../../../componentes/Box/Box.css";
 import "./../../../../componentes/Input/Input.css";
@@ -10,7 +10,14 @@ export default class Conectar extends Component {
 	}
 
 	loginAnonimo = () => {
-		this.props.mudarCena("principal", true)
+		// this.props.mudarCena("principal", true)
+		this.props.adcAlerta("Cuidado", (
+			<Fragment>
+				Você está entrando em modo anônimo.
+				<br />
+				Tudo que fizer será armazenado apenas na sessão do seu navegador.
+			</Fragment>
+		));
 	}
 
 	render() {
