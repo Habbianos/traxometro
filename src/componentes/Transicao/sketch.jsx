@@ -4,7 +4,7 @@ export default function sketch (p) {
         delayToIn = 1000,
         delayToOut = 1000,
         
-        canvas = document.querySelector("canvas#transicao"),
+        canvas = document.querySelector("canvas#Transicao"),
         ctx = canvas.getContext("2d");
 
     canvas.width = window.innerWidth;

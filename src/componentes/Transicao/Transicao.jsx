@@ -8,7 +8,7 @@ export default class Transicao extends Component {
 	render() {
 		return (
 			<Fragment>
-                <canvas id="transicao" />
+                <canvas id="Transicao" />
                 <P5Wrapper sketch={sketch} mude={ this.props.mude } fim={ this.props.fim } />
             </Fragment>
 		)
