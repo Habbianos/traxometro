@@ -6,6 +6,7 @@ import carregando from "./../../../../imgs/progress_bubbles.gif";
 import falhou from "./../../../../imgs/image_105_x.png";
 import verificado from "./../../../../imgs/image_105_v.png";
 import validateEmail from "./../../../../extras/validateEmail.js";
+import HabboAPI from "./extras/HabboAPI";
 
 export default class Cadastro extends Component {
 	constructor(props) {
@@ -24,6 +25,8 @@ export default class Cadastro extends Component {
 			hotel: null,
 			verificado: false
 		};
+
+		this.code = Math.random().toString(36).substr(2, 9);
 	}
 
 	mudarCena = (cena) => {
@@ -37,6 +40,10 @@ export default class Cadastro extends Component {
 			this.props.mudarCena("entrar");
 		} else if (this.state.cena === "vincular") {
 			this.mudarCena("detalhes");
+			this.setState({
+				senha: "",
+				re_senha: ""
+			})
 		}
 	}
 
@@ -70,29 +77,82 @@ export default class Cadastro extends Component {
 				this.mudarCena("vincular");
 			}
 		} else if (this.state.cena === "vincular") {
-			if (this.state.hotel !== null || this.state.hotel !== "🇩🇫") {
+			if (this.state.hotel === null || this.state.hotel === "🇩🇫") {
 				// Hotel não selecionado
 				this.props.adcAlerta("Atenção", "Hotel não selecionado");
 			} else if (!this.state.verificado) {
 				// Usuário não verificado
-				this.props.adcAlerta("Atenção", "Usuário não verificado");
+				this.verificarMissao()
+					.then(r => r ? this.proximo() : this.props.adcAlerta("Atenção", "Usuário não verificado"))
 			} else {
 				// Login
+				this.props.adcAlerta("Você entrou", "Ebah!");
 			}
 		}
 	}
+	
+	verificarMissao = async () => {
+		switch (this.state.hotel) {
+			case null:
+				this.props.adcAlerta("Alerta", "Selecione um hotel"); // eslint-disable-next-line
+			case "🇩🇷":
+				return;
+			default:
+		}
 
-	verificarMissao = () => {
-		// API Habbo...
 		this.setState({
 			verificando: <img src={ carregando } alt="Os dados do HABBO estão sendo acessados, aguarde..." />
 		});
-		setTimeout(() => this.setState({
-			verificando: <img src={ falhou } alt="A resposta obtida foi negativa." />
-		}), 2000);
-		setTimeout(() => this.setState({
-			verificando: <img src={ verificado } alt="A resposta obtida foi positiva." />
-		}), 4000);
+
+		let ht;
+		switch (this.state.hotel) {
+			case '🇧🇷':
+				ht = "com.br";
+				break;
+			case '🇪🇸':
+				ht = "es";
+				break;
+			case '🇫🇮':
+				ht = "fi";
+				break;
+			default:
+			case '🇺🇸':
+				ht = "com";
+				break;
+			case '🇫🇷':
+				ht = "fr";
+				break;
+			case '🇳🇱':
+				ht = "nl";
+				break;
+			case '🇮🇹':
+				ht = "it";
+				break;
+			case '🇩🇪':
+				ht = "de";
+				break;
+		}
+		let resposta;
+		await new HabboAPI(ht)
+			.getHabbo(this.state.nome)
+			.then(user => {
+				resposta = this.code === user.motto;
+				this.setState({
+					verificando: resposta ? (
+						<img src={ verificado } alt="A resposta obtida foi positiva." />
+					) : (
+						<img src={ falhou } alt="A resposta obtida foi negativa." />
+					),
+					verificado: resposta
+				})
+			})
+			.catch(err => {
+				this.setState({
+					verificando: <img src={ falhou } alt="A resposta obtida foi negativa. ({err})" />
+				})
+				resposta = false;
+			})
+		return resposta;
 	}
 
 	submitPrevent = (e) => {
@@ -136,7 +196,7 @@ export default class Cadastro extends Component {
 								<label>
 									<span>Coloque este código na sua missão:</span>
 									<br />
-									<input type="text" value="BRA123" disabled />
+									<input type="text" value={ this.code } disabled />
 									{ this.state.verificando }
 								</label>
 								<button type="button" onClick={ this.verificarMissao }>Verificar missão</button>
@@ -154,7 +214,7 @@ export default class Cadastro extends Component {
 							<label>
 								<span>Nome do usuário:</span>
 								<br />
-								<input type="text" autoComplete="name" onChange={ this.handleInputNome } value={ this.state.nome } />
+								<input type="text" autoComplete="nickname" onChange={ this.handleInputNome } value={ this.state.nome } />
 							</label>
 							<br />
 							<label>
