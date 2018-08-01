@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react';
+import * as firebase from "firebase";
+import "firebase/firestore";
 import "./Cadastro.css";
 import "./../../../../componentes/Box/Box.css";
 import "./../../../../componentes/Input/Input.css";
@@ -86,9 +88,30 @@ export default class Cadastro extends Component {
 					.then(r => r ? this.proximo() : this.props.adcAlerta("Atenção", "Usuário não verificado"))
 			} else {
 				// Login
-				this.props.adcAlerta("Você entrou", "Ebah!");
+				firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.senha)
+					.then(user => {
+						this.registrarUsuario(user)
+					}).catch(err => {
+						if (err.code === 'auth/weak-password') {
+							this.props.adcAlerta("Atenção", "A senha é muito fraca!");
+							this.voltar();
+						} else {
+							this.props.adcAlerta("Atenção", err.message);
+						}
+					})
 			}
 		}
+	}
+
+	registrarUsuario = (user) => {
+		firebase.firestore().collection("users").add({
+			uid: user.uid,
+			email: this.state.email,
+			nickname: this.state.nome,
+			hotel: this.state.hotel
+		}).catch(function(err) {
+			this.props.adcAlerta("Atenção", "Error adding document: " + err);
+		});
 	}
 	
 	verificarMissao = async () => {

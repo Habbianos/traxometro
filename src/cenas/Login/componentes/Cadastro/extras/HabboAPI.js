@@ -136,7 +136,7 @@ class Group extends Entity {
         this._badgeCode = data.badgeCode;
         this._roomId = data.roomId;
         this._isAdmin = data.isAdmin;
-        this._members;
+        // this._members;
     }
 
     get id() {
@@ -401,8 +401,8 @@ export default class HabboAPI {
                 // req.setRequestHeader('Accept', 'application/json');
             }
             req.onload = e => {
-                if(req.readyState != 4 && e.type !== 'load') return;
-                if(req.status && req.status != 200) {
+                if(req.readyState !== 4 && e.type !== 'load') return;
+                if(req.status && req.status !== 200) {
                     reject(req.status);
                 } else {
                     resolve(asJson ? JSON.parse(req.responseText) : req.responseText);

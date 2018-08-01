@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
-// import * as firebase from "firebase";
+import * as firebase from "firebase";
 // require("firebase/firestore");
+// import "firebase/auth";
 import "./Traxometro.css";
 import Login from "./cenas/Login/Login";
 import Principal from "./cenas/Principal/Principal";
@@ -13,9 +14,22 @@ class Traxometro extends Component {
 	    super(props);
 
 		this.state = {
-			cena: <Login mudarCena={this.mudarCena} />,
+			cena: <Fragment />,
 			transicao: <Fragment />
 		};
+	}
+
+	componentDidMount() {
+		firebase.auth().onAuthStateChanged((user) => {
+			if (user) {
+				this.setState({
+					user: user
+				});
+				this.mudarCena("principal", true);
+			} else {
+				this.mudarCena("login", true);
+			}
+		});
 	}
 
 	mudarCena = (nova_cena, transicao = false) => {
