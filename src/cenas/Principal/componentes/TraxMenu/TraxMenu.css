@@ -1,0 +1,59 @@
+.TraxMenu {
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.TraxMenu > div {
+	width: 229px;
+	height: 114px;
+	background-image: url(./imgs/main-window.png);
+	background-repeat: no-repeat;
+	margin: 0 auto;
+	padding: 5px 6px 5px 4px;
+}
+.TraxMenu .cabecalho {
+	position: relative;
+	text-align: center;
+	border-radius: 10px 10px 0 0;
+	background-image: url(./imgs/header-background-light.png);
+	height: 15px;
+}
+.TraxMenu .cabecalho h1 {
+	color: #eee;
+	display: inline-block;
+	padding: 0 6px;
+	background-color: #4b95a9;
+    vertical-align: top;
+    padding-top: 5px;
+}
+.TraxMenu .cabecalho .fechar {
+	position: absolute;
+	top: 1px;
+	right: 7px;
+	width: 13px;
+	height: 13px;
+	border: 1px solid #4b95a9;
+	background-image: url(./imgs/button-close-light.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: #4b95a9;
+}
+.TraxMenu .corpo {
+	width: 207px;
+	height: 75px;
+	margin: 7px auto;
+	padding: 6px;
+	background-image: url(./imgs/main-area.png);
+}
+.TraxMenu button {
+	color: black;
+	display: block;
+	overflow: hidden;
+	width: 120px;
+	height: 23px;
+	margin: 5px auto;
+	padding: 5px;
+	background-image: url(./imgs/main-button.png);
+}

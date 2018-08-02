@@ -1,27 +1,23 @@
-import React, { Component } from 'react'
-import * as firebase from "firebase";
+import React, { Component, Fragment } from 'react'
 import "./Principal.css";
+import TraxMenu from "./componentes/TraxMenu/TraxMenu";
 
 export default class Principal extends Component {
+	constructor(props) {
+		super(props);
 
-	handleQuitButton = () => {
-		firebase.auth().signOut();
-		// this.props.mudarCena("login", true)
+		this.state = {
+			cena: (
+				<Fragment>
+					<TraxMenu />
+				</Fragment>
+			)
+		}
 	}
-
 	render() {
 		return (
 			<div className="Principal">
-				<div>
-					<div className="cabecalho">
-						<input type="button" className="fechar" value="" onClick={ this.handleQuitButton } />
-						<h1>Menu Trax</h1>
-					</div>
-					<div className="corpo">
-						<button>Ligar</button>
-						<button onClick={() => this.props.mudarCena("mudarLista")}>Editar Lista</button>
-					</div>
-				</div>
+				{ this.state.cena }
 			</div>
 		)
 	}
