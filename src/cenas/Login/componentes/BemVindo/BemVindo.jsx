@@ -27,13 +27,15 @@ export default class BemVindo extends Component {
         });
     }
     render() {
+        let id;
+        id = this.state.nome ? "user="+this.state.nome : "figure=hd-180-28.lg-275";
         return (
             <div className="BemVindo Caixa">
                 <header>
                     <h1>Bem vindo { this.state.nome }</h1>
                 </header>
                 <main>
-                    <img src={ `https://www.habbo.com/habbo-imaging/avatarimage?user=${ this.state.nome }&action=wav&size=b&frame=${ this.state.frame }&direction=3&head_direction=3&gesture=sml` } alt="Usuário acenando." />
+                    <img src={ `https://www.habbo.com/habbo-imaging/avatarimage?${ id }&action=wav&size=b&frame=${ this.state.frame }&direction=3&head_direction=3&gesture=sml` } alt="Usuário acenando." />
                 </main>
             </div>
         )
