@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import * as firebase from "firebase";
 import "./Login.css";
 import Televisor from './componentes/Televisor/Televisor';
 import Musica from './componentes/Musica/Musica';
@@ -6,6 +7,7 @@ import PrimeiraVez from "./componentes/PrimeiraVez/PrimeiraVez";
 import Conectar from "./componentes/Conectar/Conectar";
 import Cadastro from "./componentes/Cadastro/Cadastro";
 import Alertas from "./../../componentes/Alertas/Alertas";
+import BemVindo from "./componentes/BemVindo/BemVindo";
 
 import habbo_theme_song from "./audios/habbo_theme_song.mp3";
 
@@ -18,6 +20,11 @@ export default class Login extends Component {
 			adcAlerta: () => {}
 		}
 
+		firebase.auth().onAuthStateChanged((user) => {
+			this.setState({
+				user: user
+			});
+		});
 	}
 
 	mudarCena = (nova_cena) => {
@@ -31,28 +38,43 @@ export default class Login extends Component {
 	}
 
 	render() {
-		let televisor;
+		let televisor,
+			welcome,
+			temp;
+
+		if (this.state.user) {
+			welcome = <BemVindo user={ this.state.user } />
+		}
+
 		switch (this.state.cena) {
 			case "cadastro":
-				televisor = (
-					<Televisor>
+				temp = welcome || (
+					<Fragment>
 						<Musica src={ habbo_theme_song } />
 						<Cadastro mudarCena={ this.mudarCena } adcAlerta={ this.state.adcAlerta } />
-						{ this.state.janelas }
 						<Alertas setAdcAlert={ this.setAdcAlert } />
+					</Fragment>
+				)
+				televisor = (
+					<Televisor>
+						{ temp }
 					</Televisor>
 				);
 				break;
 
 			case "entrar":
 			default:
-				televisor = (
-					<Televisor>
+				temp = welcome || (
+					<Fragment>
 						<Musica src={ habbo_theme_song } />
 						<PrimeiraVez mudarCena={ this.mudarCena } />
 						<Conectar mudarCena={ this.props.mudarCena } adcAlerta={ this.state.adcAlerta } />
-						{ this.state.janelas }
 						<Alertas setAdcAlert={ this.setAdcAlert } />
+					</Fragment>
+				)
+				televisor = (
+					<Televisor>
+						{ temp }
 					</Televisor>
 				);
 		}

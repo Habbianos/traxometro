@@ -21,10 +21,10 @@ class Traxometro extends Component {
 
 	componentDidMount() {
 		firebase.auth().onAuthStateChanged((user) => {
+			this.setState({
+				user: user
+			});
 			if (user) {
-				this.setState({
-					user: user
-				});
 				this.mudarCena("principal", true);
 			} else {
 				this.mudarCena("login", true);

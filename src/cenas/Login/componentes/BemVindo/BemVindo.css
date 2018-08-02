@@ -1,0 +1,6 @@
+.BemVindo {
+    top: 50%;
+    z-index: 9;
+    transform: translateY(-50%);
+    margin: 0 auto;
+}

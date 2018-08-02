@@ -24,16 +24,21 @@ export default class Conectar extends Component {
 	}
 
 	loginAnonimo = () => {
-		firebase.auth().signInAnonymously().catch(function(err) {
-			this.props.adcAlerta("Atenção", err.message);
-		});
+		let reallyLogin = () => {
+			firebase.auth().signInAnonymously().catch(function(err) {
+				this.props.adcAlerta("Atenção", err.message);
+			});
+		};
+		let btnConfirm = (
+			<input type="button" value="Eu entendo" onClick={ reallyLogin } />
+		);
 		this.props.adcAlerta("Cuidado", (
 			<Fragment>
 				Você está entrando em modo anônimo.
 				<br />
 				Tudo que fizer será armazenado apenas na sessão do seu navegador.
 			</Fragment>
-		));
+		), btnConfirm);
 	}
 
 	render() {
