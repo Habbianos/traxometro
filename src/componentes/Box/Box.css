@@ -1,14 +1,14 @@
 .Caixa {
 	width: max-content;
-	background-image: url(./imgs/caixa-azul-fundo_fundo.png);
-	background-clip: padding-box;
+	/* background-image: url(./imgs/caixa-azul-fundo_fundo.png); */
+	/* background-clip: padding-box; */
 	border: 15px solid transparent;
 	border-top-width: 9px;
 	border-left-width: 12px;
 	border-image-source: url(./imgs/caixa-azul-fundo_borda.png);
 	border-image-repeat: repeat;
 	border-image-width: auto;
-	border-image-slice: 15;
+	border-image-slice: 15 fill;
 }
 .Caixa > * {
 	text-align: center;
@@ -58,13 +58,13 @@
 }
 .Caixa > main {
 	padding: 10px 9px 10px 8px;
-	background-image: url(./imgs/caixa-azul-corpo_fundo.png);
-	background-clip: padding-box;
+	/* background-image: url(./imgs/caixa-azul-corpo_fundo.png);
+	background-clip: padding-box; */
 	border: 3px solid transparent;
 	border-image-source: url(./imgs/caixa-azul-corpo_borda.png);
 	border-image-repeat: repeat;
 	border-image-width: auto;
-	border-image-slice: 6;
+	border-image-slice: 6 fill;
 }
 .Caixa > footer {
 	padding-top: 4px;

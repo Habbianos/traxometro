@@ -9,7 +9,7 @@ input[type=e-mail] {
 	border-image-source: url(./imgs/input_borda.png);
 	border-image-repeat: repeat;
 	border-image-width: auto;
-	border-image-slice: 5;
+	border-image-slice: 5 fill;
 }
 input[type=checkbox] {
 	appearance: none;
@@ -22,14 +22,14 @@ input[type=checkbox]:checked {
 }
 input[type=button] {
 	font-weight: bold;
-	background-image: url(./imgs/input-btn_fundo.png);
-	background-clip: padding-box;
+	/* background-image: url(./imgs/input-btn_fundo.png);
+	background-clip: padding-box; */
 	padding: 2px 9px 2px 7px;
 	border: 2px solid transparent;
 	border-image-source: url(./imgs/input-btn_borda.png);
 	border-image-repeat: repeat;
 	border-image-width: auto;
-	border-image-slice: 4;
+	border-image-slice: 4 fill;
 }
 input.grande {
 	border-image-source: url(./imgs/input-grande_borda.png);
@@ -47,7 +47,7 @@ input[type="submit"] {
 	border-image-source: url(./imgs/input-submit_borda.png);
 	border-image-repeat: repeat;
 	border-image-width: auto;
-	border-image-slice: 6;
+	border-image-slice: 6 fill;
 }
 input:disabled {
 	background-color: rgba(0, 0, 0, .4);
