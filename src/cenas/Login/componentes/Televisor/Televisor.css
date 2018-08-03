@@ -8,14 +8,17 @@
 	background-origin: border-box;
 	display: block;
 	margin: calc(50vh - 242px) auto;
-	border: 1px solid transparent;
+	border-style: solid;
+	border-width: 53px 52px 68px 52px;
+	border-image: url(./imgs/televisor.svg) 26% 25.4% 33.2% 25.4% fill round;
+	/* border: 1px solid transparent;
 	border-image-source: url(./imgs/televisor.png);
 	border-image-repeat: repeat;
 	border-image-width: auto;
-	border-image-slice: 68;
-	border-width: 19px 14px 34px 14px;
+	border-image-slice: 68 fill;
+	border-width: 19px 14px 34px 14px; */
 }
-.Televisor::before {
+/* .Televisor::before {
 	z-index: 0;
 	content: '';
 	position: absolute;
@@ -24,7 +27,7 @@
 	width: 852px;
 	height: 348px;
 	background: url(./imgs/televisor-glass.png);
-}
+} */
 .Televisor > * {
 	z-index: 1;
 	position: relative;
