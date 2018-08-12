@@ -1,0 +1,11 @@
+.Notificacoes {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+}
+.Notificacoes * {
+    pointer-events: all;
+}

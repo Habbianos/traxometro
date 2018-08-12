@@ -1,0 +1,49 @@
+.Notificacao {
+    width: 190px;
+    height: 66px;
+    
+	border: 5px solid transparent;
+	border-image-source: url(./imgs/noti_bg.png);
+	border-image-repeat: repeat;
+	border-image-width: auto;
+    border-image-slice: 5 fill;
+    
+    color: white;
+    font-weight: bold;
+
+    margin: 5px;
+    margin-left: auto;
+    
+    display: flex;
+    justify-content: center;
+    
+    animation: fadein .4s ease-in-out forwards;
+    transition: opacity .4s;
+}
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.Notificacao > div:first-child {
+    width: 60px;
+    height: 60px;
+}
+.Notificacao > div:last-child {
+    width: 120px;
+}
+.fadeout {
+    animation: fadeout 2s ease-in-out forwards;
+}

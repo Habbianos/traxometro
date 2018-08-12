@@ -1,0 +1,88 @@
+.Botao {
+    transition: all .2s;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    margin: 2px;
+    opacity: .35;
+}
+.Botao:hover {
+    opacity: 1;
+}
+.Botao::before, .Botao::after {
+    content: '';
+}
+.Botao::after {
+    background-image: url(./imgs/botao_borda.png);
+}
+.Botao:hover::after {
+    background-image: url(./imgs/botao_hover.png);
+}
+.Botao.actived::after {
+    background-image: url(./imgs/botao_actived.png);
+}
+.Botao::before, .Botao::after, .Botao > i {
+    position: absolute;
+    top: 0; left: 0;
+    width: 25px;
+    height: 25px;
+}
+.Botao > i {
+    background-repeat: no-repeat;
+}
+.Botao i.fav {
+    background-image: url(./imgs/ico_fav.png);
+    background-position: 5px 6px;
+}
+.Botao.actived i.fav {
+    background-position: 6px 7px;
+}
+.Botao i.like {
+    background-image: url(./imgs/ico_like.png);
+    background-position: 5px 5px;
+}
+.Botao.actived i.like {
+    background-position: 6px 6px;
+}
+.Botao i.dislike {
+    background-image: url(./imgs/ico_dislike.png);
+    background-position: 6px 6px;
+}
+.Botao.actived i.dislike {
+    background-position: 7px 7px;
+}
+.Botao i.rmv {
+    background-image: url(./imgs/ico_rmv.png);
+    background-position: 5px 6px;
+}
+.Botao.actived i.rmv {
+    background-position: 6px 7px;
+}
+.Botao::before {
+    background-size: 21px 21px, 17px 23px, 23px 17px !important;
+    background-repeat: no-repeat !important;
+}
+.Botao.verde::before {
+    background:
+        linear-gradient(0deg, #70a83b, #70a83b) 2px 2px,
+        linear-gradient(0deg, #70a83b, #70a83b) 4px 1px,
+        linear-gradient(0deg, #70a83b, #70a83b) 1px 4px;
+}
+.Botao.vermelho::before {
+    background:
+        linear-gradient(0deg, #c00411, #c00411) 2px 2px,
+        linear-gradient(0deg, #c00411, #c00411) 4px 1px,
+        linear-gradient(0deg, #c00411, #c00411) 1px 4px;
+}
+.Botao.amarelo::before {
+    background:
+        linear-gradient(0deg, #dc9600, #dc9600) 2px 2px,
+        linear-gradient(0deg, #dc9600, #dc9600) 4px 1px,
+        linear-gradient(0deg, #dc9600, #dc9600) 1px 4px;
+}
+.Botao.azul::before {
+    background:
+        linear-gradient(0deg, #009bdb, #009bdb) 2px 2px,
+        linear-gradient(0deg, #009bdb, #009bdb) 4px 1px,
+        linear-gradient(0deg, #009bdb, #009bdb) 1px 4px;
+}
