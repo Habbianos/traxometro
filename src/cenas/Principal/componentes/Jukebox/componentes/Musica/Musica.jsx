@@ -1,6 +1,6 @@
 import * as firebase from "firebase";
 import "firebase/firestore";
-import Crunker from "../../extras/crunker";
+import Crunker from "./extras/crunker";
 
 export default class Musica {
 	constructor({hotel, nome, autor, codigo} = {}) {
