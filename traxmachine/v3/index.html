@@ -911,7 +911,7 @@
 								return [...acc, [cur, 1]]
 							}
 						}, [])
-						.filter((x, i, a) => {console.log(x, i, a)
+						.filter((x, i, a) => {
 							return x[0] || i < a.length - 1
 						})
 						.map(x => x[0] === undefined ? ['0', x[1]] : x)
