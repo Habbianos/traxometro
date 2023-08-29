@@ -878,6 +878,42 @@
 				}
 				// document.getElementById("demo").innerHTML = songs.toString();
 			}
+			function exportString() {
+				return Array
+					.from(document.querySelectorAll('#timeline > .layer'))
+					.map(l => Array
+						.from(l.querySelectorAll('.space'))
+						.map(s => {
+							let space = s
+							do {
+								const module = space.querySelector('.module')
+								if (space && module) {
+									if (module.hasAttribute('trax-playsong')) {
+										return module.getAttribute('trax-playsong')
+									} else {
+										space = space.previousElementSibling
+									}
+								} else {
+									return undefined
+								}
+							} while (true)
+						})
+						.reduce((acc, cur) => {
+							if (acc[acc.length - 1]?.[0] === cur) {
+								return [...acc.slice(0, acc.length - 1), [cur, (acc[acc.length - 1]?.[1] ?? 0)+1]]
+							} else {
+								return [...acc, [cur, 1]]
+							}
+						}, [])
+						.filter((x, i, a) => {console.log(x, i, a)
+							return x[0] || i < a.length - 1
+						})
+						.map(x => x[0] === undefined ? ['0', x[1]] : x)
+						.map(x => x.join(","))
+						.join(";"))
+					.map((x, i) => `${i+1}:${x}`)
+					.join(":")
+			}
 		</script>
 		<script src="audioVisualizations.js" type="text/javascript"></script>
 		
