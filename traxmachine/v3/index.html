@@ -928,7 +928,7 @@
 
 				for (const blocoSong in blocks) {
 					const firstBlock = blocks[blocoSong][0]
-					blocks[blocoSong].forEach(block => block.times = firstBlock.duration / songs[firstBlock.song][2])
+					blocks[blocoSong].forEach(block => block.times = block.duration / songs[block.song][2])
 					const buffer = await fetch("../sounds/" + songs[firstBlock.song][4])
 						.then(r => r.arrayBuffer())
 						.then(r => {
@@ -978,7 +978,7 @@
 
 				let layers = [];
 				camadas.forEach((camada) => {
-					layers.push(crunker.concatAudio(camada.map(x => x.buffer)))
+					layers.push(crunker.concatAudio(camada.flatMap(x => new Array(x.times).fill(x.buffer))))
 				})
 
 				if (layers.length === 0) {
