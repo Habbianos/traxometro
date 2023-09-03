@@ -307,7 +307,6 @@
 			buttonSave.setAttribute("id", "save");
 			buttonSave.setAttribute("onclick", "save()");
 			buttonSave.disabled = true;
-			buttonSave.style.display = "none";
 			controls.appendChild(buttonSave);
 			var buttonOpen = document.createElement("input");
 			buttonOpen.setAttribute("type", "button");
@@ -807,45 +806,7 @@
 				return i;
 			}
 			function save() {
-				var musicName = prompt("Título da música");
-				if (musicName) {
-					var myCollections = [];
-					var palhetas = document.querySelectorAll(".palheta");
-					for (var x = 0; x < palhetas.length; x++) {
-						myCollections[x] = palhetas[x].getAttribute("trax-cartuchoIndex");
-					}
-					if (!myCollections.length)
-						delete myCollections;
-					var mySongs = [];
-					var layers = document.querySelectorAll(".layer");
-					for (var x = 0; x < layers.length; x++) {
-						mySongs[x] = [];
-						var spaces = layers[x].firstChild.firstChild.childNodes;
-						for (var y = 0; y < spaces.length; y++) {
-							if (spaces[y] && spaces[y].hasChildNodes() && (spaces[y].firstChild.getAttribute("trax-moduleType") == "start" || spaces[y].firstChild.getAttribute("trax-moduleType") == "unique")) {
-								mySongs[x][y] = [];
-								mySongs[x][y][0] = spaces[y].firstChild.getAttribute("trax-moduleColor") - 1;
-								mySongs[x][y][1] = spaces[y].firstChild.getAttribute("trax-moduleClass");
-							}
-						}
-						if (!mySongs[x].length)
-							delete mySongs[x];
-					}
-					if (!mySongs.length)
-						delete mySongs;
-
-					if (myCollections && mySongs) {
-
-						var myMusic = {
-							name: musicName,
-							collections: myCollections,
-							songs: mySongs
-						};
-						window.open("?"+serialize(myMusic, ""), '_blank');
-						// document.getElementById("demo").innerHTML = DumpObjectIndented(myMusic, 0);
-						// document.getElementsByTagName("body")[0].innerHTML = mySongs[3];
-					}
-				}
+				exportSong()
 			}
 			function openMusic() {
 				var name = "";
