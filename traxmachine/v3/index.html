@@ -875,9 +875,9 @@
 							}
 						}, [])
 						.filter((x, i, a) => {
-							return x[0] || i < a.length - 1
+							return x[0] || i < a.length - 1 || a.length === 1
 						})
-						.map(x => x[0] === undefined ? ['0', x[1]] : x)
+						.map((x, i, a) => x[0] === undefined ? ['0', i === 0 && a.length === 1 ? 1 : x[1]] : x)
 						.map(x => x.join(","))
 						.join(";"))
 					.map((x, i) => `${i+1}:${x}`)
