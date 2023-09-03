@@ -43,6 +43,7 @@
 	     * Source each time the file plays, once the file has completed disconnect 
 	     * and destroy the media element source. */
 	    play: function() {
+			context.resume()
 	    	clearInterval(fadeFake);
 			/* Call `play` on the MediaElement. */
 	        	this.element.play();
