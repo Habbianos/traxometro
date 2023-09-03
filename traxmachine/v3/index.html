@@ -655,7 +655,9 @@
 				} while (checkPosition < document.getElementById("timeline").childNodes[0].firstChild.firstChild.childNodes.length);
 				if (!encontrou) {
 					console.log("Chegou ao fim. :(");
-					document.getElementById("stop").click();
+					setTimeout(() => {
+						document.getElementById("stop").click();
+					}, 1000)
 					// stop();
 					return true;
 				}
