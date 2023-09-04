@@ -178,7 +178,7 @@
 
 					var header = palheta.firstChild;
 					header.classList.add("header");
-					header.setAttribute("onclick", "removeCartucho("+cartuchoIndex+", "+j+")");
+					header.setAttribute("onclick", "removeCartucho("+j+")");
 					var title = document.createElement("span");
 					var titleText = document.createTextNode(collections[cartuchoIndex][1]);
 					title.appendChild(titleText);
@@ -213,21 +213,22 @@
 			}
 
 			var everRemove = false;
-			function removeCartucho(cartuchoIndex, pikerIndex) {
+			function removeCartucho(pikerIndex) {
 				if (!everRemove)
 					var resposta = confirm("Ejetar cartucho?\nTem certeza de que deseja remover o cartucho e suas amostras a partir da música?");
 				else
 					resposta = true;
 				if (resposta) {
-					var cartuchoInList = cartuchosList.firstChild.childNodes[cartuchoIndex-1];
-					cartuchoInList.style.display = "inherit";
 					var cartuchoInPiker = palhetas.childNodes[pikerIndex];
+					var cartuchoIndex = cartuchoInPiker.getAttribute("trax-cartuchoindex");
 					cartuchoInPiker.removeAttribute("trax-cartuchoindex");
 					cartuchoInPiker.firstChild.innerHTML = "";
 					cartuchoInPiker.firstChild.removeAttribute("class");
 					cartuchoInPiker.firstChild.removeAttribute("onclick");
 					cartuchoInPiker.lastChild.innerHTML = "";
 					console.log("Cartucho "+collections[cartuchoIndex][1]+" removido.");
+					var cartuchoInList = cartuchosList.firstChild.childNodes[cartuchoIndex-1];
+					cartuchoInList.style.display = "inherit";
 
 					var clearLayers = document.querySelectorAll(".layer");
 					for (var i = 0; i < clearLayers.length; i++) {
