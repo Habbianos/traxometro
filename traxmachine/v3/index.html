@@ -213,8 +213,8 @@
 			}
 
 			var everRemove = false;
-			function removeCartucho(pikerIndex) {
-				if (!everRemove)
+			function removeCartucho(pikerIndex, dontAsk = false) {
+				if (!everRemove && !dontAsk)
 					var resposta = confirm("Ejetar cartucho?\nTem certeza de que deseja remover o cartucho e suas amostras a partir da música?");
 				else
 					resposta = true;
@@ -243,12 +243,20 @@
 					console.log("Sons do cartuchos "+collections[cartuchoIndex][1]+" removidos da timeline.");
 					checkNeedMore();
 
-					if (!everRemove)
+					if (!everRemove && !dontAsk)
 						if (confirm("Deseja lembrar esta decisão?"))
 							everRemove = true;
 				}
 			}
 			
+			function removeAllCartuchos() {
+				for (let i = 0; i < palhetas.childElementCount; i++) {
+					try {
+						removeCartucho(i, true)
+					} catch { }
+				}
+			}
+
 			function enableSong(evt) {
 				var cartuchoIndex = evt.target.myParam.split(", ")[0];
 				var moduleClass = evt.target.myParam.split(", ")[1];
