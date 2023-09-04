@@ -321,7 +321,6 @@
 			buttonOpen.setAttribute("type", "button");
 			buttonOpen.setAttribute("id", "open");
 			buttonOpen.setAttribute("onclick", "openMusic()");
-			buttonOpen.style.display = "none";
 			controls.appendChild(buttonOpen);
 			var buttonClear = document.createElement("input");
 			buttonClear.setAttribute("type", "button");
@@ -818,39 +817,75 @@
 				exportSong()
 			}
 			function openMusic() {
-				var name = "";
-				while (name == "") {
-					name = prompt("Qual o nome da música?")
-				}
-				window.open("?name="+name, '_self');
+				var info = prompt("Enter the song source:")
+				if (info) loadMusic(info) 
 			}
-			function loadMusic() {
-				var dados = musicInformation;
-				// console.log(dados);
-				var collections = dados.match(/\(COLLECTION ([^\)]?)+\)/g)
-				for (i in collections) {
-					var info = collections[i].replace(/\(COLLECTION /g, "").replace(/\)/g, "");
-					// console.log(info);
-					// collections[i] = [];
-					collections[i] = info.replace(/[^\d,]/g, "").split(",");
-					// collections[i][0] = info.replace(/(([\s\S]+)?cI: ([^\d]?))/g, "").replace(/(,[\s\S]+)/g, "");
-					// collections[i][1] = info.replace(/(([\s\S]+)?cId: ([^\d]?))/g, "").replace(/(,[\s\S]+)/g, "");
-					setCartucho(collections[i][1]);
-				}
-				var songs = dados.match(/\(SONG ([^\)]?)+\)/g)
-				for (i in songs) {
-					var info = songs[i].replace(/\(SONG /g, "").replace(/\)/g, "");
-					// console.log(info);
-					// songs[i] = [];
-					songs[i] = info.replace(/[^\d,]/g, "").split(",");
-					// songs[i]['agulha'] = info.replace(/(([\s\S]+)?x: ([^\d]?))/g, "").replace(/(,[\s\S]+)/g, "");
-					// songs[i]['layer'] = info.replace(/(([\s\S]+)?i: ([^\d]?))/g, "").replace(/(,[\s\S]+)/g, "");
-					// songs[i]['piker'] = info.replace(/(([\s\S]+)?c: ([^\d]?))/g, "").replace(/(,[\s\S]+)/g, "");
-					// songs[i]['class'] = info.replace(/(([\s\S]+)?cI: ([^\d]?))/g, "").replace(/(,[\s\S]+)/g, "");
-					console.log(document.querySelectorAll(".layer")[songs[i][1]]);
-					dropSong(document.querySelectorAll(".layer")[songs[i][1]].firstChild.firstChild.childNodes[songs[i][0]], Number(songs[i][2])+1, songs[i][3]);
-				}
-				// document.getElementById("demo").innerHTML = songs.toString();
+			function loadMusic(musicInformation) {
+				var dados = musicInformation.split(":")
+					.reduce((acc, cur, i, a) => {
+						if (i % 2 === 0 && cur) {
+							acc[cur - 1] = a[i + 1]
+						}
+						return acc
+					}, [])
+					.map(c => c
+						.split(";")
+						.map(s => s
+							.split(",")
+						)
+						.map(s => ({
+							soundId: s[0],
+							slotsUsed: s[1],
+							times: s[1] / songs[s[0]][2]
+						}))
+					)
+					.reduce((acc, cur) => [{
+						usedPacks: [
+							...acc[0].usedPacks,
+							...cur.map(s => Math.floor(s.soundId / 9 + 1))
+						]
+							.filter((x, i, a) => a.indexOf(x) === i)
+							.sort((a, b) => a - b),
+						layers: [...acc[0].layers, cur],
+					}], [{ usedPacks: [], layers: [] }])
+					.map(r => ({
+						...r,
+						layers: r.layers
+							.map(l => l
+								.reduce((acc, cur) => [
+									...acc,
+									...new Array(cur.times).fill({
+										soundId: cur.soundId,
+										slotsUsed: cur.slotsUsed / cur.times,
+									}),
+								], [])
+								.reduce((acc, cur, i, a) => [
+									...acc,
+									{
+										packIndex: cur.soundId === '0' ? -1 : r.usedPacks.indexOf(Math.floor(cur.soundId / 9 + 1)),
+										sampleType: (cur.soundId - 1) % 9,
+										slotIndex: i === 0 ? 0 : acc[i - 1].slotIndex + a[i - 1].slotsUsed,
+									}
+								], [])
+								.filter(s => s.packIndex >= 0)
+							)
+					}))
+					.reduce((_, cur) => cur);
+				console.log(dados);
+
+				removeAllCartuchos()
+				dados.usedPacks.forEach(p => setCartucho(p))
+
+				dados.layers.forEach((l, i) => l.forEach(s => {
+					const slot = document.querySelectorAll(".layer")[i].firstChild.firstChild.childNodes[s.slotIndex]
+					try {
+						dropSong(slot, s.packIndex + 1, s.sampleType + 1);
+					} catch(err) {
+						console.error(err)
+						debugger
+						throw err
+					}
+				}))
 			}
 		</script>
 		<script type="module">
@@ -898,7 +933,7 @@
 					let split1 = code.split(":");
 					let camadas = [];
 					for (let i = 0; i < split1.length; i += 2) {
-						if (split1[i + 1].length > 0)
+						if (split1[i + 1]?.length > 0)
 							camadas[Number(split1[i]) - 1] = split1[i + 1];
 					}
 					resolve(camadas);
@@ -945,7 +980,6 @@
 
 							return audioContext.decodeAudioData(r)
 						})
-						console.log(buffer)
 					blocks[blocoSong].forEach(block => block.buffer = buffer)
 				}
 
