@@ -395,6 +395,18 @@
 				agulha == 0 ? stop() : pause();
 			});
 			timeline.appendChild(agulhaRange);
+			const timeStamps = document.createElement("div")
+			timeStamps.classList.add("time-stamps")
+			const timeStamps_ = document.createElement("div")
+			for (let i = 0; i < 30; i++) {
+				const timeStamp = document.createElement("div")
+				timeStamp.classList.add("time-stamp")
+				timeStamp.style.left =  (93 + 110 * i)+"px"
+				timeStamp.innerText = Math.floor(10 * (i + 1) % 3600 / 60) + ":" + String(Math.floor(10 * (i + 1) % 3600 % 60)).padEnd(2, "0") + "min"
+				timeStamps_.appendChild(timeStamp)
+			}
+			timeStamps.appendChild(timeStamps_)
+			timeline.appendChild(timeStamps)
 			player.appendChild(timeline);
 
 			document.getElementById("traxmachine").appendChild(player);
@@ -645,6 +657,7 @@
 				for (var i = 0; i < 4; i++) {
 					document.getElementById("timeline").childNodes[i].firstChild.firstChild.style.left = "0";
 				}
+				document.querySelector(".time-stamps").firstChild.style.left = "0"
 				moveTimeline(null);
 				document.getElementById("agulha").value = agulha;
 			}
@@ -694,6 +707,8 @@
 					for (var i = 0; i < 4; i++) {
 						document.getElementById("timeline").childNodes[i].firstChild.firstChild.style.left = (origem * 22)+"px";
 					}
+
+					document.querySelector(".time-stamps").firstChild.style.left = (origem * 22)+"px"
 				} else {
 					clearInterval(mouseContinuous[0]);
 					clearInterval(mouseContinuous[1]);
