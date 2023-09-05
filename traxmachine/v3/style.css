@@ -10,6 +10,7 @@
 	background: transparent;
 	font-family: 'Volter', monospace;
 	letter-spacing: .4pt;
+	image-rendering: pixelated;
 }
 body {
 	padding: 50px;
