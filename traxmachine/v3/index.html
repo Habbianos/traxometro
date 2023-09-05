@@ -821,7 +821,8 @@
 				if (info) loadMusic(info) 
 			}
 			function loadMusic(musicInformation) {
-				var dados = musicInformation.split(":")
+				var dados = musicInformation
+					.split(":")
 					.reduce((acc, cur, i, a) => {
 						if (i % 2 === 0 && cur) {
 							acc[cur - 1] = a[i + 1]
