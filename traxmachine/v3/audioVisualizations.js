@@ -50,10 +50,10 @@
 	    },
 	    pause: function() {
 	    	// if (document.getElementById("stop").disabled == true) {
-	    		musicPlaying = true;
+	    		window.musicPlaying = true;
 	    		render();
 	    		fadeFake = setTimeout(function() {
-	    			musicPlaying = false;
+	    			window.musicPlaying = false;
 	    		}, 1000);
 				this.element.pause();
 	    	// }
@@ -194,7 +194,7 @@
 
 	/* Create our `render` function to be called every available frame. */
 	function render() {
-		if (musicPlaying) {
+		if (window.musicPlaying) {
 			// height = window.innerHeight;
 			var NUM_OF_SLICES = Math.ceil(window.innerWidth / 21);
 			/* Request a `render` on the next available frame.
@@ -222,7 +222,7 @@
 	    		// elem.querySelector('.logo').style.opacity = 0;
 	    	}
 	    } else {
-	    	console.log(musicPlaying);
+	    	console.log(window.musicPlaying);
 	    }
     }
 
