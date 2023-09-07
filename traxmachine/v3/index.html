@@ -254,8 +254,13 @@
 						let obj = clearLayers[i].firstChild.firstChild.firstChild;
 						while (obj) {
 							// pikerIndex
-							if (obj.hasChildNodes() && obj.firstChild.getAttribute("trax-moduleColor") == pikerIndex+1)
+							if (obj.hasChildNodes() && obj.firstChild.getAttribute("trax-moduleColor") == pikerIndex+1) {
 								obj.removeChild(obj.firstChild);
+
+								addListener(obj, "dragover", function(){
+									event.preventDefault();
+								}, false);
+							}
 							obj = obj.nextElementSibling;
 						}
 					}
