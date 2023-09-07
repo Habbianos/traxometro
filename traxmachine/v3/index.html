@@ -237,6 +237,7 @@
 				if (resposta) {
 					var cartuchoInPiker = palhetas.childNodes[pikerIndex];
 					var cartuchoIndex = cartuchoInPiker.getAttribute("trax-cartuchoindex");
+					if (!cartuchoIndex) return // empty picker
 					cartuchoInPiker.removeAttribute("trax-cartuchoindex");
 					cartuchoInPiker.firstChild.innerHTML = "";
 					cartuchoInPiker.firstChild.removeAttribute("class");
@@ -267,9 +268,7 @@
 			
 			function removeAllCartuchos() {
 				for (let i = 0; i < palhetas.childElementCount; i++) {
-					try {
-						removeCartucho(i, true)
-					} catch { }
+					removeCartucho(i, true)
 				}
 			}
 
