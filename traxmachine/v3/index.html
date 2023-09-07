@@ -206,9 +206,9 @@
 						child.addEventListener("mouseout", stopPreview);
 						piker.appendChild(child);
 					}
-					console.log("Cartucho inserido!");
+					// "Cartucho inserido!"
 				} else {
-					console.log("Não há espaço para mais cartuchos.");
+					// "Não há espaço para mais cartuchos."
 				}
 			}
 
@@ -226,7 +226,7 @@
 					cartuchoInPiker.firstChild.removeAttribute("class");
 					cartuchoInPiker.firstChild.removeAttribute("onclick");
 					cartuchoInPiker.lastChild.innerHTML = "";
-					console.log("Cartucho "+collections[cartuchoIndex][1]+" removido.");
+					// "Cartucho "+collections[cartuchoIndex][1]+" removido."
 					var cartuchoInList = cartuchosList.firstChild.childNodes[cartuchoIndex-1];
 					cartuchoInList.style.display = "inherit";
 
@@ -234,13 +234,13 @@
 					for (var i = 0; i < clearLayers.length; i++) {
 						var obj = clearLayers[i].firstChild.firstChild.firstChild;
 						while (obj) {
-							console.log(pikerIndex);
+							// pikerIndex
 							if (obj.hasChildNodes() && obj.firstChild.getAttribute("trax-moduleColor") == pikerIndex+1)
 								obj.removeChild(obj.firstChild);
 							obj = obj.nextElementSibling;
 						}
 					}
-					console.log("Sons do cartuchos "+collections[cartuchoIndex][1]+" removidos da timeline.");
+					// "Sons do cartuchos "+collections[cartuchoIndex][1]+" removidos da timeline."
 					checkNeedMore();
 
 					if (!everRemove && !dontAsk)
@@ -268,12 +268,12 @@
 						event.dataTransfer.setData("text", ((indexOf(this.parentElement.parentElement) + 1)+", "+(indexOf(this) + 1)));
 						event.dataTransfer.setDragImage(this, 0, 0);
 						timeline.setAttribute("theDataTransfer", (indexOf(this.parentElement.parentElement) + 1)+", "+(indexOf(this) + 1));
-						// console.log((indexOf(this.parentElement.parentElement) + 1)+", "+(indexOf(this) + 1));
+						// // (indexOf(this.parentElement.parentElement) + 1)+", "+(indexOf(this) + 1)
 					});
 					obj.removeAttribute("trax-loadingFile");
 					obj.removeAttribute("id");
 					audioLoader[songId].removeEventListener("canplay", enableSong);
-					console.log(songs[songId][4]+" ready!");
+					// songs[songId][4]+" ready!"
 				}, 1);
 			}
 			var songPlaying = null;
@@ -286,7 +286,7 @@
 					audioLoader[songId].currentTime = 0;
 					audioLoader[songId].play();
 					songPlaying = songId;
-					console.log("Preview do som "+songs[songId][4]);
+					// "Preview do som "+songs[songId][4]
 				}
 			}
 			function stopPreview() {
@@ -391,7 +391,7 @@
 			agulhaRange.setAttribute("value", 0);
 			agulhaRange.addEventListener("change", function(){
 				agulha = document.getElementById("agulha").value - Number(origem);
-				console.log("Agulha e AgulhaRange movidas (mouse)! "+agulha+" e "+document.getElementById("agulha").value);
+				// "Agulha e AgulhaRange movidas (mouse)! "+agulha+" e "+document.getElementById("agulha").value
 				agulha == 0 ? stop() : pause();
 			});
 			timeline.appendChild(agulhaRange);
@@ -443,7 +443,7 @@
 					event.preventDefault;
 					var cartuchoIndex = event.dataTransfer.getData("text").split(", ")[0];
 					var moduleClass = event.dataTransfer.getData("text").split(", ")[1];
-					// console.log(event.dataTransfer.getData("text"));
+					// // event.dataTransfer.getData("text")
 					dropSong(this, cartuchoIndex, moduleClass);
 					
 				});
@@ -496,7 +496,7 @@
 									checkEmpty();
 									i++;
 								} while (objToRemo && (objToRemo.getAttribute("trax-moduleType") != "unique" && objToRemo.getAttribute("trax-moduleType") != "start"));
-								console.log("Um módulo de "+i+" espaço(s) foi removido.");
+								// "Um módulo de "+i+" espaço(s) foi removido."
 								checkNeedMore();
 							}
 						});
@@ -504,7 +504,7 @@
 						nextObj.appendChild(module);
 						nextObj = nextObj.nextElementSibling;
 					}
-					console.log("Foi adicionado um módulo de "+length+" espaços.");
+					// "Foi adicionado um módulo de "+length+" espaços."
 					checkNeedMore();
 					checkEmpty();
 				}
@@ -564,7 +564,7 @@
 			var origem = 0;
 			var timer;
 			var agulha = 0;
-			console.log("Agulha movida! "+agulha);
+			// "Agulha movida! "+agulha
 			var players = [];
 			var firstPlay = true;
 			var musicPlaying = false;
@@ -574,10 +574,10 @@
 				document.getElementById("stop").disabled = false;
 				document.getElementById("save").disabled = true;
 				document.getElementById("clear").disabled = true;
-				console.log("Solta o som DJJ!!!!");
+				// "Solta o som DJJ!!!!"
 				document.getElementById("playPause").setAttribute("onclick", "pause()");
 				document.getElementById("agulha").value = Number(agulha) + Number(origem);
-				console.log("AgulhaRange movida! "+(Number(agulha) + Number(origem)));
+				// "AgulhaRange movida! "+(Number(agulha) + Number(origem))
 				firstPlay = true;
 				//pause();
 				clearInterval(timer);
@@ -587,7 +587,7 @@
 			function ler() {
 				if (!firstPlay) {
 					agulha++;
-					console.log("Agulha movida! "+agulha);
+					// "Agulha movida! "+agulha
 				}
 				var songId;
 				for (i = 0, n = 0, no = 0; i < 4; i++) {
@@ -600,7 +600,7 @@
 							songId = theModule.getAttribute("trax-playSong");
 							achou = true;
 							secondsLeft = 0;
-							console.log("2.1: É o primeiro módulo: "+i+" / "+agulha);
+							// "2.1: É o primeiro módulo: "+i+" / "+agulha
 						} else if (firstPlay) {
 							secondsLeft = 2;
 							var objNoFirst = theSpace.previousElementSibling;
@@ -613,9 +613,9 @@
 									objNoFirst = objNoFirst.previousElementSibling;
 								}
 							 } while (!achou || secondsLeft > 10);
-							console.log("2.2: Não é o primeiro módulo, mas execute: "+i+" / "+agulha);
+							// "2.2: Não é o primeiro módulo, mas execute: "+i+" / "+agulha
 						} else {
-							console.log("2.1: Já está executando: "+i+" / "+agulha);
+							// "2.1: Já está executando: "+i+" / "+agulha
 						}
 						if (achou) {
 							loadAudioElement("../sounds/"+songs[songId][4], i).then(function(value) {
@@ -638,7 +638,7 @@
 						if (players[i] && secondsLeft)
 							players[i].play();
 					} else {
-						console.log("1: Não tem modulo: "+i+" / "+agulha);
+						// "1: Não tem modulo: "+i+" / "+agulha
 						no++;
 					}
 				}
@@ -647,11 +647,11 @@
 					checkEnd();
 				if ((!document.getElementById("moveRight").disabled && Number(agulha) + Number(origem) < 11) || document.getElementById("moveRight").disabled) {
 					document.getElementById("agulha").value = Number(agulha) + Number(origem);
-					console.log("AgulhaRange movida! "+(Number(agulha) + Number(origem)));
+					// "AgulhaRange movida! "+(Number(agulha) + Number(origem))
 				} else if (!firstPlay) {
 					document.getElementById("moveRight").click();
 					// moveTimeline("right");
-					console.log("Timeline deslocada! "+(Number(agulha) + Number(origem)));
+					// "Timeline deslocada! "+(Number(agulha) + Number(origem))
 				}
 				firstPlay = false;
 			}
@@ -673,7 +673,7 @@
 				musicPlaying = true;
 				running=true;
 				agulha = 0;
-				console.log("Agulha movida! "+agulha);
+				// "Agulha movida! "+agulha
 				origem = 0;
 				for (var i = 0; i < 4; i++) {
 					document.getElementById("timeline").childNodes[i].firstChild.firstChild.style.left = "0";
@@ -695,7 +695,7 @@
 					checkPosition++;
 				} while (checkPosition < document.getElementById("timeline").childNodes[0].firstChild.firstChild.childNodes.length);
 				if (!encontrou) {
-					console.log("Chegou ao fim. :(");
+					// "Chegou ao fim. :("
 					setTimeout(() => {
 						document.getElementById("stop").click();
 					}, 1000)
@@ -717,13 +717,13 @@
 					origem += direction;
 					if (Number(agulha) + Number(origem) == -1) {
 						agulha++;
-						console.log("Agulha movida (aqui)! "+agulha);
+						// "Agulha movida (aqui)! "+agulha
 					} else if (Number(agulha) + Number(origem) == 24) {
 						agulha--;
-						console.log("Agulha movida (acolá)! "+agulha);
+						// "Agulha movida (acolá)! "+agulha
 					}
 					document.getElementById("agulha").value = Number(agulha) + Number(origem);
-					console.log("AgulhaRange movida (kkk)! "+(Number(agulha) + Number(origem)));
+					// "AgulhaRange movida (kkk)! "+(Number(agulha) + Number(origem))
 
 					for (var i = 0; i < 4; i++) {
 						document.getElementById("timeline").childNodes[i].firstChild.firstChild.style.left = (origem * 22)+"px";
@@ -759,9 +759,9 @@
 						cont = 0;
 					}
 				}
-				console.log("Total de espaços: "+i+" / Total sobrando: "+cont);
+				// "Total de espaços: "+i+" / Total sobrando: "+cont
 				if (cont < 12) {
-					console.log("Precisa de mais "+(12 - cont)+"?");
+					// "Precisa de mais "+(12 - cont)+"?"
 					needMore(12 - cont);
 				} else if (i > 24 && cont != i && cont > 12) {
 					removeSpaces(cont - 12);
@@ -774,7 +774,7 @@
 					for (var j = 0; j < 4; j++) 
 						document.getElementById("timeline").childNodes[j].firstChild.firstChild.appendChild(newSpace());
 				moveTimeline(null);
-				console.log("Adicionados mais "+qtd+" espaço(s)! Total: "+document.getElementById("timeline").childNodes[0].firstChild.firstChild.childNodes.length);
+				// "Adicionados mais "+qtd+" espaço(s)! Total: "+document.getElementById("timeline").childNodes[0].firstChild.firstChild.childNodes.length
 			}
 			function removeSpaces(qtd) {
 				for (var i = 0; i < qtd; i++) {
@@ -785,7 +785,7 @@
 					if (document.getElementById("moveRight").disabled)
 						document.getElementById("moveLeft").click();
 				}
-				console.log(qtd+" espaços removido(s)! Total: "+document.getElementById("timeline").childNodes[0].firstChild.firstChild.childNodes.length);
+				// qtd+" espaços removido(s)! Total: "+document.getElementById("timeline").childNodes[0].firstChild.firstChild.childNodes.length
 			}
 
 			var everClear = false;
@@ -797,11 +797,11 @@
 
 				if (resposta) {
 					document.getElementById("stop").click();
-					console.log("Tudo foi descartado!");
+					// "Tudo foi descartado!"
 					for (var i = 0; i < 4; i++) {
 						var j = 0;
 						while (j < document.getElementById("timeline").childNodes[i].firstChild.firstChild.childNodes.length) {
-							console.log(document.getElementById("timeline").childNodes[i].firstChild.firstChild.childNodes[j].hasChildNodes());
+							// document.getElementById("timeline").childNodes[i].firstChild.firstChild.childNodes[j].hasChildNodes()
 							if (document.getElementById("timeline").childNodes[i].firstChild.firstChild.childNodes[j].hasChildNodes()) {
 								addListener(document.getElementById("timeline").childNodes[i].firstChild.firstChild.childNodes[j], "dragover", function(){
 									event.preventDefault();
@@ -819,7 +819,7 @@
 						if (confirm("Deseja lembrar esta decisão?"))
 							everClear = true;
 				} else {
-					console.log("Nada foi descartado.");
+					// "Nada foi descartado."
 				}
 				if (typeof onTimelineUpdate === 'function') onTimelineUpdate()
 			}
@@ -909,7 +909,7 @@
 							)
 					}))
 					.reduce((_, cur) => cur);
-				console.log(dados);
+				// dados
 
 				removeAllCartuchos()
 				dados.usedPacks.forEach(p => setCartucho(p))
