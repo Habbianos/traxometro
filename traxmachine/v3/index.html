@@ -600,6 +600,7 @@
 				render();
 				document.getElementById("stop").disabled = false;
 				document.getElementById("save").disabled = true;
+				document.getElementById("open").disabled = true;
 				document.getElementById("clear").disabled = true;
 				// "Solta o som DJJ!!!!"
 				document.getElementById("playPause").removeEventListener("click", play);
@@ -846,6 +847,7 @@
 					}
 					checkEmpty();
 					document.querySelector("div#controls input#save").disabled = true;
+					document.querySelector("div#controls input#open").disabled = false;
 					document.querySelector("div#controls input#clear").disabled = true;
 
 					if (!everClear)
@@ -873,6 +875,7 @@
 					document.getElementById("save").disabled = true;
 					document.getElementById("clear").disabled = true;
 				}
+				document.getElementById("open").disabled = false;
 			}
 			function indexOf(obj) {
 				var i = 0;
