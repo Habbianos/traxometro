@@ -1,7 +1,7 @@
 
 	/* This demo only works in Chrome. */
-	var isChrome = (function() {
-		var chrome = window.chrome,
+	const isChrome = (function() {
+		const chrome = window.chrome,
 			vendor = navigator.vendor;
 		return chrome !== void 0 && chrome !== null && vendor === 'Google Inc.';
 	})();
@@ -9,7 +9,7 @@
 	if (!isChrome) document.querySelector('.not-chrome').classList.add('open');
 
 	/* Hoist some variables. */
-	var audio, context;
+	let audio, context;
 
 	/* Try instantiating a new AudioContext, throw an error if it fails. */
 	try {
@@ -20,7 +20,7 @@
 	}
 
 	/* Create a script processor node with a `bufferSize` of 1024. */
-	var processor = context.createScriptProcessor(1024),
+	const processor = context.createScriptProcessor(1024),
 	    /* Create an analyser node */
 	    analyser = context.createAnalyser();
 
@@ -30,13 +30,13 @@
 	analyser.connect(processor);
 
 	/* Define a Uint8Array to receive the analysers data. */
-	var data = new Uint8Array(analyser.frequencyBinCount);
+	let data = new Uint8Array(analyser.frequencyBinCount);
 
 	/* Start of the visual component, let's define some constants. */
-	var NUM_OF_SLICES = Math.ceil(window.innerWidth / 21);
+	const NUM_OF_SLICES = Math.ceil(window.innerWidth / 21);
 
 	/* Define a `Sound` Class */
-	var Sound = {
+	const Sound = {
 	    /* Give the sound an element property initially undefined. */
 	    element: undefined,
 	    /* Define a class method of play which instantiates a new Media Element
@@ -59,19 +59,20 @@
 	    	// }
 	    },
 	    setAudioStream: function() {
+			let sound
 			/* Try instantiating a new AudioContext, throw an error if it fails. */
 			try {
 				/* Setup an AudioContext. */
-		    	var sound = context.createMediaElementSource(this.element);
+		    	sound = context.createMediaElementSource(this.element);
 			} catch(e) {
-				// var src = this.element.src;
-				// var currentTime = this.element.currentTime;
+				// const src = this.element.src;
+				// const currentTime = this.element.currentTime;
 				// this.element.pause();
 	   //  		this.element = new Audio();
 	   //  		this.element.src = src;
 	   //  		this.element.currentTime = currentTime;
 				// // context = new AudioContext();
-		    	var sound = context.createMediaElementSource(this.element);
+		    	sound = context.createMediaElementSource(this.element);
 				// throw new Error('Bla bla bla bla bla');
 			}
 	        // this.element.onended = function() {
@@ -94,11 +95,11 @@
 			};
 	    }
 	};
-	var fadeFake;
+	let fadeFake;
 	/* Create an async function which returns a promise of a playable audio element. */
 	function loadAudioElement(url, i) {
 		return new Promise(function(resolve, reject) {
-			var audio = new Audio();
+			const audio = new Audio();
 			audio.addEventListener('canplay', function() {
 								// console.log(i);
 				/* Resolve the promise, passing through the element. */
@@ -128,15 +129,15 @@
 
 	/* The `STEP` constant allows us to step through all the data we receive,
 	 * instead of just the first `NUM_OF_SLICES` elements in the array. */
-	var STEP = Math.floor(data.length / NUM_OF_SLICES),
+	const STEP = Math.floor(data.length / NUM_OF_SLICES),
 		/* When the analyser receives no data, all values in the array will be 128. */
 		NO_SIGNAL = 128;
 
 	/* Get the element we want to 'slice'. */
-	var logo = document.querySelector('.logo-container');
+	const logo = document.querySelector('.logo-container');
 
 	/* We need to store our 'slices' to interact with them later. */
-	var slices = []
+	const slices = []
 		rect = logo.getBoundingClientRect(),
 		// rect = document.querySelector('#demo'),
 		/* Thankfully Chrome supplies us a width and
@@ -147,20 +148,20 @@
 	    widthPerSlice = 21;
 
 	/* Create a container `<div>` to hold our 'slices'. */
-	var container = document.createElement('div');
-	// var container = document.getElementById('demo');
+	const container = document.createElement('div');
+	// const container = document.getElementById('demo');
 	container.className = 'container';
 	// container.style.width = width + 'px';
 	// container.style.height = height + 'px';
 
-	var offsetXModuleClasses = [];
+	const offsetXModuleClasses = [];
 	/* Let's create our 'slices'. */
 	function createSlices(i) {
 		/* Calculate the `offset` for each individual 'slice'. */
-		var offset = i * widthPerSlice;
+		const offset = i * widthPerSlice;
 
 		/* Create a mask `<div>` for this 'slice'. */
-	    var mask = document.createElement('div');
+	    const mask = document.createElement('div');
 	    mask.className = 'mask';
 	    mask.style.width = widthPerSlice + 'px';
 	    /* For the best performance, and to prevent artefacting when we
@@ -170,7 +171,7 @@
 	    mask.style.transform = 'translate(' + offset + 'px, ' + 0 + 'px)';
 
 	    /* Clone the original element. */
-	    var clone = logo.cloneNode(true);
+	    const clone = logo.cloneNode(true);
 	    clone.className = 'clone';
 	    clone.style.width = width + 'px';
 	    /* We won't be changing this transform so we don't need to use a matrix. */
@@ -186,7 +187,7 @@
 
 		offsetXModuleClasses[i] = (((Math.floor(Math.random() * 8)) * (widthPerSlice - 2) * -1) + 1);
 	}
-	for (var i = 0; i < NUM_OF_SLICES; i++)
+	for (let i = 0; i < NUM_OF_SLICES; i++)
 		createSlices(i);
 
 	/* Replace the original element with our new container of 'slices'. */
@@ -196,17 +197,17 @@
 	function render() {
 		if (window.musicPlaying) {
 			// height = window.innerHeight;
-			var NUM_OF_SLICES = Math.ceil(window.innerWidth / 21);
+			const NUM_OF_SLICES = Math.ceil(window.innerWidth / 21);
 			/* Request a `render` on the next available frame.
 			 * No need to polyfill because we are in Chrome. */
 	    	requestAnimationFrame(render);
 
 	    	/* Loop through our 'slices' and use the STEP(n) data from the
 	    	 * analysers data. */
-	    	for (var i = 0, n = 0; i < NUM_OF_SLICES; i++, n+=STEP) {
+	    	for (let i = 0, n = 0; i < NUM_OF_SLICES; i++, n+=STEP) {
 	    		if (!slices[i]) createSlices(i);
-	    		var val = Math.abs(data[n]) / NO_SIGNAL;
-	    		var slice = slices[i],
+	    		const val = Math.abs(data[n]) / NO_SIGNAL;
+	    		const slice = slices[i],
 	    			elem = slice.elem,
 	    			offsetX = slice.offset;
 	    			offsetY = (Math.ceil(((Math.abs(val) * -0.6 * height) + (0 * 1)) / widthPerSlice) * widthPerSlice);

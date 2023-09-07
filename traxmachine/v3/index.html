@@ -45,7 +45,7 @@
 
 		<script type="module">
 
-			var traxmachine = document.createElement("div");
+			const traxmachine = document.createElement("div");
 			traxmachine.setAttribute("id", "traxmachine");
 			document.getElementsByTagName("body")[0].appendChild(traxmachine);
 
@@ -56,32 +56,32 @@
 
 
 			function theSongIdOnList(songCollection, songClass) {
-				for (var x in window.songs) {
+				for (const x in window.songs) {
 					if (window.songs[x] && window.songs[x][1] == songClass && window.songs[x][3] == songCollection)
 						return window.songs[x][0];
 				}
 			}
 			function theSongIdOnPiker(songPikerIndex, songClass) {
-				var piker = document.getElementById("palhetas").childNodes[songPikerIndex - 1];
+				const piker = document.getElementById("palhetas").childNodes[songPikerIndex - 1];
 				return theSongIdOnList(piker.getAttribute("trax-cartuchoIndex"), songClass);
 			}
 
-			var cartuchos = document.createElement("div");
+			const cartuchos = document.createElement("div");
 			cartuchos.setAttribute("id", "cartuchos");
 
-			var cartuchosList = document.createElement("div");
+			const cartuchosList = document.createElement("div");
 			cartuchosList.setAttribute("id", "cartuchos-list");
-			var aDiv = document.createElement("div");
-			for (var i = 1; i < window.collections.length; i++) {
-				var cartucho = document.createElement("div");
+			const aDiv = document.createElement("div");
+			for (let i = 1; i < window.collections.length; i++) {
+				const cartucho = document.createElement("div");
 				cartucho.setAttribute("class", "cartucho");
 
-				var img = document.createElement("img");
+				const img = document.createElement("img");
 				img.src = "../imgs/"+window.collections[i][2];
 				img.addEventListener("click", setCartucho.bind(this, i));
 				cartucho.appendChild(img);
 
-				var cartuchoName = document.createElement("span");
+				const cartuchoName = document.createElement("span");
 				cartuchoName.setAttribute("data-use", t('use'))
 				cartuchoName.appendChild(document.createTextNode(window.collections[i][1]));
 				cartucho.appendChild(cartuchoName);
@@ -91,23 +91,23 @@
 			cartuchosList.appendChild(aDiv);
 			cartuchos.appendChild(cartuchosList);
 
-			var cartuchosPager = document.createElement("div");
+			const cartuchosPager = document.createElement("div");
 			cartuchosPager.setAttribute("id", "cartuchos-pager");
-			var cartuchosPagerLeft = document.createElement("input");
+			const cartuchosPagerLeft = document.createElement("input");
 			cartuchosPagerLeft.setAttribute("id", "cartuchos-pager-left");
 			cartuchosPagerLeft.setAttribute("type", "button");
 			cartuchosPagerLeft.addEventListener("click", moveCartuchosList.bind(this, 'left'));
 			cartuchosPager.appendChild(cartuchosPagerLeft);
-			var cartuchosPagerCount = document.createElement("div");
-			var cartuchosPagerCountNow = document.createElement("span");
+			const cartuchosPagerCount = document.createElement("div");
+			const cartuchosPagerCountNow = document.createElement("span");
 			cartuchosPagerCountNow.setAttribute("id", "cartuchos-pager-counter-now");
 			cartuchosPagerCount.appendChild(cartuchosPagerCountNow);
 			cartuchosPagerCount.appendChild(document.createTextNode("/"));
-			var cartuchosPagerCountMax = document.createElement("span");
+			const cartuchosPagerCountMax = document.createElement("span");
 			cartuchosPagerCountMax.setAttribute("id", "cartuchos-pager-counter-max");
 			cartuchosPagerCount.appendChild(cartuchosPagerCountMax);
 			cartuchosPager.appendChild(cartuchosPagerCount);
-			var cartuchosPagerRight = document.createElement("input");
+			const cartuchosPagerRight = document.createElement("input");
 			cartuchosPagerRight.setAttribute("id", "cartuchos-pager-right");
 			cartuchosPagerRight.setAttribute("type", "button");
 			cartuchosPagerRight.addEventListener("click", moveCartuchosList.bind(this, 'right'));
@@ -115,8 +115,9 @@
 
 			cartuchos.appendChild(cartuchosPager);
 			traxmachine.appendChild(cartuchos);
-			var countNow = 1;
+			let countNow = 1;
 			function moveCartuchosList(direction) {
+				let obj
 				if (direction == "left") {
 					direction = 1;
 				} else if(direction == "right") {
@@ -127,22 +128,22 @@
 				
 				if (direction) {
 					countNow -= direction;
-					var obj = document.getElementById("cartuchos-list").firstChild.firstChild;
+					obj = document.getElementById("cartuchos-list").firstChild.firstChild;
 					while (obj) {
 						obj.style.transform = "translateY("+((countNow - 1) * -111)+"px)";
 						obj = obj.nextElementSibling;
 					}
 				}
 
-				var i = 0;
-				var obj = document.getElementById("cartuchos-list").firstChild.firstChild;
+				let i = 0;
+				obj = document.getElementById("cartuchos-list").firstChild.firstChild;
 				while (obj) {
 					if (obj.style.display != "none") {
 						i++;
 					}
 					obj = obj.nextElementSibling;
 				}
-				var countMax = Math.ceil(i / 3);
+				const countMax = Math.ceil(i / 3);
 				document.getElementById("cartuchos-pager-counter-max").innerHTML = countMax;
 
 				if (countNow > countMax)
@@ -150,37 +151,37 @@
 
 				document.getElementById("cartuchos-pager-counter-now").innerHTML = countNow;
 
-				var obj = document.getElementById("cartuchos-pager-left");
+				obj = document.getElementById("cartuchos-pager-left");
 				countNow <= 1 ? obj.disabled = true : obj.disabled = false;
-				var obj = document.getElementById("cartuchos-pager-right");
+				obj = document.getElementById("cartuchos-pager-right");
 				countNow >= countMax ? obj.disabled = true : obj.disabled = false;
 			}
 			moveCartuchosList(null);
 
 			function getPalheta() {
-				var palheta = document.createElement("div");
+				const palheta = document.createElement("div");
 				palheta.setAttribute("class", "palheta");
 
-				var header = document.createElement("div");
+				const header = document.createElement("div");
 				header.setAttribute("trax-moduleColor", (document.getElementById("palhetas").childNodes.length + 1));
 				palheta.appendChild(header);
 
-				var piker = document.createElement("ul");
+				const piker = document.createElement("ul");
 				piker.setAttribute("class", "piker");
 				palheta.appendChild(piker);
 
 				document.getElementById("palhetas").appendChild(palheta);
 			}
-			var palhetas = document.createElement("div");
+			const palhetas = document.createElement("div");
 			palhetas.setAttribute("id", "palhetas");
 			document.getElementById("traxmachine").appendChild(palhetas);
-			for (var i = 0; i < 4; i++)
+			for (let i = 0; i < 4; i++)
 				getPalheta();
 
-			var audioLoader = [];
+			const audioLoader = [];
 			function setCartucho(cartuchoIndex) {
-				var obj = document.getElementById("palhetas").firstChild;
-				var j = 0;
+				let obj = document.getElementById("palhetas").firstChild;
+				let j = 0;
 				while (obj && obj.firstChild.hasChildNodes()) {
 					obj = obj.nextElementSibling;
 					j++
@@ -188,23 +189,23 @@
 				if (obj && !obj.firstChild.hasChildNodes()) {
 					document.getElementById("cartuchos-list").firstChild.childNodes[cartuchoIndex-1].style.display = "none";
 					moveCartuchosList(null);
-					var palheta = obj;
+					const palheta = obj;
 					palheta.setAttribute("trax-cartuchoIndex", cartuchoIndex);
 
-					var header = palheta.firstChild;
+					const header = palheta.firstChild;
 					header.classList.add("header");
 					header.setAttribute('data-eject', t('eject'))
 					header.addEventListener("click", removeCartucho.bind(this, j));
-					var title = document.createElement("span");
-					var titleText = document.createTextNode(window.collections[cartuchoIndex][1]);
+					const title = document.createElement("span");
+					const titleText = document.createTextNode(window.collections[cartuchoIndex][1]);
 					title.appendChild(titleText);
 					header.innerHTML = "";
 					header.appendChild(title);
 
-					var piker = palheta.lastChild;
+					const piker = palheta.lastChild;
 					piker.innerHTML = "";
-					for (var i = 0; i < 9; i++) {
-						var child = document.createElement("li");
+					for (let i = 0; i < 9; i++) {
+						const child = document.createElement("li");
 						child.classList.add("module");
 						child.setAttribute("trax-moduleColor", (j+1));
 						child.setAttribute("trax-moduleClass", i+1);
@@ -228,15 +229,16 @@
 				}
 			}
 
-			var everRemove = false;
+			let everRemove = false;
 			function removeCartucho(pikerIndex, dontAsk = false) {
+				let resposta
 				if (!everRemove && !dontAsk)
-					var resposta = confirm(t('eject-pack'));
+					resposta = confirm(t('eject-pack'));
 				else
 					resposta = true;
 				if (resposta) {
-					var cartuchoInPiker = palhetas.childNodes[pikerIndex];
-					var cartuchoIndex = cartuchoInPiker.getAttribute("trax-cartuchoindex");
+					const cartuchoInPiker = palhetas.childNodes[pikerIndex];
+					const cartuchoIndex = cartuchoInPiker.getAttribute("trax-cartuchoindex");
 					if (!cartuchoIndex) return // empty picker
 					cartuchoInPiker.removeAttribute("trax-cartuchoindex");
 					cartuchoInPiker.firstChild.innerHTML = "";
@@ -244,12 +246,12 @@
 					cartuchoInPiker.firstChild.removeAttribute("onclick");
 					cartuchoInPiker.lastChild.innerHTML = "";
 					// "Cartucho "+window.collections[cartuchoIndex][1]+" removido."
-					var cartuchoInList = cartuchosList.firstChild.childNodes[cartuchoIndex-1];
+					const cartuchoInList = cartuchosList.firstChild.childNodes[cartuchoIndex-1];
 					cartuchoInList.style.display = "inherit";
 
-					var clearLayers = document.querySelectorAll(".layer");
-					for (var i = 0; i < clearLayers.length; i++) {
-						var obj = clearLayers[i].firstChild.firstChild.firstChild;
+					const clearLayers = document.querySelectorAll(".layer");
+					for (let i = 0; i < clearLayers.length; i++) {
+						let obj = clearLayers[i].firstChild.firstChild.firstChild;
 						while (obj) {
 							// pikerIndex
 							if (obj.hasChildNodes() && obj.firstChild.getAttribute("trax-moduleColor") == pikerIndex+1)
@@ -273,11 +275,11 @@
 			}
 
 			function enableSong(evt) {
-				var cartuchoIndex = evt.target.myParam.split(", ")[0];
-				var moduleClass = evt.target.myParam.split(", ")[1];
-				var songId = theSongIdOnPiker(cartuchoIndex, moduleClass);
+				const cartuchoIndex = evt.target.myParam.split(", ")[0];
+				const moduleClass = evt.target.myParam.split(", ")[1];
+				const songId = theSongIdOnPiker(cartuchoIndex, moduleClass);
 				setTimeout(function() {
-					var obj = document.getElementById("song"+songId);
+					const obj = document.getElementById("song"+songId);
 					obj.setAttribute("draggable", true);
 					obj.addEventListener("dragstart", function(){
 						event.dataTransfer.setData("text", ((indexOf(this.parentElement.parentElement) + 1)+", "+(indexOf(this) + 1)));
@@ -291,13 +293,13 @@
 					// window.songs[songId][4]+" ready!"
 				}, 1);
 			}
-			var songPlaying = null;
+			let songPlaying = null;
 			function previewSong(evt) {
 				if (!window.musicPlaying) {
 					if (songPlaying) audioLoader[songPlaying].pause();
-					var cartuchoIndex = evt.target.myParam.split(", ")[0];
-					var moduleClass = evt.target.myParam.split(", ")[1];
-					var songId = theSongIdOnPiker(cartuchoIndex, moduleClass);
+					const cartuchoIndex = evt.target.myParam.split(", ")[0];
+					const moduleClass = evt.target.myParam.split(", ")[1];
+					const songId = theSongIdOnPiker(cartuchoIndex, moduleClass);
 					audioLoader[songId].currentTime = 0;
 					audioLoader[songId].play();
 					songPlaying = songId;
@@ -308,43 +310,43 @@
 				if (songPlaying) audioLoader[songPlaying].pause();
 			}
 
-			var player = document.createElement("div");
+			const player = document.createElement("div");
 			player.setAttribute("id", "player");
 
-			var mouseContinuous = [];
-			var controls = document.createElement("div");
+			const mouseContinuous = [];
+			const controls = document.createElement("div");
 			controls.setAttribute("id", "controls");
-			var buttonPlayPause = document.createElement("input");
+			const buttonPlayPause = document.createElement("input");
 			buttonPlayPause.classList.add('play')
 			buttonPlayPause.setAttribute("type", "button");
 			buttonPlayPause.setAttribute("id", "playPause");
 			buttonPlayPause.addEventListener("click", play);
 			buttonPlayPause.disabled = true;
 			controls.appendChild(buttonPlayPause);
-			var buttonStop = document.createElement("input");
+			const buttonStop = document.createElement("input");
 			buttonStop.setAttribute("type", "button");
 			buttonStop.setAttribute("id", "stop");
 			buttonStop.addEventListener("click", stop);
 			buttonStop.disabled = true;
 			controls.appendChild(buttonStop);
-			var buttonSave = document.createElement("input");
+			const buttonSave = document.createElement("input");
 			buttonSave.setAttribute("type", "button");
 			buttonSave.setAttribute("id", "save");
 			buttonSave.addEventListener("click", save);
 			buttonSave.disabled = true;
 			controls.appendChild(buttonSave);
-			var buttonOpen = document.createElement("input");
+			const buttonOpen = document.createElement("input");
 			buttonOpen.setAttribute("type", "button");
 			buttonOpen.setAttribute("id", "open");
 			buttonOpen.addEventListener("click", openMusic);
 			controls.appendChild(buttonOpen);
-			var buttonClear = document.createElement("input");
+			const buttonClear = document.createElement("input");
 			buttonClear.setAttribute("type", "button");
 			buttonClear.setAttribute("id", "clear");
 			buttonClear.addEventListener("click", clearSongs);
 			buttonClear.disabled = true;
 			controls.appendChild(buttonClear);
-			var buttonMvTlLeft = document.createElement("input");
+			const buttonMvTlLeft = document.createElement("input");
 			buttonMvTlLeft.setAttribute("type", "button");
 			buttonMvTlLeft.setAttribute("id", "moveLeft");
 			buttonMvTlLeft.addEventListener("click", moveTimeline.bind(this, 'left'));
@@ -363,7 +365,7 @@
 				clearInterval(mouseContinuous[1]);
 			});
 			controls.appendChild(buttonMvTlLeft);
-			var buttonMvTlRight = document.createElement("input");
+			const buttonMvTlRight = document.createElement("input");
 			buttonMvTlRight.setAttribute("type", "button");
 			buttonMvTlRight.setAttribute("id", "moveRight");
 			buttonMvTlRight.addEventListener("click", moveTimeline.bind(this, 'right'));
@@ -385,21 +387,21 @@
 
 			player.appendChild(controls);
 
-			var timeline = document.createElement("div");
+			const timeline = document.createElement("div");
 			timeline.setAttribute("id", "timeline");
-			for (var i = 0; i < 4; i++) {
-				var layer = document.createElement("div");
+			for (let i = 0; i < 4; i++) {
+				const layer = document.createElement("div");
 				layer.setAttribute("class", "layer");
-				var subLayer = document.createElement("div");
-				var subSubLayer = document.createElement("div");
-				for (var j = 0; j < 24; j++) {
+				const subLayer = document.createElement("div");
+				const subSubLayer = document.createElement("div");
+				for (let j = 0; j < 24; j++) {
 					subSubLayer.appendChild(newSpace());
 				}
 				subLayer.appendChild(subSubLayer)
 				layer.appendChild(subLayer);
 				timeline.appendChild(layer);
 			}
-			var agulhaRange = document.createElement("input");
+			const agulhaRange = document.createElement("input");
 			agulhaRange.setAttribute("type", "range");
 			agulhaRange.setAttribute("id", "agulha");
 			agulhaRange.setAttribute("min", 0);
@@ -457,7 +459,7 @@
 			document.getElementById("traxmachine").appendChild(exportMusic);
 
 			function newSpace() {
-				var space = document. createElement("div");
+				const space = document. createElement("div");
 				space.setAttribute("class", "space");
 				addListener(space, "dragover", function(){
 					event.preventDefault();
@@ -466,8 +468,8 @@
 				space.addEventListener("dragleave", clearDragging);
 				space.addEventListener("drop", function(){
 					event.preventDefault;
-					var cartuchoIndex = event.dataTransfer.getData("text").split(", ")[0];
-					var moduleClass = event.dataTransfer.getData("text").split(", ")[1];
+					const cartuchoIndex = event.dataTransfer.getData("text").split(", ")[0];
+					const moduleClass = event.dataTransfer.getData("text").split(", ")[1];
 					// // event.dataTransfer.getData("text")
 					dropSong(this, cartuchoIndex, moduleClass);
 					
@@ -475,21 +477,21 @@
 				return space;
 			}
 			function dropSong(location, cartuchoIndex, moduleClass) {
-				var songId = theSongIdOnPiker(cartuchoIndex, moduleClass);
-				var length = window.songs[songId][2];
+				const songId = theSongIdOnPiker(cartuchoIndex, moduleClass);
+				const length = window.songs[songId][2];
 				clearDragging();
-				var passou = true;
-				var nextObj = location.nextElementSibling;
-				for (var k = 1; k < length; k++) {
+				let passou = true;
+				let nextObj = location.nextElementSibling;
+				for (let k = 1; k < length; k++) {
 					if (nextObj.hasChildNodes())
 						passou = false;
 					nextObj = nextObj.nextElementSibling;
 				}
 				if (passou) {
 					nextObj = location;
-					for (var k = 0; k < length; k++) {
+					for (let k = 0; k < length; k++) {
 						removeAllListeners(nextObj, "dragover");
-						var module = document.createElement("div");
+						const module = document.createElement("div");
 						module.classList.add("module");
 						module.setAttribute("trax-moduleColor", cartuchoIndex);
 						if (length == 1)
@@ -506,13 +508,13 @@
 						// module.setAttribute("trax-collectionBgColor", cartuchos[songId][4]);
 						module.addEventListener("click", function(){
 							if (!window.musicPlaying) {
-								var objToCheck = location.firstChild;
+								let objToCheck = location.firstChild;
 								while (objToCheck.getAttribute("trax-moduleType") != "unique" && objToCheck.getAttribute("trax-moduleType") != "start")
 									objToCheck = objToCheck.parentElement.previousElementSibling.firstChild;
-								var objToRemo = objToCheck;
-								var i = 0;
+								let objToRemo = objToCheck;
+								let i = 0;
 								do {
-									var target = objToRemo;
+									const target = objToRemo;
 									objToRemo = objToRemo.parentElement.nextElementSibling.firstChild;
 									addListener(target.parentElement, "dragover", function(){
 										event.preventDefault();
@@ -537,9 +539,9 @@
 				if (typeof onTimelineUpdate === 'function') onTimelineUpdate()
 			}
 			function clearDragging() {
-				var clearLayers = document.querySelectorAll(".layer");
-				for (var i = 0; i < clearLayers.length; i++) {
-					var clearObj = clearLayers[i].firstChild.firstChild.firstChild;
+				const clearLayers = document.querySelectorAll(".layer");
+				for (let i = 0; i < clearLayers.length; i++) {
+					let clearObj = clearLayers[i].firstChild.firstChild.firstChild;
 					while (clearObj) {
 						clearObj.classList.remove("module");
 						clearObj.removeAttribute("trax-moduleColor");
@@ -550,18 +552,18 @@
 				}
 			}
 			function canDragOver(obj) {
-				var t0 = performance.now();
+				const t0 = performance.now();
 				clearDragging();
-				var t1 = performance.now();
-				var waitCleaning = setTimeout(function () {
+				const t1 = performance.now();
+				let waitCleaning = setTimeout(function () {
 					clearInterval(waitCleaning);
-					var cartuchoIndex = timeline.getAttribute("theDataTransfer").split(", ")[0];
-					var moduleClass = timeline.getAttribute("theDataTransfer").split(", ")[1];
-					var songId = theSongIdOnPiker(cartuchoIndex, moduleClass);
-					var passou = true;
-					var nextObj = obj;
-					var length = window.songs[songId][2];
-					for (var k = 0; k < length; k++) {
+					const cartuchoIndex = timeline.getAttribute("theDataTransfer").split(", ")[0];
+					const moduleClass = timeline.getAttribute("theDataTransfer").split(", ")[1];
+					const songId = theSongIdOnPiker(cartuchoIndex, moduleClass);
+					let passou = true;
+					let nextObj = obj;
+					const length = window.songs[songId][2];
+					for (let k = 0; k < length; k++) {
 						if (!nextObj || nextObj.hasChildNodes())
 							passou = false;
 						if (passou)
@@ -569,7 +571,7 @@
 					}
 					if (passou) {
 						nextObj = obj;
-						for (var k = 0; k < length; k++) {
+						for (let k = 0; k < length; k++) {
 							nextObj.classList.add("module");
 							nextObj.setAttribute("trax-moduleColor", cartuchoIndex);
 							nextObj.setAttribute("trax-moduleClass", window.songs[songId][1]);
@@ -587,12 +589,12 @@
 				}, t1 - t0);
 			}
 
-			var origem = 0;
-			var timer;
-			var agulha = 0;
+			let origem = 0;
+			let timer;
+			let agulha = 0;
 			// "Agulha movida! "+agulha
-			var players = [];
-			var firstPlay = true;
+			const players = [];
+			let firstPlay = true;
 			window.musicPlaying = false;
 			function play() {
 				window.musicPlaying = true;
@@ -619,14 +621,14 @@
 					agulha++;
 					// "Agulha movida! "+agulha
 				}
-				var songId;
+				let songId;
 				let i, n, no
 				for (i = 0, n = 0, no = 0; i < 4; i++) {
-					var theSpace = document.getElementById("timeline").childNodes[i].firstChild.firstChild.childNodes[agulha];
+					const theSpace = document.getElementById("timeline").childNodes[i].firstChild.firstChild.childNodes[agulha];
 					if (theSpace.hasChildNodes()) {
-						var achou = false;
-						var secondsLeft;
-						var theModule = theSpace.firstChild;
+						let achou = false;
+						let secondsLeft;
+						const theModule = theSpace.firstChild;
 						if (theModule.getAttribute("trax-moduletype") == "start" || theModule.getAttribute("trax-moduletype") == "unique") {
 							songId = theModule.getAttribute("trax-playSong");
 							achou = true;
@@ -634,7 +636,7 @@
 							// "2.1: É o primeiro módulo: "+i+" / "+agulha
 						} else if (firstPlay) {
 							secondsLeft = 2;
-							var objNoFirst = theSpace.previousElementSibling;
+							let objNoFirst = theSpace.previousElementSibling;
 							 do {
 							 	if (objNoFirst.firstChild.getAttribute("trax-moduletype") == "start" || objNoFirst.firstChild.getAttribute("trax-moduletype") == "unique") {
 							 		achou = true;
@@ -651,8 +653,8 @@
 						if (achou) {
 							loadAudioElement("../sounds/"+window.songs[songId][4], i).then(function(value) {
 								/* Instantiate the Sound class into our hoisted variable. */
-								var elem = value[0];
-								var a = value[1];
+								const elem = value[0];
+								const a = value[1];
 								players[a] = Object.create(Sound);
 									/* Set the element of `audio` to our MediaElement. */
 								players[a].element = elem;
@@ -693,14 +695,14 @@
 				document.getElementById("playPause").classList.remove('pause')
 				document.getElementById("playPause").classList.add('play')
 				clearInterval(timer);
-				for (i = 0; i < players.length; i++) 
+				for (let i = 0; i < players.length; i++) 
 					if (players[i] && players[i].element) {
 						players[i].pause();
 						// players[i].element.currentTime = 0;
 					}
 				window.musicPlaying = false;
 			}
-			var silence;
+
 			function stop() {
 				document.getElementById("stop").disabled = true;
 				pause();
@@ -708,7 +710,7 @@
 				agulha = 0;
 				// "Agulha movida! "+agulha
 				origem = 0;
-				for (var i = 0; i < 4; i++) {
+				for (let i = 0; i < 4; i++) {
 					document.getElementById("timeline").childNodes[i].firstChild.firstChild.style.left = "0";
 				}
 				document.querySelector(".time-stamps").firstChild.style.left = "0"
@@ -716,10 +718,10 @@
 				document.getElementById("agulha").value = agulha;
 			}
 			function checkEnd() {
-				var encontrou = false;
-				var checkPosition = agulha;
+				let encontrou = false;
+				let checkPosition = agulha;
 				do {
-					for (var i = 0; i < 4; i++) {
+					for (let i = 0; i < 4; i++) {
 						if (document.getElementById("timeline").childNodes[i].firstChild.firstChild.childNodes[checkPosition].hasChildNodes()) {
 							encontrou = true;
 							return false;
@@ -758,7 +760,7 @@
 					document.getElementById("agulha").value = Number(agulha) + Number(origem);
 					// "AgulhaRange movida (kkk)! "+(Number(agulha) + Number(origem))
 
-					for (var i = 0; i < 4; i++) {
+					for (let i = 0; i < 4; i++) {
 						document.getElementById("timeline").childNodes[i].firstChild.firstChild.style.left = (origem * 22)+"px";
 					}
 
@@ -768,19 +770,20 @@
 					clearInterval(mouseContinuous[1]);
 				}
 
-				var checkLeft = document.getElementById("moveLeft");
+				const checkLeft = document.getElementById("moveLeft");
 				origem >= 0 ? checkLeft.disabled = true : checkLeft.disabled = false;
-				var checkRight = document.getElementById("moveRight");
+				const checkRight = document.getElementById("moveRight");
 				Math.abs(origem) >= document.getElementById("timeline").childNodes[0].firstChild.firstChild.childNodes.length - 24 ? checkRight.disabled = true : checkRight.disabled = false;
 			}
 			moveTimeline(null);
 
 			function checkNeedMore() {
-				var cont = 0;
-				var tem = 0;
-				for (var i = 0; i < document.getElementById("timeline").childNodes[0].firstChild.firstChild.childNodes.length; i++) {
+				let cont = 0;
+				let tem = 0;
+				let i
+				for (i = 0; i < document.getElementById("timeline").childNodes[0].firstChild.firstChild.childNodes.length; i++) {
 					tem = 1;
-					for (var j = 0; j < 4; j++) {
+					for (let j = 0; j < 4; j++) {
 						if (document.getElementById("timeline").childNodes[j].firstChild.firstChild.childNodes[i].hasChildNodes()) {
 							tem++;
 						}
@@ -803,15 +806,15 @@
 				}
 			}
 			function needMore(qtd) {
-				for (var i = 0; i < qtd; i++)
-					for (var j = 0; j < 4; j++) 
+				for (let i = 0; i < qtd; i++)
+					for (let j = 0; j < 4; j++) 
 						document.getElementById("timeline").childNodes[j].firstChild.firstChild.appendChild(newSpace());
 				moveTimeline(null);
 				// "Adicionados mais "+qtd+" espaço(s)! Total: "+document.getElementById("timeline").childNodes[0].firstChild.firstChild.childNodes.length
 			}
 			function removeSpaces(qtd) {
-				for (var i = 0; i < qtd; i++) {
-					for (var j = 0; j < 4; j++)
+				for (let i = 0; i < qtd; i++) {
+					for (let j = 0; j < 4; j++)
 						document.getElementById("timeline").childNodes[j].firstChild.firstChild.removeChild(document.getElementById("timeline").childNodes[j].firstChild.firstChild.lastChild);
 					checkEmpty();
 					moveTimeline(null);
@@ -821,18 +824,19 @@
 				// qtd+" espaços removido(s)! Total: "+document.getElementById("timeline").childNodes[0].firstChild.firstChild.childNodes.length
 			}
 
-			var everClear = false;
+			let everClear = false;
 			function clearSongs() {
+				let resposta
 				if (!everClear)
-					var resposta = confirm(t('discart-music'));
+					resposta = confirm(t('discart-music'));
 				else
 					resposta = true;
 
 				if (resposta) {
 					document.getElementById("stop").click();
 					// "Tudo foi descartado!"
-					for (var i = 0; i < 4; i++) {
-						var j = 0;
+					for (let i = 0; i < 4; i++) {
+						let j = 0;
 						while (j < document.getElementById("timeline").childNodes[i].firstChild.firstChild.childNodes.length) {
 							// document.getElementById("timeline").childNodes[i].firstChild.firstChild.childNodes[j].hasChildNodes()
 							if (document.getElementById("timeline").childNodes[i].firstChild.firstChild.childNodes[j].hasChildNodes()) {
@@ -858,9 +862,9 @@
 				if (typeof onTimelineUpdate === 'function') onTimelineUpdate()
 			}
 			function checkEmpty() {
-				var cont = 0;
-				for (var i = 0; i < 4; i++)
-					for (var j = 0; j < document.getElementById("timeline").childNodes[i].firstChild.firstChild.childNodes.length; j++)
+				let cont = 0;
+				for (let i = 0; i < 4; i++)
+					for (let j = 0; j < document.getElementById("timeline").childNodes[i].firstChild.firstChild.childNodes.length; j++)
 						if (document.getElementById("timeline").childNodes[i].firstChild.firstChild.childNodes[j].hasChildNodes())
 							cont++
 				if (cont) {
@@ -877,8 +881,8 @@
 				document.getElementById("open").disabled = false;
 			}
 			function indexOf(obj) {
-				var i = 0;
-				var objPai = obj.parentElement;
+				let i = 0;
+				const objPai = obj.parentElement;
 				while (obj != objPai.firstChild) {
 					i++;
 					obj = obj.previousElementSibling;
@@ -889,11 +893,11 @@
 				exportSong()
 			}
 			function openMusic() {
-				var info = prompt(t('import-music'))
+				const info = prompt(t('import-music'))
 				if (info) loadMusic(info) 
 			}
 			function loadMusic(musicInformation) {
-				var dados = musicInformation
+				const dados = musicInformation
 					.split(":")
 					.reduce((acc, cur, i, a) => {
 						if (i % 2 === 0 && cur) {
@@ -1010,8 +1014,8 @@
 		
 			function _decode_getCamadas(code) {
 				return new Promise(resolve => {
-					let split1 = code.split(":");
-					let camadas = [];
+					const split1 = code.split(":");
+					const camadas = [];
 					for (let i = 0; i < split1.length; i += 2) {
 						if (split1[i + 1]?.length > 0)
 							camadas[Number(split1[i]) - 1] = split1[i + 1];
@@ -1023,9 +1027,9 @@
 			function _decode_transformModules(camadas) {
 				return new Promise(resolve => {
 					camadas = camadas.map((camada) => {
-						let blocos = camada.split(";");
+						const blocos = camada.split(";");
 						blocos.map((bloco, i, arr) => {
-							let split = bloco.split(",");
+							const split = bloco.split(",");
 
 							arr[i] = {
 								song: split[0],
@@ -1066,7 +1070,7 @@
 				await Promise.all(promises)
 
 				if (Object.keys(errs).length) {
-					let messages = []
+					const messages = []
 					for (const errorName in errs) {
 						if (errs.hasOwnProperty(errorName)) {
 							let message = ''
@@ -1099,7 +1103,7 @@
 
 			function crateAudio(crunker, camadas) {
 
-				let layers = [];
+				const layers = [];
 				camadas.forEach((camada) => {
 					layers.push(crunker.concatAudio(camada.flatMap(x => new Array(x.times).fill(x.buffer))))
 				})
@@ -1126,7 +1130,7 @@
 			window.exportString = exportString
 
 			window.exportSong = async () => {
-				let crunker = new Crunker({ sampleRate: 48000 });
+				const crunker = new Crunker({ sampleRate: 48000 });
 				const blob = await createMp3FromCode(crunker, exportString())
 
 				await crunker.download(blob, 'trax_song')
