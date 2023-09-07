@@ -136,7 +136,7 @@ input:not(:disabled) {
 }
 div#traxmachine {
 	width: 559px;
-    height: 272px;
+    height: 335px;
     padding: 31px 16px;
 	background-image: url(../imgs/traxmachine-background.png);
 	margin: 0 auto;
@@ -524,4 +524,33 @@ input#agulha[type=range]::-webkit-slider-thumb {
 	font-family: Volter;
 	font-size: 7px;
 	position: absolute
+}
+
+#export-music {
+	margin-top: 14px;
+}
+
+#export-music > h2 {
+	font-weight: normal;
+	font-size: 7pt;
+	color: white;
+	padding-left: 10px;
+	margin-bottom: 6px;
+}
+
+#export-music > div {
+	margin: 0 auto;
+	border: 6px solid transparent;
+	background-origin: padding-box;
+	border-image: url(../imgs/timeline.png) 6 round;
+	background: linear-gradient(hsl(196, 18%, 45%), hsl(196, 18%, 45%)) 0 0 / 100% no-repeat;
+	font-weight: normal;
+	font-size: 7pt;
+	color: white;
+	width: 519px;
+	height: 1em;
+	position: relative;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 6px 12px;
 }

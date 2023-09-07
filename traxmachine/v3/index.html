@@ -411,6 +411,26 @@
 
 			document.getElementById("traxmachine").appendChild(player);
 
+			const exportMusic = document.createElement("div")
+			exportMusic.setAttribute("id", "export-music")
+
+			const exportTitle = document.createElement("h2")
+			exportTitle.innerText = "Música no formato do Habbo"
+			exportMusic.appendChild(exportTitle)
+
+			const exportStringContainer = document.createElement("div")
+			function onTimelineUpdate() {
+				const string = exportString()
+				exportStringContainer.innerText = string
+			}
+			document.addEventListener("DOMContentLoaded", function() {
+				if (typeof onTimelineUpdate === 'function') onTimelineUpdate()
+			})
+			exportStringContainer.addEventListener("click", e => window.getSelection().selectAllChildren(e.target))
+			exportMusic.appendChild(exportStringContainer)
+
+			document.getElementById("traxmachine").appendChild(exportMusic);
+
 			function newSpace() {
 				var space = document. createElement("div");
 				space.setAttribute("class", "space");
@@ -488,6 +508,7 @@
 					checkNeedMore();
 					checkEmpty();
 				}
+				if (typeof onTimelineUpdate === 'function') onTimelineUpdate()
 			}
 			function clearDragging() {
 				var clearLayers = document.querySelectorAll(".layer");
@@ -800,6 +821,7 @@
 				} else {
 					console.log("Nada foi descartado.");
 				}
+				if (typeof onTimelineUpdate === 'function') onTimelineUpdate()
 			}
 			function checkEmpty() {
 				var cont = 0;
