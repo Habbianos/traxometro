@@ -513,6 +513,7 @@
 								} while (objToRemo && (objToRemo.getAttribute("trax-moduleType") != "unique" && objToRemo.getAttribute("trax-moduleType") != "start"));
 								// "Um módulo de "+i+" espaço(s) foi removido."
 								checkNeedMore();
+								if (typeof onTimelineUpdate === 'function') onTimelineUpdate()
 							}
 						});
 						if (!nextObj.hasChildNodes())
