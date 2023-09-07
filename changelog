@@ -1,3 +1,5 @@
+2023-09-07T13:50:35-03:00 5e1fcd4874e9cb9a8f05282384bbd1e61346d834 fet: analyze music (no UI)
+2023-09-07T12:46:15-03:00 76102bd08bf80faa0bfa16d4c7ef90f0cf129b16 chore: updated changelog
 2023-09-07T12:42:25-03:00 06ce5c4a04d74b0979a0ed3c8c0b52965ad9a265 fix: not-chrome banner
 2023-09-07T12:07:31-03:00 8eb15f37e652f2e6c452637a2fcd7f2c0a2350f9 fix: drop sample after removing pack that had sample there
 2023-09-07T11:38:35-03:00 56fe0efb5ec3c6cea1a36c35f0ca2a7cdb19f6a0 fix: update controls and music code after removing a sample pack
