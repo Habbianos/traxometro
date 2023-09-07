@@ -1,3 +1,15 @@
+2023-09-07T12:42:25-03:00 06ce5c4a04d74b0979a0ed3c8c0b52965ad9a265 fix: not-chrome banner
+2023-09-07T12:07:31-03:00 8eb15f37e652f2e6c452637a2fcd7f2c0a2350f9 fix: drop sample after removing pack that had sample there
+2023-09-07T11:38:35-03:00 56fe0efb5ec3c6cea1a36c35f0ca2a7cdb19f6a0 fix: update controls and music code after removing a sample pack
+2023-09-07T11:31:06-03:00 8b5bd4dcd1ef933755c3298f94eb3975bc72e6f9 chore: stop using var
+2023-09-07T10:56:38-03:00 c0ebe110c385f89de5052fef501466f40622113f chore: convert the script to module
+2023-09-07T10:53:45-03:00 700c4090d69c613136f755b16ab05a0b9b85655d fix: prevent error when trying to eject empty picker
+2023-09-07T10:46:05-03:00 f28ab5f0ab60a8c695a4cac9978f9851fcc0fcda fet: disable open button while playing
+2023-09-07T10:37:58-03:00 f46cb03930efc6367f925905c2f2ae4e6f337450 chore: stop using event handlers on DOM attibutes
+2023-09-07T09:14:31-03:00 0617fced854af157f7a654dce9499657b14b3af0 fet: click&copy music string
+2023-09-07T09:00:24-03:00 41f24bd1c299de593297257792d129d4f2d2a234 fix: load song with large gap on the first layer
+2023-09-07T08:53:01-03:00 19f55f10506e28ac9ef02c872422692ffa9fc1c2 fix: Update code after removing sample
+2023-09-07T02:28:41-03:00 8aa7cea3e662ed034222fdbbdd4c649316fc1ebd chore: added changelog
 2023-09-07T02:18:44-03:00 868d75af8fe040364fdff69db46794cccff36f48 chore: refactor UI strings
 2023-09-07T02:05:09-03:00 06e540cc3a9956857622e747f36c02c412ccd726 chore: suppress a lot of console.log
 2023-09-07T02:01:15-03:00 451549f06aee802df3630950be985c49a567bd3a fix: load music correctly
