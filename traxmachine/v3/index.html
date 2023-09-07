@@ -261,6 +261,9 @@
 					}
 					// "Sons do cartuchos "+window.collections[cartuchoIndex][1]+" removidos da timeline."
 					checkNeedMore();
+					checkEmpty()
+
+					if (typeof onTimelineUpdate === 'function') onTimelineUpdate()
 
 					if (!everRemove && !dontAsk)
 						if (confirm(t('remember')))
