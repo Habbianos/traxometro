@@ -78,7 +78,7 @@
 
 				var img = document.createElement("img");
 				img.src = "../imgs/"+collections[i][2];
-				img.setAttribute("onclick", "setCartucho("+i+")");
+				img.addEventListener("click", setCartucho.bind(this, i));
 				cartucho.appendChild(img);
 
 				var cartuchoName = document.createElement("span");
@@ -96,7 +96,7 @@
 			var cartuchosPagerLeft = document.createElement("input");
 			cartuchosPagerLeft.setAttribute("id", "cartuchos-pager-left");
 			cartuchosPagerLeft.setAttribute("type", "button");
-			cartuchosPagerLeft.setAttribute("onclick", "moveCartuchosList('left')");
+			cartuchosPagerLeft.addEventListener("click", moveCartuchosList.bind(this, 'left'));
 			cartuchosPager.appendChild(cartuchosPagerLeft);
 			var cartuchosPagerCount = document.createElement("div");
 			var cartuchosPagerCountNow = document.createElement("span");
@@ -110,7 +110,7 @@
 			var cartuchosPagerRight = document.createElement("input");
 			cartuchosPagerRight.setAttribute("id", "cartuchos-pager-right");
 			cartuchosPagerRight.setAttribute("type", "button");
-			cartuchosPagerRight.setAttribute("onclick", "moveCartuchosList('right')");
+			cartuchosPagerRight.addEventListener("click", moveCartuchosList.bind(this, 'right'));
 			cartuchosPager.appendChild(cartuchosPagerRight);
 
 			cartuchos.appendChild(cartuchosPager);
@@ -194,7 +194,7 @@
 					var header = palheta.firstChild;
 					header.classList.add("header");
 					header.setAttribute('data-eject', t('eject'))
-					header.setAttribute("onclick", "removeCartucho("+j+")");
+					header.addEventListener("click", removeCartucho.bind(this, j));
 					var title = document.createElement("span");
 					var titleText = document.createTextNode(collections[cartuchoIndex][1]);
 					title.appendChild(titleText);
@@ -316,38 +316,39 @@
 			var controls = document.createElement("div");
 			controls.setAttribute("id", "controls");
 			var buttonPlayPause = document.createElement("input");
+			buttonPlayPause.classList.add('play')
 			buttonPlayPause.setAttribute("type", "button");
 			buttonPlayPause.setAttribute("id", "playPause");
-			buttonPlayPause.setAttribute("onclick", "play()");
+			buttonPlayPause.addEventListener("click", play);
 			buttonPlayPause.disabled = true;
 			controls.appendChild(buttonPlayPause);
 			var buttonStop = document.createElement("input");
 			buttonStop.setAttribute("type", "button");
 			buttonStop.setAttribute("id", "stop");
-			buttonStop.setAttribute("onclick", "stop()");
+			buttonStop.addEventListener("click", stop);
 			buttonStop.disabled = true;
 			controls.appendChild(buttonStop);
 			var buttonSave = document.createElement("input");
 			buttonSave.setAttribute("type", "button");
 			buttonSave.setAttribute("id", "save");
-			buttonSave.setAttribute("onclick", "save()");
+			buttonSave.addEventListener("click", save);
 			buttonSave.disabled = true;
 			controls.appendChild(buttonSave);
 			var buttonOpen = document.createElement("input");
 			buttonOpen.setAttribute("type", "button");
 			buttonOpen.setAttribute("id", "open");
-			buttonOpen.setAttribute("onclick", "openMusic()");
+			buttonOpen.addEventListener("click", openMusic);
 			controls.appendChild(buttonOpen);
 			var buttonClear = document.createElement("input");
 			buttonClear.setAttribute("type", "button");
 			buttonClear.setAttribute("id", "clear");
-			buttonClear.setAttribute("onclick", "clearSongs()");
+			buttonClear.addEventListener("click", clearSongs);
 			buttonClear.disabled = true;
 			controls.appendChild(buttonClear);
 			var buttonMvTlLeft = document.createElement("input");
 			buttonMvTlLeft.setAttribute("type", "button");
 			buttonMvTlLeft.setAttribute("id", "moveLeft");
-			buttonMvTlLeft.setAttribute("onclick", "moveTimeline('left')");
+			buttonMvTlLeft.addEventListener("click", moveTimeline.bind(this, 'left'));
 			buttonMvTlLeft.addEventListener("mousedown", function() {
 				clearInterval(mouseContinuous[0]);
 				clearInterval(mouseContinuous[1]);
@@ -366,7 +367,7 @@
 			var buttonMvTlRight = document.createElement("input");
 			buttonMvTlRight.setAttribute("type", "button");
 			buttonMvTlRight.setAttribute("id", "moveRight");
-			buttonMvTlRight.setAttribute("onclick", "moveTimeline('right')");
+			buttonMvTlRight.addEventListener("click", moveTimeline.bind(this, 'right'));
 			buttonMvTlRight.addEventListener("mousedown", function() {
 				clearInterval(mouseContinuous[0]);
 				clearInterval(mouseContinuous[1]);
@@ -462,7 +463,7 @@
 				addListener(space, "dragover", function(){
 					event.preventDefault();
 				}, false);
-				space.setAttribute("ondragenter", "canDragOver(this)");
+				space.addEventListener("dragenter", canDragOver.bind(this, space));
 				space.addEventListener("dragleave", clearDragging);
 				space.addEventListener("drop", function(){
 					event.preventDefault;
@@ -601,7 +602,10 @@
 				document.getElementById("save").disabled = true;
 				document.getElementById("clear").disabled = true;
 				// "Solta o som DJJ!!!!"
-				document.getElementById("playPause").setAttribute("onclick", "pause()");
+				document.getElementById("playPause").removeEventListener("click", play);
+				document.getElementById("playPause").addEventListener("click", pause);
+				document.getElementById("playPause").classList.remove('play')
+				document.getElementById("playPause").classList.add('pause')
 				document.getElementById("agulha").value = Number(agulha) + Number(origem);
 				// "AgulhaRange movida! "+(Number(agulha) + Number(origem))
 				firstPlay = true;
@@ -683,7 +687,10 @@
 			}
 			function pause() {
 				checkEmpty();
-				document.getElementById("playPause").setAttribute("onclick", "play()");
+				document.getElementById("playPause").removeEventListener("click", pause);
+				document.getElementById("playPause").addEventListener("click", play);
+				document.getElementById("playPause").classList.remove('pause')
+				document.getElementById("playPause").classList.add('play')
 				clearInterval(timer);
 				for (i = 0; i < players.length; i++) 
 					if (players[i] && players[i].element) {

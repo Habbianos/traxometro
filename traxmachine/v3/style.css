@@ -283,10 +283,10 @@ div#controls input#playPause:active, div#controls input#stop:active, div#control
 div#controls input#playPause:disabled, div#controls input#stop:disabled, div#controls input#save:disabled, div#controls input#open:disabled {
 	background-position: -112px 0;
 }
-div#controls input#playPause[onclick="play()"] {
+div#controls input#playPause.play {
 	background-image: url(../imgs/play.png);
 }
-div#controls input#playPause[onclick="pause()"] {
+div#controls input#playPause.pause {
 	background-image: url(../imgs/pause.png);
 }
 div#controls input#stop {
