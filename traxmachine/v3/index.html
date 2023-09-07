@@ -924,6 +924,9 @@
 						throw err
 					}
 				}))
+
+				const finalString = exportString()
+				console.assert(musicInformation === finalString, 'Importação não gerou a mesma string. Pode ocorrer caso haja espaços em branco no final de uma layer.', {musicInformation, dados, finalString})
 			}
 		</script>
 		<script type="module">
