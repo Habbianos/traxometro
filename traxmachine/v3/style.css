@@ -550,7 +550,17 @@ input#agulha[type=range]::-webkit-slider-thumb {
 	width: 519px;
 	height: 1em;
 	position: relative;
-	overflow: hidden;
-	text-overflow: ellipsis;
 	padding: 6px 12px;
+	display: flex;
+	justify-content: space-between;
+	gap: 10px;
+	cursor: pointer;
+}
+#export-music > div.copied:after {
+	content: attr(data-copied);
+	color: #22353c;
+}
+#export-music > div > span {
+	text-overflow: ellipsis;
+	overflow: hidden;
 }

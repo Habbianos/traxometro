@@ -22,7 +22,8 @@
 					'discart-music': 'Descartar música? Tem certeza de que deseja descartar esta música?',
 					'remember': 'Deseja lembrar esta decisão?',
 					'import-music': 'Enter the song source:',
-					'music-string': 'Música no formato do Habbo'
+					'music-string': 'Música no formato do Habbo',
+					'copied': 'Copiado!',
 				}[tag] || `%%${tag}%%`
 			}
 		</script>
@@ -434,14 +435,23 @@
 			exportMusic.appendChild(exportTitle)
 
 			const exportStringContainer = document.createElement("div")
+			exportStringContainer.setAttribute("data-copied", t('copied'))
 			function onTimelineUpdate() {
 				const string = exportString()
-				exportStringContainer.innerText = string
+				exportStringContainer.firstChild.innerText = string
 			}
 			document.addEventListener("DOMContentLoaded", function() {
 				if (typeof onTimelineUpdate === 'function') onTimelineUpdate()
 			})
-			exportStringContainer.addEventListener("click", e => window.getSelection().selectAllChildren(e.target))
+			exportStringContainer.addEventListener("click", e => {
+				window.getSelection().selectAllChildren(exportStringContainer)
+				document.execCommand("copy")
+				window.getSelection().removeAllRanges()
+				exportStringContainer.classList.add("copied")
+				setTimeout(() => exportStringContainer.classList.remove('copied'), 1500)
+			})
+			const exportStringSpan = document.createElement('span')
+			exportStringContainer.appendChild(exportStringSpan)
 			exportMusic.appendChild(exportStringContainer)
 
 			document.getElementById("traxmachine").appendChild(exportMusic);
