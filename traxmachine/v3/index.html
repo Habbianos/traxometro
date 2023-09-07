@@ -931,7 +931,11 @@
 				dados.usedPacks.forEach(p => setCartucho(p))
 
 				dados.layers.forEach((l, i) => l.forEach(s => {
-					const slot = document.querySelectorAll(".layer")[i].firstChild.firstChild.childNodes[s.slotIndex]
+					const slots = document.querySelectorAll(".layer")[i].firstChild.firstChild
+					if (slots.childElementCount < s.slotIndex)
+						needMore(s.slotIndex - slots.childElementCount + 1)
+
+					const slot = slots.childNodes[s.slotIndex]
 					try {
 						dropSong(slot, s.packIndex + 1, s.sampleType + 1);
 					} catch(err) {
