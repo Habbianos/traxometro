@@ -24,6 +24,7 @@
 					'import-music': 'Enter the song source:',
 					'music-string': 'Música no formato do Habbo',
 					'copied': 'Copiado!',
+					'not-chrome': 'Este navegador não é baseado no Chrome. Algumas coisas podem não estar funcionando como esperado.',
 				}[tag] || `%%${tag}%%`
 			}
 		</script>
@@ -37,6 +38,21 @@
 		<script src="convertToURI.js" type="text/javascript"></script>
 	</head>
 	<body>
+		<div class="not-chrome"></div>
+		<script>
+			document.querySelector(".not-chrome").innerText = t('not-chrome')
+			document.querySelector(".not-chrome").addEventListener("click", e => {
+				e.target.classList.remove('open')
+			})
+
+			const isChrome = (function() {
+				const chrome = window.chrome,
+					vendor = navigator.vendor;
+				return chrome !== void 0 && chrome !== null && vendor === 'Google Inc.';
+			})();
+
+			if (!isChrome) document.querySelector('.not-chrome').classList.add('open');
+		</script>
 		<div class="logo-container">
 		    <div class="logo"></div>
 		</div>

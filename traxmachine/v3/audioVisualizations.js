@@ -1,13 +1,4 @@
 
-	/* This demo only works in Chrome. */
-	const isChrome = (function() {
-		const chrome = window.chrome,
-			vendor = navigator.vendor;
-		return chrome !== void 0 && chrome !== null && vendor === 'Google Inc.';
-	})();
-
-	if (!isChrome) document.querySelector('.not-chrome').classList.add('open');
-
 	/* Hoist some variables. */
 	let audio, context;
 

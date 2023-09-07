@@ -16,6 +16,27 @@ body {
 	padding: 50px;
 	counter-reset: layerCount;
 }
+.not-chrome:not(.open) {
+	display: none;
+}
+.not-chrome {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 10px 50px;
+	background: indianred;
+	color: white;
+	text-align: center;
+	cursor: pointer;
+}
+.not-chrome:after {
+	content: "x";
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
 input {
 	outline: none;
 }
