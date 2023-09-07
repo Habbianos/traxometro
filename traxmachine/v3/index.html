@@ -880,9 +880,9 @@
 					.reduce((acc, cur) => [{
 						usedPacks: [
 							...acc[0].usedPacks,
-							...cur.map(s => Math.floor(s.soundId / 9 + 1))
+							...cur.map(s => Math.floor((s.soundId - 1) / 9 + 1))
 						]
-							.filter((x, i, a) => a.indexOf(x) === i)
+							.filter((x, i, a) => x > 0 && a.indexOf(x) === i)
 							.sort((a, b) => a - b),
 						layers: [...acc[0].layers, cur],
 					}], [{ usedPacks: [], layers: [] }])
@@ -900,7 +900,7 @@
 								.reduce((acc, cur, i, a) => [
 									...acc,
 									{
-										packIndex: cur.soundId === '0' ? -1 : r.usedPacks.indexOf(Math.floor(cur.soundId / 9 + 1)),
+										packIndex: cur.soundId === '0' ? -1 : r.usedPacks.indexOf(Math.floor((cur.soundId - 1) / 9 + 1)),
 										sampleType: (cur.soundId - 1) % 9,
 										slotIndex: i === 0 ? 0 : acc[i - 1].slotIndex + a[i - 1].slotsUsed,
 									}
