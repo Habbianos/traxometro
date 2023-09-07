@@ -13,6 +13,19 @@
 			}, 2);
 		};
 		</script>
+		<script>
+			function t(tag) {
+				return {
+					'use': 'Usar',
+					'eject': 'Ejetar',
+					'eject-pack': 'Ejetar cartucho?\nTem certeza de que deseja remover o cartucho e suas amostras a partir da música?',
+					'discart-music': 'Descartar música? Tem certeza de que deseja descartar esta música?',
+					'remember': 'Deseja lembrar esta decisão?',
+					'import-music': 'Enter the song source:',
+					'music-string': 'Música no formato do Habbo'
+				}[tag] || `%%${tag}%%`
+			}
+		</script>
 		<meta charset="utf-8">
 		<title>Habbo Trax Editor</title>
 	    <!-- <meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width"> -->
@@ -68,6 +81,7 @@
 				cartucho.appendChild(img);
 
 				var cartuchoName = document.createElement("span");
+				cartuchoName.setAttribute("data-use", t('use'))
 				cartuchoName.appendChild(document.createTextNode(collections[i][1]));
 				cartucho.appendChild(cartuchoName);
 
@@ -178,6 +192,7 @@
 
 					var header = palheta.firstChild;
 					header.classList.add("header");
+					header.setAttribute('data-eject', t('eject'))
 					header.setAttribute("onclick", "removeCartucho("+j+")");
 					var title = document.createElement("span");
 					var titleText = document.createTextNode(collections[cartuchoIndex][1]);
@@ -215,7 +230,7 @@
 			var everRemove = false;
 			function removeCartucho(pikerIndex, dontAsk = false) {
 				if (!everRemove && !dontAsk)
-					var resposta = confirm("Ejetar cartucho?\nTem certeza de que deseja remover o cartucho e suas amostras a partir da música?");
+					var resposta = confirm(t('eject-pack'));
 				else
 					resposta = true;
 				if (resposta) {
@@ -244,7 +259,7 @@
 					checkNeedMore();
 
 					if (!everRemove && !dontAsk)
-						if (confirm("Deseja lembrar esta decisão?"))
+						if (confirm(t('remember')))
 							everRemove = true;
 				}
 			}
@@ -415,7 +430,7 @@
 			exportMusic.setAttribute("id", "export-music")
 
 			const exportTitle = document.createElement("h2")
-			exportTitle.innerText = "Música no formato do Habbo"
+			exportTitle.innerText = t('music-string')
 			exportMusic.appendChild(exportTitle)
 
 			const exportStringContainer = document.createElement("div")
@@ -791,7 +806,7 @@
 			var everClear = false;
 			function clearSongs() {
 				if (!everClear)
-					var resposta = confirm("Descartar música? Tem certeza de que deseja descartar esta música?");
+					var resposta = confirm(t('discart-music'));
 				else
 					resposta = true;
 
@@ -816,7 +831,7 @@
 					document.querySelector("div#controls input#clear").disabled = true;
 
 					if (!everClear)
-						if (confirm("Deseja lembrar esta decisão?"))
+						if (confirm(t('remember')))
 							everClear = true;
 				} else {
 					// "Nada foi descartado."
@@ -854,7 +869,7 @@
 				exportSong()
 			}
 			function openMusic() {
-				var info = prompt("Enter the song source:")
+				var info = prompt(t('import-music'))
 				if (info) loadMusic(info) 
 			}
 			function loadMusic(musicInformation) {

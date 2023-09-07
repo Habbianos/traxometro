@@ -97,7 +97,7 @@ input:not(:disabled) {
     position: relative;
 }
 #traxmachine div#cartuchos div#cartuchos-list div.cartucho img:hover ~ span:after {
-	content: "Usar";
+	content: attr(data-use);
     position: absolute;
     left: 0;
     bottom: -1em;
@@ -182,7 +182,7 @@ div.palheta > div.header:hover span {
 	text-shadow: none !important;
 }
 div.palheta > div.header:hover:after {
-	content: 'Ejetar';
+	content: attr(data-eject);
 	position: absolute;
 	top: 7px;
 	left: 0;
